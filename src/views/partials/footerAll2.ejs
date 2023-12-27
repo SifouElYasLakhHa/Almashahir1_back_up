@@ -1,0 +1,23 @@
+<script>  
+
+
+    modeNature = localStorage.getItem('modeNature');
+    if(modeNature === null) {
+        modeNature = false;
+        localStorage.setItem('modeNature', 'false');
+    } else if($.parseJSON(modeNature)){
+        modeNature = true;
+        localStorage.setItem('modeNature', 'true');
+    } else {
+        modeNature = false;
+        localStorage.setItem('modeNature', 'false');
+    }
+//    modeNature = typeof localStorage.getItem('modeNature') === null?true: $.parseJSON(localStorage.getItem('modeNature').toLowerCase())
+    toggleMode()
+    
+    /*function closeNav() {
+        $('.collapse.in').css({
+            "display": 'none!important'
+        })
+    }*/
+ </script>

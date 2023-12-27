@@ -1,0 +1,417 @@
+<main class="inner-wrap">
+  <div class="container-fluid">
+      <div class="row option-row">
+          <div class="col-sm-4ll">
+              <p class="breadcrumbs users-breadcrumbs">أنت الآن على: <strong>المستخدمين</strong>
+                <% 
+                var balance = 0;
+                for(var i = 0; i < users.length; i++) 
+                { 
+                    if(users[i].role !== 1) {
+                        balance += users[i].balance.total;
+                    }
+                    
+                    %>
+                    <% if(i === users.length - 1) {%>
+                        <%- balance %>
+                    <% } %>
+                <% } %>
+            </p>
+          </div>
+          <div class="col-sm-4 users-btns">
+              <div class="btn-group filter-btn">
+                  <!-- <button type="button" class="btn btn-default "><i class="fal fa-sort-alpha-up"></i> <span>المستخدمين</span></button>
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="far fa-chevron-down"></i>
+                        </button> -->
+                  <ul class="dropdown-menu">
+                        <!--<li class="active"><a href="/orders">كل الطلبات</a></li>
+                        <li ><a href="/orders/pending">قيد الانتظار</a></li>
+                        <li ><a href="/orders/inprogress">قيد التنفيذ</a></li>
+                        <li ><a href="/orders/completed">مكتمل</a></li>
+                        <li ><a href="/orders/partial">مكتمل جزئي</a></li>
+                        <li ><a href="/orders/processing">قيد المعالجة</a></li>
+                        <li ><a href="/orders/canceled">ملغي</a></li>-->
+                  </ul>
+              </div>
+              <button id="addNewUser" type="button" class="btn btn-default users-btn" style="background-color: #f4db7d; color: #1a2238; font-weight: bold; border: 0; font-size: 18px;">
+                  <!-- <i class="fal fa-sort-alpha-up"></i> -->
+                  <span> اضافة مستخدم جديد</span>
+              </button>
+          </div>
+          <!-- <div class="col-sm-4"><p class="breadcrumbs">أنت الآن على: <strong>الطلبات</strong></p></div> -->
+          <div class="col-sm-4"></div>
+      </div>
+      <div class="row">
+          <div class="col-lg-12">
+                <div class="input-group search-bar">
+                    <input id="search" type="text" class="form-control" placeholder="بحث" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default"><i class="far fa-search" aria-hidden="true"></i></button>
+                    </span>
+                </div>
+
+              <div class="table-responsive">
+                  <table class="table custom-table mob-table results rtl-table">
+                      <thead>
+                          <tr>
+                              
+                              <th>الرقم</th>
+                              <th>الاسم الكامل</th>
+                              <th>البريد الالكتروني</th>
+                              <th>اسم المستخدم</th>
+                              <th>الرصيد</th>
+                              <th>كم صرف</th>
+                              <th>التخفيض (%)</th>
+                              <th>IP</th>
+                              <th>الدولة</th>
+                              <th>تعديل</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <% for(var i = 0; i < users.length; i++) { %>
+                          <tr class="table-cont">
+                              <td data-head="الرقم">
+                                  <%- users[i].id %>
+                                  <!-- <td> <%- users[i].id %></td>
+              <button type="button" class="btn btn-copy js-tooltip js-copy" data-toggle="tooltip" data-placement="bottom" data-copy="4891727" title="نسخ إلى الحافظة">4891727</button>-->
+                              </td>
+                              <td data-head="الاسم الكامل">
+                                  <%- users[i].firstName %> <%- users[i].lastName %>
+                              </td>
+                              <!--
+            <td><%- users[i].firstName %> <%- users[i].lastName %></td
+          -->                 
+                              <td data-head="البريد الاكتروني"><%- users[i].email %></td>
+                              <td data-head="اسم المستخدم"><%- users[i].username %></td>
+                              <td data-head="الرصيد"><%- users[i].balance.total %></td>
+                              <td data-head="كم صرف"><%- users[i].balance.spent %></td>
+                              <td data-head="التخفيض (%)"><%- users[i].rate %></td>
+                              <td data-head="IP"><%- users[i].ip %></td>
+                              <td data-head="IP"><%- users[i].country %></td>
+                              <td class="actions" data-head="actions">
+                                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      <i class="far fa-chevron-down"></i>
+                                  </button>
+                                  <ul class="dropdown-menu edit-dropdown-menu">
+                                      <li>
+                                          <button
+                                            class="edit-btn"
+                                            onclick="openEditModal(this)"
+                                            data-user-email="<%- users[i].email %>"
+                                            data-user-username="<%- users[i].username %>"
+                                            data-user-firstName="<%- users[i].firstName %>"
+                                            data-user-lastName="<%- users[i].lastName %>"
+                                            id="edit"
+                                            data-id="<%- users[i]._id %>"
+                                            data-balance="<%- users[i].balance.total %>"
+                                            data-rate="<%- users[i].rate %>"
+                                          >
+                                              تعديل
+                                          </button>
+                                      </li>
+                                      <li><button onclick="openSetPasswordModal(this)" class="set-password" id="" data-user-username="<%- users[i].username %>" data-id="<%- users[i]._id %>">تغيير كلمة السر</button></li>
+                                      <li><button onclick="suspends(this)" class="suspends-user" data-id="<%- users[i]._id %>">حظر المستخدم</button></li>
+                                      <li><button onclick="DeleteUser(this)" class="delete-user" id="delete_user" data-id="<%- users[i]._id %>">حذف</button></li>
+                                  </ul>
+                              </td>
+                          </tr>
+                          <% } %>
+                      </tbody>
+                  </table>
+              </div>
+              <!--<div class="table-responsive">
+  <table class="table custom-table mob-table  rtl-table ">
+    <thead>
+        <tr>
+          <th>#</th>
+          <th>الاسم الكامل</th>
+          <th>البريد الالكتروني</th>
+          <th>اسم المستخدم</th>
+          <th>الرصيد</th>
+          <th> كم صرف</th>
+          <th> تعديل</th>
+        </tr>
+    </thead>
+     <tbody>
+
+      <% for(var i = 0; i < users.length; i++) { %>
+        <tr>
+          <td> <%- users[i].id %></td>
+          <td><%- users[i].firstName %> <%- users[i].lastName %></td>
+          <td> <%- users[i].email %></td>
+          <td> <%- users[i].username %></td>
+          <td> <%- users[i].balance.total %></td>
+          <td> <%- users[i].balance.spent %></td>
+
+          <td class="actions">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="far fa-chevron-down"></i>
+            </button>
+            <ul class="dropdown-menu edit-dropdown-menu">
+              <li><button class="edit-btn" onclick="openEditModal(this)" data-user-email="<%- users[i].email %>" data-user-username="<%- users[i].username %>" data-user-firstName="<%- users[i].firstName %>" data-user-lastName="<%- users[i].lastName %>" id="edit"  data-id="<%- users[i]._id %>">تعديل</button></li>
+              <li><button onclick="openSetPasswordModal(this)" class="set-password" id="" data-user-username="<%- users[i].username %>"  data-id="<%- users[i]._id %>">تغيير كلمة السر</button></li>
+              <li><button onclick="suspends(this)" class="suspends-user"  data-id="<%- users[i]._id %>">حظر المستخدم</button></li>
+              <li><button onclick="DeleteUser(this)" class="delete-user" id="delete_user" data-id="<%- users[i]._id %>">Delete </button></li>
+            </ul>
+          </td>
+        </tr>
+     <% } %>
+        
+     </tbody>
+  </table>
+  </div>-->
+          </div>
+      </div>
+  </div>
+  <div class="users-modal responsive-modal" id="usersModal">
+      <div class="add-user-title">
+          <span>اضافة مستخدم</span>
+          <button class="close-modal" id="close">X</button>
+      </div>
+      <div class="line"></div>
+      <div class="form-group icon-group">
+          <span>اسم المستخدم</span>
+          <input type="text" class="form-control" id="add_user_username" value="" placeholder="اسم المستخدم" />
+          <span class="issues username_issue"></span>
+      </div>
+      <div class="form-group icon-group">
+          <span>البريد الاكتروني</span>
+          <input type="email" class="form-control" id="add_user_email" value="" placeholder="البريد الاكتروني" />
+          <span class="issues email_issue"></span>
+      </div>
+      <div class="form-group icon-group">
+          <span>كلمةالسر</span>
+          <input type="password" class="form-control" id="add_user_password" placeholder="********" />
+          <span class="issues password_issue"></span>
+      </div>
+      <!-- <div>
+      <div class="payment-title">طرق الدفع المسموح بها</div>
+      <div class="payment-methods">
+        <input type="checkbox" value="PayPal" name="payment[]">PayPal | بايبال
+        <input type="checkbox" value="PerfectMoney" name="payment[]">Perfect Money | بيرفك موني
+        <input type="checkbox" value="WebMoney" name="payment[]">WebMoney
+        <input type="checkbox" value="MyFatoorah" name="payment[]">MyFatoorah
+        <input type="checkbox" value="Payeer" name="payment[]">Payeer | بايير
+        <input type="checkbox" value="Payzah" name="payment[]">Payzah (Credit card)
+        <input type="checkbox" value="Manual" name="payment[]">Manual
+        <input type="checkbox" value="Manual2" name="payment[]">Manual #2
+        <input type="checkbox" value="PayPalInvoice" name="payment[]">PayPal Invoice
+        <input type="checkbox" value="Skrill" name="payment[]">Skrill
+        <input type="checkbox" value="CoinPayments" name="payment[]">CoinPayments
+        <input type="checkbox" value="Hyperpay" name="payment[]">Hyperpay (Mada)
+        <input type="checkbox" value="Tap" name="payment[]">Tap
+        <input type="checkbox" value="Paysera" name="payment[]">Paysera
+        <input type="checkbox" value="Noonpayments" name="payment[]">Noonpayments
+      </div>
+    </div> -->
+      <div class="users-modal-btns">
+          <button class="add-user" id="add_user">اضافة مستخدم</button>
+          <button class="cancel" id="cancel">إغلاق</button>
+      </div>
+      <div class="issues add-user-message"></div>
+  </div>
+  <div class="edit-modal responsive-modal" id="edit_modal">
+      <div class="edit-user-title">
+          <span>تعديل مستخدم</span>
+          <button class="close-edit-modal" id="edit_modal_close">X</button>
+      </div>
+      <div class="line"></div>
+      <div class="form-group icon-group">
+          <span>اسم المستخدم</span>
+          <input type="text" class="form-control" id="edit_username" value="" placeholder="اسم المستخدم" disabled />
+          <span class="issues username_issue"></span>
+      </div>
+      <div class="form-group icon-group">
+          <span> الاسم الأول</span>
+          <input type="text" class="form-control" id="edit_firstname" value="" placeholder="first Name" />
+          <span class="issues firstname_issue"></span>
+      </div>
+      <div class="form-group icon-group">
+          <span>الاسم الأخير</span>
+          <input type="text" class="form-control" id="edit_lastname" value="" placeholder="Last Name" />
+          <span class="issues lastname_issue"></span>
+      </div>
+
+      <div class="form-group icon-group">
+          <span>البريد الاكتروني</span>
+          <input type="email" class="form-control" id="edit_email" value="" placeholder="البريد الاكتروني" disabled />
+          <span class="issues email_issue"></span>
+      </div>
+
+      <div class="form-group icon-group">
+          <span>الرصيد </span>
+          <input type="text" class="form-control" id="edit_balance" value="" placeholder="الرصيد" />
+          <span class="issues balance_issue"></span>
+      </div>
+      <div class="form-group icon-group">
+        <span>التخفيض</span>
+        <input type="number" class="form-control" id="edit_rate" value="" placeholder="الرصيد" />
+        <span class="issues balance_issue"></span>
+    </div>
+      <!-- <div class="form-group icon-group">
+     <span>كلمةالسر</span>
+     <input type="password" class="form-control" id="password" placeholder="********">
+        <span class="issues password_issue"></span>
+    </div> -->
+
+      <div class="edit-modal-btns">
+          <button class="edit-user" id="edit_user">تعديل مستخدم</button>
+          <button class="cancel" id="edit_modal_cancel">إغلاق</button>
+      </div>
+      <div class="issues add-user-message"></div>
+  </div>
+
+  <div class="set-password-modal responsive-modal" id="set_password_modal">
+      <div class="edit-user-title">
+          <span>تعديل كلمة السر</span>
+          <button class="close-edit-modal" id="set_password_modal_close">X</button>
+      </div>
+      <div class="line"></div>
+
+      <div class="form-group icon-group">
+          <span>اسم المستخدم</span>
+          <input type="text" class="form-control" id="set_password_username" value="" placeholder="Username" disabled/>
+          <span class="issues username_issue"></span>
+      </div>
+      <div class="form-group icon-group">
+          <span>كلمةالسر</span>
+          <input type="password" class="form-control" id="set_password" placeholder="********" />
+          <span class="issues password_issue"></span>
+      </div>
+
+      <div class="edit-modal-btns">
+          <button class="edit-user" id="edit_user_password">تعديل كلمة السر</button>
+          <button class="cancel" id="set_password_modal_cancel">إغلاق</button>
+      </div>
+      <div class="issues add-user-message"></div>
+  </div>
+  <div class="Copy-custom-rates-modal responsive-modal" id="Copy_custom_rates_modal">
+      <div class="edit-user-title">
+          <span>Copy custom rates (ID: 216)</span>
+          <button class="close-edit-modal" id="Copy_custom_rates_modal_close">X</button>
+      </div>
+      <div class="line"></div>
+      <div class="form-group icon-group">
+          <div class="from-to-user">
+              <div class="form-group icon-group to-user">
+                  <div class="from-to-user-title">To user</div>
+                  <input type="text" class="form-control" id="username" value="" placeholder="Username" />
+                  <span class="issues username_issue"></span>
+              </div>
+              <div class="arrow"><i class="fa-solid fa-arrow-right"></i></div>
+              <div class="from-user">
+                  <div class="from-to-user-title">From user</div>
+                  <select name="" id="">
+                      <option value="" disabled selected>Select user</option>
+                      <option name="user" value="karim">karim</option>
+                      <option name="user" value="ali">ali</option>
+                      <option name="user" value="sam">sam</option>
+                  </select>
+              </div>
+          </div>
+      </div>
+
+      <div class="edit-modal-btns">
+          <button class="edit-user" id="edit_user_rates">Copy rates</button>
+          <button class="cancel" id="Copy_custom_rates_modal_cancel">إغلاق</button>
+      </div>
+  </div>
+  <div class="user-sign-in-history-modal responsive-modal" id="user_sign_in_history_modal">
+      <div class="edit-user-title">
+          <span>User sign-in history</span>
+          <button class="close-edit-modal" id="user_sign_in_history_modal_close">X</button>
+      </div>
+      <div class="line"></div>
+      <div class="form-group icon-group">
+          <div class="search-btn">
+              <button><i class="fa-solid fa-magnifying-glass"></i></button>
+              <input type="search" id="search" name="search" placeholder="search by IP" />
+          </div>
+          <span class="issues username_issue"></span>
+      </div>
+      <table class="user-sign-in-history-table">
+          <thead>
+              <tr>
+                  <th>Location</th>
+                  <th>IP</th>
+                  <th>Date, time</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>Jordan</td>
+                  <td>46.185.222.121</td>
+                  <td>2022-03-29, 16:55:16</td>
+              </tr>
+              <tr>
+                  <td>Jordan</td>
+                  <td>46.185.222.121</td>
+                  <td>2022-03-29, 16:55:16</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+
+  <div class="suspends-user-modal responsive-modal" id="suspends_user_modal">
+      <div class="edit-user-title">
+          <span>حظر المستخدم</span>
+          <button class="close-edit-modal" id="suspends_user_modal_close">X</button>
+      </div>
+      <div class="line"></div>
+
+      <div>Suspends Status</div>
+      <select class="select-suspends" name="" id="select_suspends">
+          <option value="no-suspends">لاشيء</option>
+          <option value="timer-suspends">حظر مؤقت </option>
+          <option value="all-suspends">حظر دائم</option>
+      </select>
+
+      <div class="form-group icon-group">
+          <span>message</span>
+
+          <textarea class="form-control" id="suspends_message" value="" rows="4" cols="50" placeholder="message"></textarea>
+
+          <span class="issues username_issue"></span>
+      </div>
+      <div>degree Danger</div>
+      <select class="select-suspends" name="" id="select_degree">
+          <option value="degree20">20%</option>
+          <option value="degree40">40%</option>
+          <option value="degree60">60%</option>
+          <option value="degree80">80%</option>
+          <option value="degree100">100%</option>
+      </select>
+
+      <div class="form-group icon-group">
+          <span>solutions</span>
+          <textarea class="form-control" id="suspends_solutions" value="" rows="4" cols="50" placeholder="solutions"></textarea>
+
+          <span class="issues username_issue"></span>
+      </div>
+
+      <div class="edit-modal-btns">
+          <button class="edit-user" id="edit_suspends_user_modal">تعديل</button>
+          <button class="cancel" id="suspends_user_modal_cancel">إغلاق</button>
+      </div>
+      <div class="issues add-user-message"></div>
+  </div>
+
+  <div class="delete-item-modal responsive-modal" id="delete_item_user_modal">
+      <div class="add-user-title">
+          <span>حذف المستخدم</span>
+          <button class="close-modal" id="delete_item_modal_user_close">X</button>
+      </div>
+      <div class="line"></div>
+      <div class="message">هل انت متأكد من الحذف ؟</div>
+
+      <div class="users-modal-btns">
+          <button class="delete" id="delete_item_user_btn">نعم</button>
+          <button class="cancel" id="delete_item_modal_user_cancel">لا</button>
+      </div>
+      <div class="issues add-user-message"></div>
+  </div>
+</main>
+
+<script src="<%- host %>js/assets/jquery.min.js"></script>
+<script src="<%- host %>js/assets/manageUsers.js"></script>

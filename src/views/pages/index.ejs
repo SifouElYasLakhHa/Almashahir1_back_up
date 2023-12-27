@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+   <head>
+      <%- include('../partials/headerAll.ejs'); %>
+      <style>
+         .bg-features {
+            background-image: url('<%- host %>style/images/bgHome.png') !important;
+            background-repeat: no-repeat;
+            background-position: center; /* Center the image */
+            height: 900px;
+         }
+      
+         .bg-features-header {
+            background-image: url('<%- host %>style/images/bgHome.png') !important;
+            background-repeat: no-repeat;
+            background-position: center; /* Center the image */
+            height: 900px;
+            transform: translateY(-3px);
+         }
+         @media (max-width: 538px) {
+            .main_logo_nav {
+               width: 200px !important;
+            }
+         }
+         @media (max-width: 290px) {
+            .main_logo_nav {
+               width: 180px !important;
+            }
+         }
+         
+                 /* background: url(<%- host %>style/images/bgHome.png);
+      background-repeat: no-repeat;
+        background-position: center; Center the image */
+      
+      /* height: 900px; */
+         /* background: url(<%- host %>style/images/bgHome.png);
+         background-repeat: no-repeat;
+        background-position: center; Center the image
+         height: 900px; */
+         /* height: 100%; */
+         /* background-size: contain !important; */
+        /* background-size: 100% 100% !important; */
+       </style>
+   </head>
+   <body class="guest ar">
+     
+      <%- include('../moduls/main_navbar.ejs'); %>
+      <%- include('../moduls/index.ejs'); %>
+      <%- include('../partials/footerUserAll.ejs'); %>
+      <%- include('../partials/footerAll.ejs'); %>
+      <%- include('../partials/footerUser.ejs'); %>
+      <script>
+         AOS.init();
+         $('.testi-slider').slick({
+           rtl: true,        
+           dots: true,
+           arrows: false,
+           autoplay:true,
+           slidesToShow: 1,
+           slidesToScroll: 1,
+           infinite: true,
+           speed: 500
+         });
+         $('.mobile-slider').slick({
+            rtl: true,        
+            dots: false,
+            arrows: false,
+            autoplay: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+            speed: 500,
+            fade: true,
+            cssEase: 'linear'
+         });
+         $('#login_btn').click(function () {
+          //  const rmCheck = $('#remember'),
+          //  usernameInput = $('#username');
+           /* console.log(rmCheck.attr("checked"))
+            if (localStorage.checkbox && localStorage.checkbox !== "") {
+               rmCheck.attr("checked", "checked");
+               usernameInput.val(localStorage.username);
+            } else {
+               rmCheck.removeAttribute("checked");
+              // usernameInput.value = "";
+            }
+
+            function lsRememberMe() {
+               if (rmCheck.attr('checked') && usernameInput.val() !== "") {
+                  localStorage.username = usernameInput.val();
+                  localStorage.checkbox = rmCheck.val();
+               } else {
+                  localStorage.username = "";
+                  localStorage.checkbox = "";
+               }
+            }
+            lsRememberMe()*/
+            var username = $('#username').val();
+            var password = $('#password').val();
+            username = username.trim();
+            var english = /^[A-Za-z0-9._-]*$/;
+            var issues = false;
+            if(!username) {
+               issues = true;
+               $('.username_issue').text('اسم المستخدم حقل ضروري');
+               $('#username').addClass('issues_input');
+            } else if(!english.test(username)) {
+              issues = true;
+              $('.username_issue').text('أدخل الحروف الانجليزية و(-,-,.) فقط');
+              $('#username').addClass('issues_input');
+            } else if(username.length < 4) {
+               issues = true;
+               $('.username_issue').text('اسم المستخدم قصير جدا يجب ادخال اسم مستخدم أكثر من 3 أحرف');
+               $('#username').addClass('issues_input');
+            } else {
+               $('.username_issue').text('');
+               $('#username').removeClass('issues_input');
+            }
+            if(!password) {
+               issues = true;
+               $('.password_issue').text('كلمة المرور حقل ضروري');
+               $('#password').addClass('issues_input');
+            } else if(password.length < 8) {
+               issues = true;
+               $('.password_issue').text('كلمة المرور قصيرة جدا يجب ادخال كلمة مرور أكثر من 7 أحرف');
+               $('#password').addClass('issues_input');
+            } else {
+               $('.password_issue').text('');
+               $('#password').removeClass('issues_input');
+            }
+            if(issues) return
+                  //console.log(issues)
+                  // return
+                  /*
+                     ip: data.ip,
+                     country: data.country,
+                  */
+            
+                  /* $.get('https://get.geojs.io/v1/ip/geo.json', function (data) {
+                     
+                  });*/
+           // lsRememberMe()
+            var settings = {
+               "url": "<% host %>/api/auth/login",
+               "method": "POST",
+               "timeout": 0,
+               "data": {
+                  username: capitalizeFirstLetter(username),
+                  password,
+               },
+            };
+            $.ajax(settings).done(function (response) {
+               console.log(response.status)
+               if(response.status) {
+                  $('#login_form').submit();
+                  // $('#username').addClass('issues_input');
+                  // $('#password').addClass('issues_input');
+                  $('.username_issue').text(response.message);
+                  new Promise(resolve => setTimeout(resolve, 1000));
+                  window.location.href = "/";
+                  
+               } else {
+                  $('#username').addClass('issues_input');
+                  $('#password').addClass('issues_input');
+                  $('.username_issue').text(response.issues.all.message);
+               }
+            }).fail(function(e) {
+               //console.log(e.responseJSON)
+               $('#username').addClass('issues_input');
+               $('#password').addClass('issues_input');
+               if(typeof e.responseJSON.issues.all === 'undefined') {
+                  $('.username_issue').text(e.responseJSON.issue.all.message);
+               }
+            })
+         });
+         function capitalizeFirstLetter(string) {
+            return string.charAt(0).toLowerCase() + string.slice(1);
+         }
+
+
+         
+      </script>
+      <!-- End scripts -->
+
+   </body>
+</html>
+
+
+
+
+
+

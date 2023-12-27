@@ -1,0 +1,81 @@
+
+
+
+
+
+<!-- Scripts  -->
+
+
+<script src="<%- host %>js/assets/jquery.min.js"></script>
+<script src="<%- host %>js/assets/aos.js"></script>
+<!--<script src="<%- host %>js/assets/jquery.min.js"></script>
+<script src="<%- host %>js/assets/bootstrap.bundle.min.js"></script>
+<script src="<%- host %>js/assets/beamer-embed.js"></script>-->
+<script src="<%- host %>js/assets/bootstrap.bundle.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>-->
+
+<script src="<%- host %>js/assets/flpbonhmkq9tsp29.js"></script>
+<script src="<%- host %>js/assets/gtag.js"></script>
+<script src="<%- host %>js/assets/slick.min.js"></script>
+<script src="<%- host %>js/assets/axj6p7c9s8l6lgkg.js"></script>
+<script src="<%- host %>js/assets/main.js"></script>
+<!--
+<script src="<%- host %>js/assets/4gzctc1nniwm34yi.js"></script>
+<script src="<%- host %>js/assets/a4kdpfesx15uh7ae.js"></script>
+<script src="<%- host %>js/assets/select2.min.js"></script>-->
+<script>
+   $('.dropdown.new_order').click(function() {
+       if($('.dropdown.new_order').hasClass('open_dropdown')) {
+           $('.dropdown.new_order').removeClass('open_dropdown');
+       } else {
+           $('.dropdown.new_order').addClass('open_dropdown');
+       }
+   })
+   $('.dropdown.type_profite').click(function() {
+       if($('.dropdown.type_profite').hasClass('open_dropdown')) {
+           $('.dropdown.type_profite').removeClass('open_dropdown');
+       } else {
+           $('.dropdown.type_profite').addClass('open_dropdown');
+       }
+   })
+   $('.dropdown.setting').click(function() {
+       if($('.dropdown.setting').hasClass('open_dropdown')) {
+           $('.dropdown.setting').removeClass('open_dropdown');
+       } else {
+           $('.dropdown.setting').addClass('open_dropdown');
+       }
+   })
+   $('.dropdown.opt-drop').click(function() {
+      if($('.dropdown.opt-drop').hasClass('open_dropdown')) {
+         $('.dropdown.opt-drop').removeClass('open_dropdown');
+      } else {
+         $('.dropdown.opt-drop').addClass('open_dropdown');
+      }
+   })
+ 
+   $('#navbar_collapse').click(function() {
+     // alert(document.getElementById('navbar_collapse').getAttribute('open'));
+      if(document.getElementById('navbar_collapse').getAttribute('open') === 'true') {
+         $('.navbar-collapse').css({
+            'display': 'none!important'
+         });
+         document.getElementById('navbar_collapse').setAttribute('open', 'false');
+         $('#navbar').addClass('in_active_n');
+         $('.navbar-collapse').removeClass('in_active');
+      } else {
+         $('.navbar-collapse').addClass('in_active');
+         $('.navbar-collapse').removeClass('in_active_n');
+         document.getElementById('navbar_collapse').setAttribute('open', 'true');
+      }
+     // alert('i')
+     /* if(!$('#navbar_collapse').hasClass('open_collapsed')) {
+         $('#navbar_collapse').removeClass('open_collapsed');
+      } else {
+         $('#navbar_collapse').addClass('open_collapsed');
+      }*/
+      
+   }) 
+</script>
+
+
+					

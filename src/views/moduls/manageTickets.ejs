@@ -1,0 +1,321 @@
+<main class="inner-wrap">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <p class="breadcrumbs">أنت الآن على: <strong>الدعم الفني</strong></p>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <button id="fund-history" class="btn btn-ticket btn-ticket-custom">الرسائل المفتوحة</button>
+            </div>
+        </div>
+        <div id="ticket-form" class="create-ticket-wrap create-ticket-wrap-custom">
+            <form class="rtl-form" method="post" action="" id="ticketsArrayend">
+                <div class="alert alert-dismissible alert-danger ticket-danger rtl-alert" style="display: none;">
+                    <button type="button" class="close">&times;</button>
+                    <div></div>
+                </div>
+                <div class="form-group">
+                    <!-- <label class="control-label">كيف تضع تذكرة جديدة ؟</label> -->
+                    <label class="control-label">كيف تضع رسالة جديدة؟</label>
+                    <ul class="ticket-steps ticket-steps-custom">
+                        <li class="active">
+                            <!-- <span>01</span> -->
+                            <span>اختر الفئة</span>
+                        </li>
+                        <li>
+                            <!-- <span>02</span> -->
+                            <span>حدد الموضوع</span>
+                        </li>
+                        <li>
+                            <!-- <span>03</span> -->
+                            <!-- <span>ادخل المعلومات المطلوبة ثم : ارسال التذكرة</span></li> -->
+                            <span>ادخل المعلومات </span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="form-group form-group-wrap-custom">
+                    <!-- <label class="control-label control-label-custom">1 - اختر الفئة</label> -->
+                    <label class="control-label control-label-custom">1 اختر الفئة</label>
+                    <div class="row">
+                        <div class="col opt-text-custom opt-text-custom">
+                            <div class="custom-control">
+                                <input type="radio" class="custom-control-input subject ticket-options" id="subjectOrder" value="الطلبات" name="TicketForm[subject]" subject="1" checked="checked" />
+                                <label class="custom-control-label custom-control-label-custom ticket-options-label" for="subjectOrder">
+                                    <!-- <span class="opt-icon"><img src="https://cdn.mypanel.link/1847ba/zp6mfyqhbrgu6rr8.png"/></span> -->
+                                    <div><img class="" src="<%- host %>style/images/clipboard.png" /></div>
+                                </label>
+                            </div>
+                            <div class="opt-text">الطلبات</div>
+                        </div>
+                        <div class="col opt-text-custom">
+                            <div class="custom-control">
+                                <input type="radio" class="custom-control-input subject ticket-options" id="subjectPayment" name="TicketForm[subject]" subject="2" value="المدفوعات" />
+                                <label class="custom-control-label custom-control-label-custom ticket-options-label" for="subjectPayment">
+                                    <!-- <span class="opt-icon"><img src="https://cdn.mypanel.link/1847ba/ab2gxoklj7x1egm7.png"/></span> -->
+                                    <div><img class="" src="<%- host %>style/images/wallet.png" /></div>
+                                </label>
+                            </div>
+                            <div class="opt-text">المدفوعات</div>
+                        </div>
+                        <div class="col opt-text-custom">
+                            <div class="custom-control">
+                                <input type="radio" class="custom-control-input subject ticket-options" id="subjectService" name="TicketForm[subject]" subject="3" value="الخدمات" />
+                                <label class="custom-control-label custom-control-label-custom ticket-options-label" for="subjectService">
+                                    <!-- <span class="opt-icon"><img src="https://cdn.mypanel.link/1847ba/d7xll9icje50rn0j.png"/></span> -->
+                                    <div><img class="" src="<%- host %>style/images/setting.png" /></div>
+                                </label>
+                            </div>
+                            <div class="opt-text">الخدمات</div>
+                        </div>
+                        <!-- <div class="col opt-text-custom">
+        <div class="custom-control">
+          <input type="radio" class="custom-control-input subject ticket-options" id="subjectPoints" name="TicketForm[subject]" value="النقاط">
+          <label class="custom-control-label custom-control-label-custom ticket-options-label" for="subjectPoints">
+            <span class="opt-icon"><img src="https://cdn.mypanel.link/1847ba/r8mr85rnwsn9m8nq.png"/></span>
+          </label>
+        </div>
+            <div class="opt-text">النقاط</div>
+      </div> -->
+                        <div class="col opt-text-custom">
+                            <div class="custom-control">
+                                <input type="radio" class="custom-control-input subject ticket-options" id="subjectCP" name="TicketForm[subject]" value="متجر الكتروني" subject="4" />
+                                <label class="custom-control-label custom-control-label-custom ticket-options-label" for="subjectCP">
+                                    <!-- <span class="opt-icon"><img src="https://cdn.mypanel.link/1847ba/eift52slgmctw007.png"/></span> -->
+                                    <div><img class="" src="<%- host %>style/images/owner.png" /></div>
+                                </label>
+                            </div>
+                            <div class="opt-text">متجر الكتروني</div>
+                        </div>
+                        <div class="col opt-text-custom">
+                            <div class="custom-control">
+                                <input type="radio" class="custom-control-input subject ticket-options" id="subjectAPI" name="TicketForm[subject]" value="API" subject="5" />
+                                <label class="custom-control-label custom-control-label-custom ticket-options-label" for="subjectAPI">
+                                    <!-- <span class="opt-icon"><img src="https://cdn.mypanel.link/1847ba/93hu5d1qgzh76mck.png"/></span> -->
+                                    <div><img class="" src="<%- host %>style/images/api.png" /></div>
+                                </label>
+                            </div>
+                            <div class="opt-text">API</div>
+                        </div>
+                        <div class="col opt-text-custom">
+                            <div class="custom-control">
+                                <input type="radio" class="custom-control-input subject ticket-options" id="subjectRQ" name="TicketForm[subject]" value="طلب اضافة خدمة غير موجودة" subject="6" />
+                                <label class="custom-control-label custom-control-label-custom ticket-options-label" for="subjectRQ">
+                                    <!-- <span class="opt-icon"><img src="https://cdn.mypanel.link/1847ba/sq0qmw2xqj115o0o.png"/></span> -->
+                                    <div><img class="" src="<%- host %>style/images/contract.png" /></div>
+                                </label>
+                            </div>
+                            <div class="opt-text">طلب اضافة خدمة غير موجودة</div>
+                        </div>
+                        <div class="col opt-text-custom">
+                            <div class="custom-control">
+                                <input type="radio" class="custom-control-input subject ticket-options" id="subjectBR" name="TicketForm[subject]" value="مشكلة بالموقع/التصميم " subject="7" />
+                                <label class="custom-control-label custom-control-label-custom ticket-options-label" for="subjectBR">
+                                    <!-- <span class="opt-icon"><img src="https://cdn.mypanel.link/1847ba/ezs4r715o7wompde.png"/></span> -->
+                                    <div><img class="" src="<%- host %>style/images/error.png" /></div>
+                                </label>
+                            </div>
+                            <div class="opt-text">مشكلة بالموقع</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group form-group-wrap-subjedct therequest">
+                    <label class="control-label control-label-custom">2 اختر الموضوع</label>
+                    <div class="row row-custom">
+                        <div class="col col-custom">
+                            <span class="custom-control">
+                                <input type="radio" class="custom-control-input custom-control-input-subjet second-options" id="requestRefill" name="request" text="1" value="تعويض" />
+                                <label class="custom-control-label custom-control-label-subjet" for="requestRefill">تعويض</label>
+                            </span>
+                        </div>
+                        <div class="col col-custom">
+                            <span class="custom-control">
+                                <input type="radio" class="custom-control-input custom-control-input-subjet second-options" id="requestCancellation" name="request" text="2" value="إلغاء" />
+                                <label class="custom-control-label custom-control-label-subjet" for="requestCancellation">إلغاء</label>
+                            </span>
+                        </div>
+                        <div class="col col-custom">
+                            <span class="custom-control">
+                                <input type="radio" class="custom-control-input custom-control-input-subjet second-options" id="requestSpeed" name="request" text="3" value="تسريع" />
+                                <label class="custom-control-label custom-control-label-subjet" for="requestSpeed">تسريع</label>
+                            </span>
+                        </div>
+                        <div class="col col-custom">
+                            <span class="custom-control">
+                                <input type="radio" class="custom-control-input custom-control-input-subjet second-options" id="requestOther" name="request" text="4" value="شيء اخر" />
+                                <label class="custom-control-label custom-control-label-subjet" for="requestOther">شيء اخر</label>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group ordernumbers">
+                    <label class="control-label control-label-custom" for="ordernumbers">3 رقم الطلب </label>
+                    <input
+                        id="ordernumbers_ticketsArray"
+                        type="number"
+                        class="form-control form-control-ordernumbers"
+                        placeholder="في حال كان لديك اكثر من طلب، يرجى استخدام فاصلة بين ارقام الطلبات باللغة الانجليزية كالتالي : 31001,31002,31003,31004"
+                    />
+                    <div class="issues add-user-message-orderId"></div>
+                </div>
+
+                <div class="form-group thePaymentRequest" style="display: none;">
+                    <label class="control-label control-label-custom">2 - حدد الدفع</label>
+                    <div class="row">
+                        <div class="col">
+                            <span class="custom-control">
+                                <input type="radio" class="custom-control-input payment-options" id="requestVisa" name="paymentRequest" text="1" value="فيزا وماستر كارد" />
+                                <label class="custom-control-label" for="requestVisa">فيزا وماستر كارد</label>
+                            </span>
+                        </div>
+                        <div class="col">
+                            <span class="custom-control">
+                                <input type="radio" class="custom-control-input payment-options" id="requestApple" name="paymentRequest" text="2" value="ابل باي" />
+                                <label class="custom-control-label" for="requestApple">ابل باي</label>
+                            </span>
+                        </div>
+                        <div class="col">
+                            <span class="custom-control">
+                                <input type="radio" class="custom-control-input payment-options" id="requestPaypal" name="paymentRequest" text="3" value="بايبال" />
+                                <label class="custom-control-label" for="requestPaypal">بايبال</label>
+                            </span>
+                        </div>
+                        <div class="col">
+                            <span class="custom-control">
+                                <input type="radio" class="custom-control-input payment-options" id="requestCrypto" name="paymentRequest" text="4" value="عملات رقمية" />
+                                <label class="custom-control-label" for="requestCrypto">عملات رقمية</label>
+                            </span>
+                        </div>
+                        <div class="col">
+                            <span class="custom-control">
+                                <input type="radio" class="custom-control-input payment-options" id="requestPerfect" name="paymentRequest" text="5" value="بيرفكت موني" />
+                                <label class="custom-control-label" for="requestPerfect">بيرفكت موني</label>
+                            </span>
+                        </div>
+                        <div class="col">
+                            <span class="custom-control">
+                                <input type="radio" class="custom-control-input payment-options" id="requestWebMoney" name="paymentRequest" text="6" value="ويب موني" />
+                                <label class="custom-control-label" for="requestWebMoney">ويب موني</label>
+                            </span>
+                        </div>
+                        <div class="col">
+                            <span class="custom-control">
+                                <input type="radio" class="custom-control-input payment-options" id="requestPayeer" name="paymentRequest" text="7" value="بايير" />
+                                <label class="custom-control-label" for="requestPayeer">بايير</label>
+                            </span>
+                        </div>
+                        <div class="col">
+                            <span class="custom-control">
+                                <input type="radio" class="custom-control-input payment-options" id="requestPayoneer" name="paymentRequest" text="8" value="بايونير" />
+                                <label class="custom-control-label" for="requestPayoneer">بايونير</label>
+                            </span>
+                        </div>
+                        <div class="col">
+                            <span class="custom-control">
+                                <input type="radio" class="custom-control-input payment-options" id="requestSkrill" name="paymentRequest" text="9" value="سكريل" />
+                                <label class="custom-control-label" for="requestSkrill">سكريل</label>
+                            </span>
+                        </div>
+                        <div class="col">
+                            <span class="custom-control">
+                                <input type="radio" class="custom-control-input payment-options" id="requestVoda" name="paymentRequest" text="10" value="فودافون كاش" />
+                                <label class="custom-control-label" for="requestVoda">فودافون كاش</label>
+                            </span>
+                        </div>
+                        <div class="col">
+                            <span class="custom-control">
+                                <input type="radio" class="custom-control-input payment-options" id="paymentBank" name="paymentRequest" text="11" value="تحويل بنكي" />
+                                <label class="custom-control-label" for="paymentBank">تحويل بنكي</label>
+                            </span>
+                        </div>
+                        <div class="col">
+                            <span class="custom-control">
+                                <input type="radio" class="custom-control-input payment-options" id="paymentOther" name="paymentRequest" text="12" value="اخر" />
+                                <label class="custom-control-label" for="paymentOther">اخر</label>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label control-label-message" for="message">الرسالة</label>
+                    <!-- <textarea class="form-control" rows="7" id="message"></textarea> -->
+                    <!-- <input class="form-control form-control-message-input" id="message_ticketsArray" /> -->
+                    <textarea class="form-control" id="message_ticketsArray" rows="12" cols="50"></textarea>
+                    <div class="issues add-user-message-teckits"></div>
+                </div>
+                
+                <div class="text-center">
+                    <!-- <button type="submit" class="btn btn-primary" id="submit">ارسال التذكرة</button> -->
+                    <div class="issues add-user-message-teckits-all" style="color: #000000;"></div>
+                    <button type="button" class="btn btn-primary btn-primary-submit" style="" id="submit_ticketsArray">ارسال</button>
+                </div>
+            </form>
+        </div>
+        <div id="ticket-table" class="ticket-history-wrap hidden">
+            <div id="ticket-table" class="ticket-history-wrap hidden">
+                <div class="input-group search-bar">
+                    <input id="search" type="text" class="form-control" placeholder="بحث" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default"><i class="far fa-search" aria-hidden="true"></i></button>
+                    </span>
+                </div>
+                <div class="table-responsive">
+                    <table class="table custom-table mob-table results rtl-table">
+                        <thead>
+                            <tr>
+                                <th>رقم الرسالة</th>
+                                <th>الموضوع</th>
+                                <th class="nowrap">اخر تحديث</th>
+                                <th class="text-center">حالة الرسالة</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(var i = 0; i < ticketsArray.length; i++) { %>
+                            <tr class="table-cont" style="max-width: 100% !important;">
+                                <td data-head="رقم الرسالة"><%- ticketsArray[i].ticket %></td>
+                                
+                                <td data-head="الموضوع" style="cursor: pointer;" > <!--onclick="openEditTicketsModal(this)"data="<%- JSON.stringify(ticketsArray[i]) %>"--> 
+    
+                                    <a class="table-link" href="<%- host %>ticket/<%- ticketsArray[i].ticket %>">
+                                        <%- ticketsArray[i].subject %>
+                                    </a>
+                                </td>
+                                <td data-head="أخر تحديث"><%- ticketsArray[i].updateAt %></td>
+                                <td data-head="حالة الرسالة">
+                                    <% if(ticketsArray[i].status === 'new'){ %>
+    
+                                    <div class="status-badge badge-complete" style="background-color: #f4db7d;">
+                                        <span> جديد</span>
+                                    </div>
+                                    <% } %> <% if(ticketsArray[i].status === 'completed'){ %>
+    
+                                    <div class="status-badge badge-complete" style="background-color: #f64d4e;">
+                                        <span>مغلقة</span>
+                                    </div>
+                                    <% } %> <% if(ticketsArray[i].status === 'waiting_admin'){ %>
+    
+                                    <div class="status-badge badge-complete">
+                                        <span>تم الرد</span>
+                                    </div>
+                                    <% } %> <% if(ticketsArray[i].status === 'waiting_user'){ %>
+    
+                                    <div class="status-badge badge-complete" style="background-color: #f29339;">
+                                        <span> قيد الانتظار</span>
+                                    </div>
+                                    <% } %>
+                                </td>
+                            </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="<%- host %>js/assets/jquery.min.js"></script>
+<script src="<%- host %>js/assets/ticketsArray.js"></script>

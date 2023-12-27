@@ -1,0 +1,375 @@
+[{
+  "_id": {
+    "$oid": "62b9a627023142c17a495393"
+  },
+  "customType": {
+    "text": "فيزا وماستر كارد",
+    "value": 1
+  },
+  "type": 2,
+  "status": "new",
+  "ticket": 1,
+  "subject": "المدفوعات",
+  "message": "الموقع لا يعمل ",
+  "userId": {
+    "$oid": "62b9a3b9023142c17a495353"
+  },
+  "orderId": -1,
+  "createAt": {
+    "$date": "2022-06-27T12:44:23.692Z"
+  },
+  "updateAt": {
+    "$date": "2022-06-27T12:44:23.692Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62bf05f0418894c9b674b952"
+  },
+  "customType": {
+    "text": "تعويض",
+    "value": 1
+  },
+  "type": 1,
+  "status": "new",
+  "ticket": 2,
+  "subject": "الطلبات",
+  "message": "2500013،2500020،2500027،2500043،2500050،2500069،2500070،",
+  "userId": {
+    "$oid": "62b5a1f05a1b6c3769f97586"
+  },
+  "orderId": -1,
+  "createAt": {
+    "$date": "2022-07-01T14:34:24.418Z"
+  },
+  "updateAt": {
+    "$date": "2022-07-01T14:34:24.418Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62bf0602418894c9b674b959"
+  },
+  "customType": {
+    "text": "تعويض",
+    "value": 1
+  },
+  "type": 1,
+  "status": "new",
+  "ticket": 3,
+  "subject": "الطلبات",
+  "message": "2500013،2500020،2500027،2500043،2500050،2500069،2500070،",
+  "userId": {
+    "$oid": "62b5a1f05a1b6c3769f97586"
+  },
+  "orderId": -1,
+  "createAt": {
+    "$date": "2022-07-01T14:34:42.018Z"
+  },
+  "updateAt": {
+    "$date": "2022-07-01T14:34:42.018Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62c06f6e2201d65d1df5e46a"
+  },
+  "customType": {
+    "text": "تسريع",
+    "value": 3
+  },
+  "type": 1,
+  "status": "new",
+  "ticket": 4,
+  "subject": "الطلبات",
+  "message": "يرجى اسراع في ارسال المتابعين ",
+  "userId": {
+    "$oid": "62c062942201d65d1df5e239"
+  },
+  "orderId": -1,
+  "createAt": {
+    "$date": "2022-07-02T16:16:46.491Z"
+  },
+  "updateAt": {
+    "$date": "2022-07-02T16:16:46.491Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62c07c7f2201d65d1df5e528"
+  },
+  "customType": {
+    "text": "تسريع",
+    "value": 3
+  },
+  "type": 1,
+  "status": "new",
+  "ticket": 5,
+  "subject": "الطلبات",
+  "message": "ارسلوا المتابعين ❤️",
+  "userId": {
+    "$oid": "62c062942201d65d1df5e239"
+  },
+  "orderId": -1,
+  "createAt": {
+    "$date": "2022-07-02T17:12:31.702Z"
+  },
+  "updateAt": {
+    "$date": "2022-07-02T17:12:31.702Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62c07c962201d65d1df5e52f"
+  },
+  "customType": {
+    "text": "تسريع",
+    "value": 3
+  },
+  "type": 1,
+  "status": "new",
+  "ticket": 6,
+  "subject": "الطلبات",
+  "message": "ارسلوا المتابعين ❤️❤️",
+  "userId": {
+    "$oid": "62c062942201d65d1df5e239"
+  },
+  "orderId": -1,
+  "createAt": {
+    "$date": "2022-07-02T17:12:54.390Z"
+  },
+  "updateAt": {
+    "$date": "2022-07-02T17:12:54.390Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62c0999e7d3aab68de17ed60"
+  },
+  "customType": {
+    "text": "إلغاء",
+    "value": 2
+  },
+  "type": 1,
+  "status": "new",
+  "ticket": 7,
+  "subject": "الطلبات",
+  "message": "اريد الغاء الطلب وشكرا ",
+  "userId": {
+    "$oid": "62c062942201d65d1df5e239"
+  },
+  "orderId": -1,
+  "createAt": {
+    "$date": "2022-07-02T19:16:46.960Z"
+  },
+  "updateAt": {
+    "$date": "2022-07-02T19:16:46.960Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62c2ea8c21d1816c2f32326c"
+  },
+  "customType": {
+    "text": "تعويض",
+    "value": 1
+  },
+  "type": 1,
+  "status": "new",
+  "ticket": 8,
+  "subject": "الطلبات",
+  "message": "ءءءءء",
+  "userId": {
+    "$oid": "62b85900615a2c9e52643867"
+  },
+  "orderId": -1,
+  "createAt": {
+    "$date": "2022-07-04T13:26:36.265Z"
+  },
+  "updateAt": {
+    "$date": "2022-07-04T13:26:36.265Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62c2eac621d1816c2f32328b"
+  },
+  "customType": {
+    "text": "تعويض",
+    "value": 1
+  },
+  "type": 1,
+  "status": "new",
+  "ticket": 9,
+  "subject": "الطلبات",
+  "message": "كنت طالبه 30 الف زادو 24 الف ارجو اعادة تعبئة ال6000 مع الشكر",
+  "userId": {
+    "$oid": "62b9a3b9023142c17a495353"
+  },
+  "orderId": -1,
+  "createAt": {
+    "$date": "2022-07-04T13:27:34.972Z"
+  },
+  "updateAt": {
+    "$date": "2022-07-04T13:27:34.972Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62c6ba2821d1816c2f3257ff"
+  },
+  "customType": {
+    "text": "تسريع",
+    "value": 3
+  },
+  "type": 1,
+  "status": "new",
+  "ticket": 10,
+  "subject": "الطلبات",
+  "message": "ارجو تسريع اللايكات",
+  "userId": {
+    "$oid": "62b9a3b9023142c17a495353"
+  },
+  "orderId": -1,
+  "createAt": {
+    "$date": "2022-07-07T10:49:12.953Z"
+  },
+  "updateAt": {
+    "$date": "2022-07-07T10:49:12.953Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62c6ba5121d1816c2f325806"
+  },
+  "customType": {
+    "text": "تعويض",
+    "value": 1
+  },
+  "type": 1,
+  "status": "new",
+  "ticket": 11,
+  "subject": "الطلبات",
+  "message": "ارجو وضع اللايكات المطلوبه ",
+  "userId": {
+    "$oid": "62b9a3b9023142c17a495353"
+  },
+  "orderId": -1,
+  "createAt": {
+    "$date": "2022-07-07T10:49:53.644Z"
+  },
+  "updateAt": {
+    "$date": "2022-07-07T10:49:53.644Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62c6ba7b21d1816c2f32580b"
+  },
+  "customType": {
+    "text": "تسريع",
+    "value": 3
+  },
+  "type": 1,
+  "status": "new",
+  "ticket": 12,
+  "subject": "الطلبات",
+  "message": "تسريع",
+  "userId": {
+    "$oid": "62b9a3b9023142c17a495353"
+  },
+  "orderId": -1,
+  "createAt": {
+    "$date": "2022-07-07T10:50:35.612Z"
+  },
+  "updateAt": {
+    "$date": "2022-07-07T10:50:35.612Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62cb1c7491493f0678ae8835"
+  },
+  "customType": {
+    "text": "تعويض",
+    "value": 1
+  },
+  "type": 1,
+  "status": "new",
+  "ticket": 13,
+  "subject": "الطلبات",
+  "message": "2500111 لم يتم تعويضي حتى الان لماذاااااااا",
+  "userId": {
+    "$oid": "62b9a3b9023142c17a495353"
+  },
+  "orderId": -1,
+  "createAt": {
+    "$date": "2022-07-10T18:37:40.789Z"
+  },
+  "updateAt": {
+    "$date": "2022-07-10T18:37:40.789Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62cb1c8591493f0678ae883a"
+  },
+  "customType": {
+    "text": "تسريع",
+    "value": 3
+  },
+  "type": 1,
+  "status": "new",
+  "ticket": 14,
+  "subject": "الطلبات",
+  "message": "بشكل سريع ",
+  "userId": {
+    "$oid": "62b9a3b9023142c17a495353"
+  },
+  "orderId": -1,
+  "createAt": {
+    "$date": "2022-07-10T18:37:57.404Z"
+  },
+  "updateAt": {
+    "$date": "2022-07-10T18:37:57.404Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62cb1ca691493f0678ae8843"
+  },
+  "customType": {
+    "text": "شيء اخر",
+    "value": 4
+  },
+  "type": 1,
+  "status": "new",
+  "ticket": 15,
+  "subject": "الطلبات",
+  "message": "لم يتم تعويضي بعدد الفولو لحد الان لماذاااا",
+  "userId": {
+    "$oid": "62b9a3b9023142c17a495353"
+  },
+  "orderId": -1,
+  "createAt": {
+    "$date": "2022-07-10T18:38:30.748Z"
+  },
+  "updateAt": {
+    "$date": "2022-07-10T18:38:30.748Z"
+  },
+  "__v": 0
+}]

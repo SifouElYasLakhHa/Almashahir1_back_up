@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+  <head>
+    <%- include('../partials/headerAll.ejs'); %>
+  </head>
+  <body class="guest ar">
+    <%- include('../moduls/main_navbar.ejs'); %>
+    
+
+  <%- include('../moduls/regestre.ejs'); %>
+  <%- include('../partials/footerUserAll.ejs'); %>
+  <%- include('../partials/footerAll.ejs'); %>
+  <%- include('../partials/footerUser.ejs'); %>
+
+      <!-- Scripts  -- >
+      <script>
+        var beamer_config = {
+          product_id : 'kknoQHiI45746' //DO NOT CHANGE: This is your product code on Beamer
+        };
+      </script>
+      
+      
+      <script type="text/javascript" >
+        window.modules.layouts = {"theme_id":4,"auth":0,"live":true,"csrftoken":"RP2uwf67Q2f_fMkvYZUnaTpTStxYI6FXsCKt4bdWgN5xh-CLk8oiUc0S_h1M-kAQaTV-uixGyQaJZcmRgWH3mA=="};    
+      </script>
+      <script type="text/javascript" >
+        window.modules.signup = [];      
+      </script>
+      <script>
+        $('#firstname').on('blur', function() {
+          $('div.popupInWrapper').fadeOut('medium');
+        });
+        $('#firstname').on('focus', function() {
+            $(this).siblings('div.popupInWrapper').show();
+        });
+        $('div.popupInWrapper').hide();
+      </script>-->
+
+   
+
+      <script>
+        AOS.init();
+        $('.testi-slider').slick({
+          rtl: true,        
+          dots: true,
+          arrows: false,
+          autoplay:true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          speed: 500
+        });
+        $('.mobile-slider').slick({
+            rtl: true,        
+            dots: false,
+            arrows: false,
+            autoplay: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+            speed: 500,
+            fade: true,
+            cssEase: 'linear'
+        });
+        var checkboxRegestre = document.getElementById('checkbox_regestre')
+        $('#checkbox_regestre').click(function() {
+              if (!checkboxRegestre.checked) {
+                  $('#checkbox_regestre').addClass('issues_input');
+                  $('#checkbox_regestre').addClass('regestre-check');
+              }else{
+                  $('#checkbox_regestre').removeClass('regestre-check');
+
+              }
+        })
+
+        $('#regestre_btn').click(function() {
+        //  alert('التسجيل متوقف في الموقع حاليا يمكنك التواصل مع الدعم الفني مع ارسال الايمايل الخاص بك اذا أردت التسجيل في هذه الفترة بارك الله فيك سوف نعود قريبا ..!')
+        //  return
+          var username = $('#username').val();
+          var lastName = $('#lastname').val();
+          var firstName = $('#firstname').val();
+          var email = $('#email').val();
+          email = email.trim();
+          username = username.trim();
+          var phone = $('#phone').val();
+          var password = $('#password').val();
+          var confirmPassword = $('#confirmPassword').val();
+          var issues = false;
+          if (!checkboxRegestre.checked) {
+               issues = true;
+               $('#checkbox_regestre').addClass('issues_input');
+               $('#checkbox_regestre').addClass('regestre-check');
+          }else{
+               $('#checkbox_regestre').removeClass('regestre-check');
+          }
+          var english = /^[A-Za-z0-9._-]*$/;
+          if(!username) {
+              issues = true;
+              $('.username_issue').text('حقل ضروري');
+              $('#username').addClass('issues_input');
+          } else if(!english.test(username)) {
+              issues = true;
+              $('.username_issue').text('أدخل الحروف الانجليزية و(-,-,.) فقط');
+              $('#username').addClass('issues_input');
+          } else if(username.length < 4) {
+              issues = true;
+              $('.username_issue').text('قصير جدا يجب ادخال اسم مستخدم أكثر من 3 أحرف');
+              $('#username').addClass('issues_input');
+          } else if(username.length > 21) {
+              issues = true;
+              $('.username_issue').text('قصير جدا يجب ادخال اسم مستخدم أقل من 20 أحرف');
+              $('#username').addClass('issues_input');
+          } 
+          else {
+              $('.username_issue').text('');
+              $('#username').removeClass('issues_input');
+          } if(!password) {
+              issues = true;
+              $('.password_issue').text('حقل ضروري');
+              $('#password').addClass('issues_input');
+          } else if(password.length < 8) {
+              issues = true;
+              $('.password_issue').text('قصيرة جدا يجب ادخال كلمة مرور أكثر من 7 أحرف');
+              $('#password').addClass('issues_input');
+          } 
+          else if(password.length > 21) {
+              issues = true;
+              $('.password_issue').text('قصيرة جدا يجب ادخال كلمة مرور أقل من 20 أحرف');
+              $('#password').addClass('issues_input');
+          } 
+          else {
+              $('.password_issue').text('');
+              $('#password').removeClass('issues_input');
+          }
+          // console.log(validateEmail(email) === null)
+          if(!phone) {
+              issues = true;
+              $('.phone_issue').text('حقل ضروري');
+              $('#phone').addClass('issues_input');
+          } else if((phone.length < 8 || phone.length > 11) || isNaN(Number(phone))) {
+              issues = true;
+              $('.phone_issue').text('أدخل رقم الهاتف بشكل صحيح');
+              $('#phone').addClass('issues_input');
+          } else {
+              $('.phone_issue').text('');
+              $('#phone').removeClass('issues_input');
+          }
+
+          if(!email) {
+              issues = true;
+              $('.email_issue').text('حقل ضروري');
+              $('#email').addClass('issues_input');
+          } else if(validateEmail(email) === null) {
+              issues = true;
+              $('.email_issue').text('أدخل بريد الكتروني صحيح');
+              $('#email').addClass('issues_input');
+          } else {
+              $('.email_issue').text('');
+              $('#email').removeClass('issues_input');
+          }
+
+          if(!firstName) {
+              issues = true;
+              $('.firstname_issue').text('حقل ضروري');
+              $('#firstname').addClass('issues_input');
+          } else if(firstName.length < 4) {
+              issues = true;
+              $('.firstname_issue').text('الاسم الاخير قصير جدا أدخل اكثر من 4 أحرف');
+              $('#firstname').addClass('issues_input');
+          } else {
+              $('.firstname_issue').text('');
+              $('#firstname').removeClass('issues_input');
+          }
+
+          if(!lastName) {
+              issues = true;
+              $('.lastname_issue').text('حقل ضروري');
+              $('#lastname').addClass('issues_input');
+          } else if(lastName< 4 ) {
+              issues = true;
+              $('.lastname_issue').text('الاسم الأول قصير جدا أدخل اكثر من 4 أحرف');
+              $('#lastname').addClass('issues_input');
+          } else {
+              $('.lastname_issue').text('');
+              $('#lastname').removeClass('issues_input');
+          }
+
+          if(!confirmPassword) {
+              issues = true;
+              $('.password_confirm_issue').text('حقل ضروري');
+              $('#confirmPassword').addClass('issues_input');
+          } else if(confirmPassword.length < 8) {
+              issues = true;
+              $('.password_confirm_issue').text('كلمة المرور غير مطابقة');
+              $('#confirmPassword').addClass('issues_input');
+          } else if(confirmPassword !== password) {
+            issues = true;
+              $('.password_confirm_issue').text('كلمة المرور غير مطابقة');
+              $('#confirmPassword').addClass('issues_input');
+          }
+          else {
+              $('.password_confirm_issue').text('');
+              $('#confirmPassword').removeClass('issues_input');
+          }
+          if(issues) return
+          $.get('https://get.geojs.io/v1/ip/geo.json', function (data) {
+            var settings = {
+              "url": "<% host %>/api/auth/registre",
+              "method": "POST",
+              "timeout": 0,
+              "data": {
+                username: capitalizeFirstLetter(username),
+                password,
+                ip: data.ip,
+                country: data.country,
+                fromCountry: data.country,
+                countryCode: '00',
+                phone,
+                email,
+                firstName,
+                lastName,
+                affiliate: localStorage.getItem('affiliate')
+              },
+          };
+          $.ajax(settings).done(function (response) {
+            localStorage.setItem('affiliate', '');
+            $('.issues').addClass('succ_response');
+            //$('.issues').removeClass('succ_response');
+            $('.all_issue').text(response.message);
+            //console.log(response)
+            //$('#regestre_form').submit();
+            window.location.href = "/"
+          }).fail(function(error) {
+            if(error.responseJSON.issues.all.status) {
+              $('.issues').removeClass('succ_response');
+              $('.all_issue').text(error.responseJSON.issues.all.message);
+            } else {
+              // $('#lastname').removeClass('issues_input');
+            }
+            if(error.responseJSON.issues.username.status) {
+                $('.issues').removeClass('succ_response');
+              $('.username_issue').text(error.responseJSON.issues.username.message);
+              $('#username').addClass('issues_input');
+            } else {
+              $('#username').removeClass('issues_input');
+            }
+            if(error.responseJSON.issues.firstName.status) {
+              $('.issues').removeClass('succ_response');
+              $('#firstname').addClass('issues_input');
+              $('.firstname_issue').text(error.responseJSON.issues.firstName.message);
+            } else {
+              $('#firstname').removeClass('issues_input');
+            }
+            if(error.responseJSON.issues.lastName.status) {
+              $('.issues').removeClass('succ_response');
+              $('#lastname').addClass('issues_input');
+              $('.lastname_issue').text(error.responseJSON.issues.lastName.message);
+            } else {
+              $('#lastname').removeClass('issues_input');
+            }
+            if(error.responseJSON.issues.email.status) {
+              $('.issues').removeClass('succ_response');
+              $('#email').addClass('issues_input');
+              $('.email_issue').text(error.responseJSON.issues.email.message);
+            } else {
+              $('#email').removeClass('issues_input');
+            }
+            if(error.responseJSON.issues.phone.status) {
+              $('.issues').removeClass('succ_response');
+              $('#phone').addClass('issues_input');
+              $('.phone_issue').text(error.responseJSON.issues.phone.message);
+            } else {
+              $('#username').removeClass('issues_input');
+            }
+            if(error.responseJSON.issues.password.status) {
+              $('.issues').removeClass('succ_response');
+              $('.password_confirm_issue').text(error.responseJSON.issues.all.message);
+              $('.confirmPassword').text(error.responseJSON.issues.all.message);
+              $('#password').addClass('issues_input');
+              $('#confirmPassword').addClass('issues_input');
+            } else {
+              $('#password').removeClass('issues_input');
+              $('#confirmPassword').removeClass('issues_input');
+            }
+            })
+          });
+          
+        })
+        const validateEmail = (email) => {
+          return String(email)
+            .toLowerCase()
+            .match(
+              /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
+        };
+        function capitalizeFirstLetter(string) {
+          return string.charAt(0).toLowerCase() + string.slice(1);
+        }
+        var currentURL = window.location.href;
+        currentURL = currentURL.split('/')
+        currentURL = currentURL[currentURL.length - 1];
+        currentURL = currentURL.split('=')
+        currentURL = currentURL[currentURL.length - 1];
+        if(typeof currentURL !== 'undefined') {
+          localStorage.setItem('affiliate', currentURL);
+          ///visit/ref/:affiliate
+        }
+      </script>
+     <!-- End scripts -->
+  </body>
+</html>

@@ -1,0 +1,310 @@
+<main class="inner-wrap">
+  <style>
+    .ico-ig i {
+    background: linear-gradient(200deg, #d047d1, red, #ff0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #fff;
+    }
+    .ico-dscd i {
+        color: #7289da;
+    }
+    .ico-fb i {
+        color: #207eff;
+    }
+    .ico-yt i {
+        color: #ff0042;
+    }
+    .ico-sc i {
+        color: #fffc00;
+    }
+    .ico-link i {
+        color: #0077b5;
+    }
+    .ico-tw i {
+        color: #1da1f2;
+    }
+    .ico-tele i {
+        color: #2b9fd2;
+    }
+    .ico-snc i {
+        background: linear-gradient(120deg, #ff8800, #ff3300);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+    }
+    .ico-sp i {
+        color: #62ffa2;
+    }
+    .ico-twc i {
+        color: #4b367c;
+        font-size: 14px;
+    }
+    .ico-pt i {
+        color: #ff5858;
+    }
+    .ico-tic i {
+        color: #000000;
+    }
+    .ico-web i {
+        color: #1a1a1a;
+    }
+    .ico-dgr i {
+        color: #ccc;
+    }
+    .ico-kamp i {
+        color: #ff0000;
+    }
+    .ico-prs i {
+        color: #e24d3a;
+    }
+    .ico-link i {
+        color: #0077b0;
+    }
+    .ico-tmb i {
+        color: #1c3764;
+    }
+    .ico-dm i {
+        color: #00c9eb;
+    }
+    .ico-vmo i {
+        color: #00a8e8;
+    }
+    .ico-app i {
+        color: #313131;
+    }
+    .ico-whap i {
+        color: #0dc143;
+    }
+
+  </style>
+<div class="container-fluid">
+  <div class="row option-row">
+      <div class="col-sm-4">
+          <div class="btn-group filter-btn">
+              <button type="button" class="btn btn-default dropdown-toggle srvtgl" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fal fa-filter"></i><span> تصنيف الاقسام</span></button>
+              <ul class="dropdown-menu">
+                  <li><a href="javascript:void(0);" onclick="filterService('All')">الكل</a></li>
+                  <li><a href="javascript:void(0);" onclick="filterService('Fav')">المفضلة</a></li>
+                  <% for(var i = 0; i < categories.length; i++) { %>
+                  <li><a href="javascript:void(0);" onclick="filterService('<%- categories[i].category.name %>')"><%- categories[i].category.name %></a></li>
+                  <% } %>
+              </ul>
+          </div>
+      </div>
+      <div class="col-sm-4">
+          <p class="breadcrumbs">أنت الآن على: <strong>الخدمات</strong></p>
+      </div>
+      <div class="col-sm-4"></div>
+  </div>
+  <div class="row">
+      <div class="col-lg-12">
+          <div class="input-group search-bar">
+              <input id="search" type="text" class="form-control" placeholder="بحث" />
+              <span class="input-group-btn">
+                  <button class="btn btn-default" type="button"><i class="far fa-search"></i></button>
+              </span>
+          </div>
+          <div class="table-responsive">
+              <table class="table custom-table mob-table results rtl-table">
+                  <thead>
+                      <tr>
+                          <th></th>
+                          <th>الرقم</th>
+                          <th class="width-service-name">الاسم</th>
+                          <th class="nowrap cont-width">السعر لكل 1000</th>
+                          <th class="nowrap">الحد الادنى</th>
+                          <th class="nowrap">الحد الاقصى</th>
+                          <th class="nowrap">
+                              معدل الوقت
+                              <span class="fa fa-exclamation-circle" data-toggle="tooltip" data-placement="top" title="معدل الوقت على أساس آخر 10 أوامر مكتملة لكل 1000 كمية"></span>
+                          </th>
+                          <th>وصف الخدمة</th>
+                      </tr>
+                  </thead>
+
+                  <tbody>
+                      <% for(var i = 0; i < categories.length; i++) { %>
+                      <tr class="cate-row" data-category="<%- categories[i].category.name %>">
+                          <td colspan="8" class="mk-icons"><%- categories[i].category.name %></td>
+                      </tr>
+                      <% for(var k = 0; k < categories[i].services.length; k++) { %>
+                      <tr class="table-cont serv-row" data-category="<%- categories[i].category.name %>">
+                          <td data-head="المفضلة" data-status="<%- categories[i].services[k].favorite %>" data-fav="<%- categories[i].services[k]._id %>" data-category="<%- categories[i].services[k].categoryId %>" onclick="favList(this)">
+                              <% if(categories[i].services[k].favorite){ %>
+                              <div class="start_fav active" style="cursor: pointer;"><img class="" src="<%- host %>style/images/star.png"/></div>
+                              <% } else{ %>
+                              <div class="start_fav not" style="width: 24px; height: 24px; cursor: pointer;"><img style="width: 100%; height: 100%;" class="" src="<%- host %>style/images/starNoFav.png" /></div>
+                              <% } %>
+                              <!-- <a class="fav star" href="javascript:void(0);" data-id="5576"><i class="fal fa-star favourite_icon"></i></a> -->
+                          </td>
+                          <td data-head="الرقم"><%- categories[i].services[k].service %></td>
+                          <td data-head="الاسم" class="service-name mk-icons"><%- categories[i].services[k].name %></td>
+                          <td data-head="السعر لكل 1000" class="cont-width rate-badge"><%- categories[i].services[k].price.newPrice %></td>
+                          <td data-head="الحد الادنى"><%- categories[i].services[k].min %></td>
+                          <td data-head="الحد الاقصى"><%- categories[i].services[k].max %></td>
+                          <td data-head="معدل الوقت" class="nowrap">ساعة</td>
+                          <td data-head="وصف الخدمة" 
+                            data-name="<%- categories[i].services[k].name %>" 
+                            data-description="<%- categories[i].services[k].description %>"
+                            data-executionTime="<%- categories[i].services[k].executionTime %>"
+                            data-startTime="<%- categories[i].services[k].startTime %>"
+                            data-guarantee="<%- categories[i].services[k].guarantee %>"
+                            data-averageTime="<%- categories[i].services[k].averageTime %>"
+                            data-speed="<%- categories[i].services[k].speed %>"
+                            data-quality="<%- categories[i].services[k].quality %>"
+                            onclick="detailShow(this)" style="cursor: pointer;"
+                            >
+                              <a class="btn-primary table-btn btn-sm btn-serv">التفاصيل</a>
+                          </td>
+                      </tr>
+                      <% } %> <% } %>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- SERVICE MODAL -->
+<div class="modal fade" id="servModal_custom" tabindex="3" role="dialog" style="">
+  <div class="modal-dialog" style="margin-top: 120px !important;">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true" onclick="detailClose()">×</span>
+              </button>
+              <h4 class="modal-title">تفاصيل الخدمة</h4>
+          </div>
+          <div class="modal-body">
+              <div class="servPicWrap">
+                  <img src="https://cdn.mypanel.link/1847ba/l7jl7u8x0smnf9i1.png" class="servPic" />
+              </div>
+              <h2 class="servName" id="service_name_custom"></h2>
+              <!--<div class="servLink">
+                  <a href="https://anon.ws/?null" id="example_link"></a>
+              </div>-->
+              <div class="row">
+                  <div class="col-xs-12 col-lg-6 col-md-6 col-sm-6 text-center">
+                      <h6>الوقت التقريبي</h6>
+                      <p id="average_time_custom"></p>
+
+                      <!-- <p id="average_time">Not enough </p> -->
+                  </div>
+                  <div class="col-xs-12 col-lg-6 col-md-6 col-sm-6 text-center">
+                      <h6>السرعة</h6>
+                      <!-- <p id="speed"></p> -->
+                      <p id="speed_custom"></p>
+                  </div>
+                  <div class="col-xs-12 col-lg-6 col-md-6 col-sm-6 text-center">
+                      <h6>وقت البدا</h6>
+                      <!-- <p id="start_time"></p> -->
+                      <p id="start_time_custom" style="font-size: 14px;"></p>
+                  </div>
+                  <div class="col-xs-12 col-lg-6 col-md-6 col-sm-6 text-center">
+                    <h6>الضمان والتعويض</h6>
+                    <!-- <p id="guaranteed"></p> -->
+                    <p id="guaranteed_custom"></p>
+                </div>
+                <div class="col-xs-12 col-lg-6 col-md-6 col-sm-6 text-center">
+                    <h6>الجودة</h6>
+                    <!-- <p id="quality">REAL</p> -->
+                    <p id="quality_custom"></p>
+                </div>
+                <div class="col-xs-12col-lg-6 col-md-6 col-sm-6 text-center">
+                    <h6>وصف الخدمة</h6>
+                    <p id="details_description"></p>
+                </div>
+              </div>
+              <!-- <div class="row">
+                  
+              </div>
+              <div class="row">
+                  <div class="col-sm-6 text-center">
+                      <h6>وصف الخدمة</h6>
+                      <p id="details_description"></p>
+                  </div>
+              </div>-->
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<script>
+    /*
+ var userId = 18076;
+var userName = "hgffgfddsrhj";
+var favServices = [5664, 5665];
+var categories = [];
+var serviceList = [];
+$(document).ready(function () {
+    hightLightFavorite(favServices);
+    $("a.star").click(function () {
+        var status = $(this).data("status");
+        var sid = parseInt($(this).data("id"));
+        $(this).html('<img class="img_ajax" src="https://i.imgur.com/NIQidro.gif">');
+        doUpdateFavorite(this, status, userId, userName, sid);
+    });
+});
+function doUpdateFavorite(obj, status, uid, uname, sid) {
+    if (status) {
+        for (var i = 0; i < favServices.length; i++) {
+            if (sid == favServices[i]) {
+                favServices.splice(i, 1);
+            }
+        }
+    } else {
+        favServices.push(sid);
+    }
+    $.ajax({
+        type: "GET",
+        url: "/changevariable/custom_variable_2",
+        crossDomain: true,
+        data: "value=" + favServices.toString(),
+        success: function (responseData, textStatus, jqXHR) {
+            $(".img_ajax").remove();
+            if (!status) {
+                $(obj).html("<i class='fa fa-heart'></i>");
+                $(obj).data("status", 1);
+            } else {
+                $(obj).html("<i class='fa fa-heart-o'></i>");
+                $(obj).data("status", 0);
+            }
+            hightLightFavorite(favServices);
+        },
+        error: function (responseData, textStatus, errorThrown) {
+            $(".img_ajax").remove();
+            if (!status) {
+                $(obj).html("<i class='fas fa-star favourite_icon'></i>");
+                $(obj).data("status", 1);
+            } else {
+                $(obj).html("<i class='fal fa-star favourite_icon'></i>");
+                $(obj).data("status", 0);
+            }
+            hightLightFavorite(favServices);
+        },
+    });
+}
+function hightLightFavorite(data) {
+    $("a.star").each(function () {
+        var id = parseInt($(this).data("id"));
+        if (data.indexOf(id) != -1) {
+            $(this).html("<i class='fas fa-star favourite_icon'></i>");
+            $(this).data("status", 1);
+        } else {
+            $(this).html("<i class='fal fa-star favourite_icon'></i>");
+            $(this).data("status", 0);
+        }
+    });
+}*/
+
+</script>
+<!--
+<script src="https://appsmmcpan.com/fav/favourite.js"></script>
+-->
+</main>
+<script src="<%- host %>js/assets/jquery.min.js"></script>
+ <script src="<%- host %>js/assets/detailShowFav.js"></script>

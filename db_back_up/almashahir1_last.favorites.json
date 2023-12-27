@@ -1,0 +1,527 @@
+[{
+  "_id": {
+    "$oid": "62aab47032657320e8059d88"
+  },
+  "status": true,
+  "favorite": 1,
+  "userId": "62aaaeec0cf56741a0409b85",
+  "serviceId": "62aa90286ed8ef2969630ed2",
+  "categoryId": "62aa90286ed8ef2969630ecf",
+  "createAt": {
+    "$date": "2022-06-16T04:41:20.967Z"
+  },
+  "updateAt": {
+    "$date": "2022-06-16T04:41:20.967Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62b9a9f4023142c17a495d22"
+  },
+  "status": true,
+  "favorite": 2,
+  "userId": "62b9a3b9023142c17a495353",
+  "serviceId": "62b5d5320e178179926368e7",
+  "categoryId": "62b5d5320e178179926368e4",
+  "createAt": {
+    "$date": "2022-06-27T13:00:36.824Z"
+  },
+  "updateAt": {
+    "$date": "2022-06-27T13:00:36.824Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "63305f8a9181c9cd25475623"
+  },
+  "status": true,
+  "favorite": 3,
+  "userId": "630b6f2a9181c9cd2546a871",
+  "serviceId": "62b5cc579242827693220ce4",
+  "categoryId": "62b5cc579242827693220ce1",
+  "createAt": {
+    "$date": "2022-09-25T14:02:50.601Z"
+  },
+  "updateAt": {
+    "$date": "2022-09-25T14:02:50.601Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "63305f939181c9cd25475644"
+  },
+  "status": true,
+  "favorite": 4,
+  "userId": "630b6f2a9181c9cd2546a871",
+  "serviceId": "62b5cc579242827693220d0e",
+  "categoryId": "62b5cc579242827693220ce1",
+  "createAt": {
+    "$date": "2022-09-25T14:02:59.016Z"
+  },
+  "updateAt": {
+    "$date": "2022-09-25T14:02:59.016Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "63305f979181c9cd25475a5c"
+  },
+  "status": true,
+  "favorite": 5,
+  "userId": "630b6f2a9181c9cd2546a871",
+  "serviceId": "63121bf19181c9cd2546da2c",
+  "categoryId": "62b5cc579242827693220ce1",
+  "createAt": {
+    "$date": "2022-09-25T14:03:03.955Z"
+  },
+  "updateAt": {
+    "$date": "2022-09-25T14:03:03.955Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "63419763f2a27b5bedb98fd0"
+  },
+  "status": true,
+  "favorite": 6,
+  "userId": "6341959df2a27b5bedb98b6a",
+  "serviceId": "62fec47757c31b710b82b309",
+  "categoryId": "62b3dff5d50635618d10cb95",
+  "createAt": {
+    "$date": "2022-10-08T15:29:39.110Z"
+  },
+  "updateAt": {
+    "$date": "2022-10-08T15:29:39.110Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "63c47eb9755ab7351b1ff8b4"
+  },
+  "status": true,
+  "favorite": 7,
+  "userId": "62b9a3b9023142c17a495353",
+  "serviceId": "62b5cc579242827693220d0e",
+  "categoryId": "62b5cc579242827693220ce1",
+  "createAt": {
+    "$date": "2023-01-15T22:31:21.210Z"
+  },
+  "updateAt": {
+    "$date": "2023-01-15T22:31:21.210Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee1d936cf667daf920381c"
+  },
+  "status": true,
+  "favorite": 8,
+  "userId": "64ede9216cf667daf9201d08",
+  "serviceId": "62b4055f6d256b639afe83d1",
+  "categoryId": "62b4055f6d256b639afe83c2",
+  "createAt": {
+    "$date": "2023-08-29T16:32:19.730Z"
+  },
+  "updateAt": {
+    "$date": "2023-08-29T16:32:19.730Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ef110e6cf667daf9208844"
+  },
+  "status": true,
+  "favorite": 9,
+  "userId": "64eef90a6cf667daf9206fd4",
+  "serviceId": "62fc36d257c31b710b829652",
+  "categoryId": "62b4055f6d256b639afe83c2",
+  "createAt": {
+    "$date": "2023-08-30T09:51:10.643Z"
+  },
+  "updateAt": {
+    "$date": "2023-08-30T09:51:10.643Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ef293a6cf667daf9209b1f"
+  },
+  "status": true,
+  "favorite": 10,
+  "userId": "64eef90a6cf667daf9206fd4",
+  "serviceId": "62b4055f6d256b639afe83d3",
+  "categoryId": "62b4055f6d256b639afe83c2",
+  "createAt": {
+    "$date": "2023-08-30T11:34:18.313Z"
+  },
+  "updateAt": {
+    "$date": "2023-08-30T11:34:18.313Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f117106cf667daf9212182"
+  },
+  "status": true,
+  "favorite": 11,
+  "userId": "64f091ab6cf667daf920ea77",
+  "serviceId": "62df7ebd6e9539e23a09cf87",
+  "categoryId": "62b3d677d50635618d10c796",
+  "createAt": {
+    "$date": "2023-08-31T22:41:20.022Z"
+  },
+  "updateAt": {
+    "$date": "2023-08-31T22:41:20.022Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f5476a7fc41c15ec6089f2"
+  },
+  "status": false,
+  "favorite": 12,
+  "userId": "64f4c41b72c854fadc57f928",
+  "serviceId": "62b5cc579242827693220cf2",
+  "categoryId": "62b5cc579242827693220ce1",
+  "createAt": {
+    "$date": "2023-09-04T02:56:42.373Z"
+  },
+  "updateAt": {
+    "$date": "2023-09-04T02:56:42.373Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f549a67fc41c15ec60950d"
+  },
+  "status": true,
+  "favorite": 13,
+  "userId": "64f4c41b72c854fadc57f928",
+  "serviceId": "62b5cc579242827693220d0e",
+  "categoryId": "62b5cc579242827693220ce1",
+  "createAt": {
+    "$date": "2023-09-04T03:06:14.685Z"
+  },
+  "updateAt": {
+    "$date": "2023-09-04T03:06:14.685Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f549ec7fc41c15ec60aa5a"
+  },
+  "status": true,
+  "favorite": 14,
+  "userId": "64f4c41b72c854fadc57f928",
+  "serviceId": "62b3dff4d50635618d10cb78",
+  "categoryId": "62fc36d257c31b710b82964f",
+  "createAt": {
+    "$date": "2023-09-04T03:07:24.130Z"
+  },
+  "updateAt": {
+    "$date": "2023-09-04T03:07:24.130Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64fa494929f44e47faa49881"
+  },
+  "status": true,
+  "favorite": 15,
+  "userId": "64f853f829f44e47faa432c3",
+  "serviceId": "62b4055f6d256b639afe83d3",
+  "categoryId": "62b4055f6d256b639afe83c2",
+  "createAt": {
+    "$date": "2023-09-07T22:06:01.209Z"
+  },
+  "updateAt": {
+    "$date": "2023-09-07T22:06:01.209Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64fadb1a29f44e47faa4b3c7"
+  },
+  "status": true,
+  "favorite": 16,
+  "userId": "64f4e0cc7fc41c15ec607ea4",
+  "serviceId": "62f1706867b4360ba6b0a5dd",
+  "categoryId": "62b4055f6d256b639afe83c2",
+  "createAt": {
+    "$date": "2023-09-08T08:28:10.176Z"
+  },
+  "updateAt": {
+    "$date": "2023-09-08T08:28:10.176Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64fb1a5b29f44e47faa4c689"
+  },
+  "status": true,
+  "favorite": 17,
+  "userId": "64f853f829f44e47faa432c3",
+  "serviceId": "62b5cc579242827693220cf2",
+  "categoryId": "62b5cc579242827693220ce1",
+  "createAt": {
+    "$date": "2023-09-08T12:58:03.201Z"
+  },
+  "updateAt": {
+    "$date": "2023-09-08T12:58:03.202Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64fc9a2b29f44e47faa51609"
+  },
+  "status": true,
+  "favorite": 18,
+  "userId": "64ef3d356cf667daf920cf71",
+  "serviceId": "62b5cc579242827693220cf2",
+  "categoryId": "62b5cc579242827693220ce1",
+  "createAt": {
+    "$date": "2023-09-09T16:15:39.244Z"
+  },
+  "updateAt": {
+    "$date": "2023-09-09T16:15:39.244Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ff7aa329f44e47faa555c9"
+  },
+  "status": true,
+  "favorite": 19,
+  "userId": "64ef3d356cf667daf920cf71",
+  "serviceId": "62b3fc1bd50635618d10d446",
+  "categoryId": "62b3fc1ad50635618d10d443",
+  "createAt": {
+    "$date": "2023-09-11T20:37:55.267Z"
+  },
+  "updateAt": {
+    "$date": "2023-09-11T20:37:55.267Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65002a4a29f44e47faa56831"
+  },
+  "status": true,
+  "favorite": 20,
+  "userId": "62d9188c6e9539e23a098406",
+  "serviceId": "63c17fa7755ab7351b1fd0a3",
+  "categoryId": "62b4055f6d256b639afe83c2",
+  "createAt": {
+    "$date": "2023-09-12T09:07:22.813Z"
+  },
+  "updateAt": {
+    "$date": "2023-09-12T09:07:22.813Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "650037c729f44e47faa57078"
+  },
+  "status": true,
+  "favorite": 21,
+  "userId": "62d9188c6e9539e23a098406",
+  "serviceId": "62de82156e9539e23a09a805",
+  "categoryId": "62de82146e9539e23a09a7d2",
+  "createAt": {
+    "$date": "2023-09-12T10:04:55.878Z"
+  },
+  "updateAt": {
+    "$date": "2023-09-12T10:04:55.878Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "650f1e6e27a43961bdff9d29"
+  },
+  "status": true,
+  "favorite": 22,
+  "userId": "64ef427d6cf667daf920d0de",
+  "serviceId": "62b5cc579242827693220cf2",
+  "categoryId": "62b5cc579242827693220ce1",
+  "createAt": {
+    "$date": "2023-09-23T17:20:46.499Z"
+  },
+  "updateAt": {
+    "$date": "2023-09-23T17:20:46.500Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65122a0a27a43961bdffb217"
+  },
+  "status": true,
+  "favorite": 23,
+  "userId": "64ef65a76cf667daf920d3d2",
+  "serviceId": "62b5cc579242827693220cf2",
+  "categoryId": "62b5cc579242827693220ce1",
+  "createAt": {
+    "$date": "2023-09-26T00:47:06.547Z"
+  },
+  "updateAt": {
+    "$date": "2023-09-26T00:47:06.547Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65122a2327a43961bdffb598"
+  },
+  "status": true,
+  "favorite": 24,
+  "userId": "64ef65a76cf667daf920d3d2",
+  "serviceId": "62b4055f6d256b639afe83d3",
+  "categoryId": "62b4055f6d256b639afe83c2",
+  "createAt": {
+    "$date": "2023-09-26T00:47:31.275Z"
+  },
+  "updateAt": {
+    "$date": "2023-09-26T00:47:31.275Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6512e52427a43961bdffbe91"
+  },
+  "status": false,
+  "favorite": 25,
+  "userId": "64efbe0d6cf667daf920dac3",
+  "serviceId": "62b4055f6d256b639afe83d3",
+  "categoryId": "62b4055f6d256b639afe83c2",
+  "createAt": {
+    "$date": "2023-09-26T14:05:24.239Z"
+  },
+  "updateAt": {
+    "$date": "2023-09-26T14:05:24.239Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6512e54427a43961bdffc210"
+  },
+  "status": true,
+  "favorite": 26,
+  "userId": "64efbe0d6cf667daf920dac3",
+  "serviceId": "62b4055f6d256b639afe83e7",
+  "categoryId": "62b4055f6d256b639afe83c2",
+  "createAt": {
+    "$date": "2023-09-26T14:05:56.155Z"
+  },
+  "updateAt": {
+    "$date": "2023-09-26T14:05:56.155Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65193f4b27a43961bdffe365"
+  },
+  "status": true,
+  "favorite": 27,
+  "userId": "64f4c41b72c854fadc57f928",
+  "serviceId": "630173ab57c31b710b82e507",
+  "categoryId": "62b3f355d50635618d10d140",
+  "createAt": {
+    "$date": "2023-10-01T09:43:39.758Z"
+  },
+  "updateAt": {
+    "$date": "2023-10-01T09:43:39.758Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "652a6bd827a43961bdfffae2"
+  },
+  "status": true,
+  "favorite": 28,
+  "userId": "652a66cf27a43961bdfff001",
+  "serviceId": "62b3dff5d50635618d10cba2",
+  "categoryId": "62b3dff5d50635618d10cb95",
+  "createAt": {
+    "$date": "2023-10-14T10:22:16.840Z"
+  },
+  "updateAt": {
+    "$date": "2023-10-14T10:22:16.840Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "652a6ca827a43961bd0001da"
+  },
+  "status": false,
+  "favorite": 29,
+  "userId": "652a66cf27a43961bdfff001",
+  "serviceId": "62f0635067b4360ba6b09652",
+  "categoryId": "62f0634f67b4360ba6b09645",
+  "createAt": {
+    "$date": "2023-10-14T10:25:44.243Z"
+  },
+  "updateAt": {
+    "$date": "2023-10-14T10:25:44.243Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "652a6cd027a43961bd000556"
+  },
+  "status": false,
+  "favorite": 30,
+  "userId": "652a66cf27a43961bdfff001",
+  "serviceId": "62f0635067b4360ba6b0964a",
+  "categoryId": "62f0634f67b4360ba6b09645",
+  "createAt": {
+    "$date": "2023-10-14T10:26:24.462Z"
+  },
+  "updateAt": {
+    "$date": "2023-10-14T10:26:24.462Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "652a71da27a43961bd001769"
+  },
+  "status": true,
+  "favorite": 31,
+  "userId": "652a66cf27a43961bdfff001",
+  "serviceId": "62b5cc579242827693220ce8",
+  "categoryId": "62b5cc579242827693220ce1",
+  "createAt": {
+    "$date": "2023-10-14T10:47:54.201Z"
+  },
+  "updateAt": {
+    "$date": "2023-10-14T10:47:54.201Z"
+  },
+  "__v": 0
+}]

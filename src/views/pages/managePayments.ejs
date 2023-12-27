@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+  <head>
+    <%- include('../partials/headerAll.ejs'); %>
+      <style>
+      
+      @media (max-width: 800px) {
+        .edit-modal {
+          margin-top: 5px !important;
+          width: 100% !important;
+        }
+        .edit-user-title {
+          font-size: 12px !important;
+        }
+        .icon-group {
+          font-size: 12px !important;
+        }
+        .icon-group input{
+          height: 30px !important;
+        }
+      }
+      .ratGiveWrap .alert.alert-dismissible.alert-danger {
+        max-width: 335px;
+        margin: auto;
+      }
+ 
+      fieldset,
+      label {
+        margin: 0;
+        padding: 0;
+      }
+ 
+      .ratGiveWrap {
+        position: relative;
+        margin-bottom: 20px;
+        margin-top: 20px;
+      }
+ 
+      .rating {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        border-radius: 50px;
+        width: 260px;
+        padding: 10px 15px 10px 40px;
+        background-color: #2b2b2b;
+        margin: 0 0 35px 33%;
+      }
+ 
+      .ar .rating {
+        padding: 10px 40px 10px 15px;
+        margin: 0 33% 34px 0;
+      }
+ 
+      .ar .ratting-wrap-disabled .rating {
+        margin: 0;
+      }
+ 
+      .ratting-wrap-disabled .rating {
+        border: 1px solid #f7f7f7;
+        min-width: 40px;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        border-radius: 30px;
+        max-width: 106px;
+        padding: 2px 3px;
+        background-color: #f9f9f7;
+        margin: 0;
+      }
+ 
+      .ratFig {
+        width: 110px;
+        height: 110px;
+        background-color: #feba00;
+        color: #fff;
+        text-align: center;
+        line-height: 110px;
+        font-size: 45px;
+        font-weight: 600;
+        border-radius: 110px;
+        z-index: 1;
+        position: absolute;
+        left: 120px;
+        top: -20px;
+      }
+ 
+      .ar .ratFig {
+        left: auto;
+        right: 120px;
+      }
+ 
+      .rating>input {
+        display: none;
+      }
+ 
+      .rating>label:before {
+        margin: 0px;
+        font-size: 32px;
+        font-family: "Font Awesome 5 Pro";
+        display: inline-block;
+        content: "\f005";
+      }
+ 
+      .ratting-wrap-disabled .rating>label:before {
+        font-size: 16px;
+      }
+ 
+      .rating>label {
+        color: #ddd;
+        margin: 0 !important;
+      }
+ 
+      .rating>input:checked~label,
+      .rating:not(:checked)>label:hover,
+      .rating:not(:checked)>label:hover~label {
+        color: #feba00;
+      }
+ 
+      .rating>input:checked+label:hover,
+      .rating>input:checked~label:hover,
+      .rating>label:hover~input:checked~label,
+      .rating>input:checked~label:hover~label {
+        color: #feba00;
+      }
+ 
+      .ratting-wrap-disabled .rating>input,
+      .ratting-wrap-disabled .rating>label {
+        cursor: not-allowed;
+      }
+ 
+      .ratting-wrap-disabled .rating>input:checked~label,
+      .ratting-wrap-disabled .rating:not(:checked)>label:hover,
+      .ratting-wrap-disabled .rating:not(:checked)>label:hover~label {
+        color: #dddddd;
+      }
+ 
+      .ratting-wrap-disabled .rating>input:checked+label:hover,
+      .ratting-wrap-disabled .rating>input:checked~label:hover,
+      .ratting-wrap-disabled .rating>label:hover~input:checked~label,
+      .ratting-wrap-disabled .rating>input:checked~label:hover~label {
+        color: #dddddd;
+      }
+ 
+      .input-group.table-feedback-box {
+        max-width: 185px;
+        border-bottom: 1px solid #000;
+        border-radius: 0;
+        padding: 0;
+        border-spacing: 0;
+      }
+ 
+      .input-group.table-feedback-box .form-control {
+        border: none;
+        border-radius: 0;
+        height: auto;
+        padding: 6px;
+        font-size: 12px;
+      }
+ 
+      .input-group.table-feedback-box .btn.btn-default {
+        background-color: #fdf001;
+        border: none;
+        border-radius: 50px;
+        height: 26px;
+        width: 26px;
+        text-align: center;
+        padding: 0;
+        color: #000;
+        line-height: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+ 
+      .dashboard .btn.btn-primary.ratBtn,
+      .dashboard .btn.btn-primary.subRatBtn {
+        margin: auto;
+        width: 133px;
+        display: block;
+      }
+ 
+      .dashboard .btn.btn-primary.subRatBtn {
+        display: none;
+      }
+ 
+      .ratBody .form-group {
+        max-width: 330px;
+        margin: 0 auto 15px;
+      }
+ 
+      .ratBody .form-group textarea#feedbackMsg {
+        height: 120px;
+      }
+ 
+      .ratModlaBtn.btn-primary.table-btn.btn-sm.btn-serv {
+        border: none;
+        min-width: 120px;
+      }
+ 
+      .ratBody h2 {
+        font-size: 24px;
+        text-align: center;
+        margin: 10px auto 25px;
+      }
+ 
+      .ratBody h2.status-response {
+        font-size: 38px;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 10px;
+      }
+ 
+      .ratBody h3.status-response-2 {
+        font-size: 22px;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #000;
+      }
+ 
+      .ratBody .ratTable {
+        margin: auto;
+        border-collapse: separate;
+        border-spacing: 4px;
+        max-width: 360px;
+      }
+ 
+      .ratBody .ratTable th {
+        background-color: #fdf001;
+        color: #040404;
+      }
+ 
+      .ratBody .ratTable th,
+      .ratBody .ratTable td {
+        padding: 6px 10px;
+      }
+ 
+      .ratBody .ratTable td {
+        border: 1px solid #000000;
+      }
+ 
+      .nightmode .ratBody .ratTable td {
+        border-color: #fdf001;
+      }
+ 
+      .nightmode .ratFig {
+        background-color: #484848;
+      }
+ 
+      @media(max-width:500px) {
+        .ratGiveWrap {
+          margin-bottom: 15px;
+          margin-top: 50px;
+        }
+ 
+        .ratFig {
+          width: 60px;
+          height: 61px;
+          line-height: 60px;
+          font-size: 29px;
+          left: 0;
+          top: -55px;
+          right: 0;
+          margin: auto;
+        }
+ 
+        .rating {
+          width: 180px;
+          padding: 5px 15px 6px 15px;
+          margin: 0 auto 15px;
+        }
+ 
+        .ar .rating {
+          padding: 5px 15px 6px 15px;
+          margin: 0 auto 15px;
+        }
+ 
+        .rating>label::before {
+          font-size: 26px;
+        }
+ 
+        .ratBody .ratTable {
+          min-width: 260px;
+          max-width: 260px;
+        }
+ 
+        .ar .ratFig {
+          left: 0;
+          right: 0;
+        }
+      }
+    </style>
+    
+  </head>
+  <body class="dashboard daymode ar">
+    <div id="page-wrapper">
+      <%- include('../moduls/main_navbar_auth.ejs'); %>
+      <%- include('../moduls/managePayments.ejs'); %>
+      <%- include('../partials/footerAll.ejs'); %>
+    </div>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-142022689-1');
+    </script>
+
+    <script>
+      $("#search").keyup(function () {
+        searchUsers();
+      });
+      function searchUsers() {
+          var searchTerm = $("#search").val();
+          var listItem = $('.results tbody').children('tr');
+          var searchSplit = searchTerm.replace(/ /g, "'):containsi('")
+          $.extend($.expr[':'], {'containsi': function(elem, i, match, array) {
+              return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+            }
+          });
+          $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function(e){
+            $(this).addClass('hide');
+          });
+          $(".results tbody tr:containsi('" + searchSplit + "')").each(function(e){
+            $(this).removeClass('hide');
+          });
+          $("tr.separator:first-child, tr.separator:last-child").each(function(e) {
+            $(this).removeClass('hide');
+          });
+      }
+    </script>
+    <%- include('../partials/footerAll2.ejs'); %>
+  </body>
+</html>

@@ -1,0 +1,1814 @@
+<main class="inner-wrap inner-wrap-custom">
+  <style>
+    .spent_d .spent_p {
+        font-size: 20px ;
+    }
+    .mony-banner-sub-head-custom_2 {
+        display: none !important;
+    }
+    @media only screen and (max-width: 900px) {
+        .mony-banner-sub-head-custom_1 {
+            display: inline !important;
+        }
+        .mony-banner-sub-head-custom_2 {
+            display: none !important;
+        }
+        .mony-banner-sub-head-custom_2_spent {
+            width: 40% !important;
+        }
+        .banner-sub-head-custom {
+            margin-right: 0px!important;
+        }
+        .total-head-custom {
+            font-size: 20px !important;
+        }
+    }
+    @media only screen and (max-width: 400px) {
+        .mony-banner-sub-head-custom_2_spent {
+            width: 40% !important;
+        }
+        .border-left-banner-sub-head-custom {
+            margin-left: 30px !important;
+        }
+        .border-left-banner-sub-head-custom {
+            padding-left: 12px !important;
+        }
+    }
+    @media (max-width: 538px) {
+        .viewmoney {
+            font-size: 12px !important;
+        }
+      .read_before_order {
+        padding-right: 250px;
+        padding-bottom: 20px;
+        padding-left: 10px;
+      }
+      .update {
+        padding-left: 230px;
+      }
+      .favourite {
+        padding-right: 250px;
+        padding-left: 10px;
+      }
+      .new_order {
+        padding-left: 285px;
+      }
+      .points {
+        margin-right: 22px;
+      }
+      .spent_d .spent_p {
+        font-size: 16px !important;
+      }
+      /*.update .favourite .new_order*/
+    }
+    
+    @media (max-width: 360px) {
+        .update {
+            padding-left: 158px !important;
+        }
+        .new_order {
+            padding-left: 210px !important;
+        }
+        .favourite {
+            padding-right: 171px !important;
+        }
+        .read_before_order {
+            padding-right: 170px !important;
+        }
+    }
+
+
+      .label-badge {
+          background-color: #f4db7d;
+          padding: 2px 6px;
+          border-radius: 4px;
+          font-size: 11px;
+          font-weight: 600;
+          margin-left: 10px;
+      }
+      .label-badge i {
+          margin-right: 3px;
+      }
+      .ar .label-badge {
+          margin-left: 0;
+          margin-right: 10px;
+      }
+      .ar .label-badge i {
+          margin-right: 0;
+          margin-left: 3px;
+      }
+      .nightmode .label-badge {
+          background-color: #484848;
+      }
+      .banner-inner p .uData {
+          font-weight: 700;
+          font-size: 16px;
+      }
+      .modal-logo img {
+          max-width: 172px;
+      }
+      .statusModal .modal-lg {
+          width: 1140px;
+      }
+      .statusModal .modal-header {
+          padding: 0;
+          border: none;
+      }
+      .statusModal .modal-content {
+          border-radius: 45px;
+          border: none;
+      }
+      .statusModal .modal-header button.close {
+          position: absolute;
+          right: 0;
+          box-shadow: none;
+          background-color: #f4db7d;
+          z-index: 11;
+          color: #000;
+          opacity: 1;
+          text-shadow: none;
+          border: none;
+          font-weight: 300;
+      }
+      .statusModal .modal-body {
+          padding: 0;
+          display: flex;
+          flex-wrap: wrap;
+      }
+      .modal-left {
+          max-width: 20%;
+          flex: 0 0 20%;
+      }
+      .modal-right {
+          max-width: 80%;
+          flex: 0 0 80%;
+          display: flex;
+          flex-wrap: wrap;
+      }
+      .modal-logo {
+          background-color: #1a2238;
+          border-radius: 42px 0 0 0;
+          text-align: center;
+          padding: 25px 0;
+      }
+      .ar .modal-logo {
+          border-radius: 0 42px 0px 0;
+      }
+      .status-box-wrap {
+          max-width: 16.65%;
+          flex: 0 0 16.65%;
+          transition: all 0.4s ease-in;
+      }
+      .modal-status-title {
+          background-color: #f7f9f9;
+          margin: 0;
+          list-style: none;
+          padding: 30px 25px;
+      }
+      .ar .modal-status-title {
+          padding: 30px 23px;
+      }
+      .modal-status-title li {
+          font-size: 16px;
+          font-weight: 400;
+          color: #000;
+          line-height: 48px;
+      }
+      .modal-status-title li sup {
+          font-size: 14px;
+          font-weight: 700;
+      }
+      .status-slider .slick-list {
+          padding: 0 !important;
+      }
+      .status-box-top {
+          padding: 20px 0;
+          text-align: center;
+      }
+      .status-box-top h4 {
+          color: #b0b0b0;
+          font-weight: 300;
+          font-size: 14px;
+          margin-top: 0;
+          margin-bottom: 5px;
+      }
+      .status-box-top h3 {
+          margin-bottom: 0;
+          font-size: 22px;
+          font-weight: 500;
+          color: #000;
+      }
+      .status-box-badge {
+          background-image: url(https://res.cloudinary.com/smmcpan2/image/upload/v1627852108/p7.png);
+          width: 126px;
+          height: 83px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 10px auto 0;
+          background-repeat: no-repeat;
+          background-position: 0 0;
+      }
+      .slick-center .status-box-badge {
+          background-position: -127px 0px;
+      }
+      .modal-status-value {
+          padding: 30px 0px;
+          margin: 0;
+          list-style: none;
+      }
+      .modal-status-value li {
+          text-align: center;
+          line-height: 48px;
+          min-height: 48px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+      .modal-status-value li .price {
+          font-size: 32px;
+          font-weight: 400;
+          margin: 0;
+          color: #000;
+          line-height: inherit;
+      }
+      .modal-status-value li .price sup {
+          font-weight: 700;
+      }
+      .slick-center .status-box-wrap {
+          background-color: #f4db7d;
+      }
+      .slick-center .status-box-wrap h4 {
+          color: #fff;
+      }
+      .modal-status-value li div {
+          width: 24px;
+          height: 24px;
+          display: flex;
+          margin: auto;
+          border-radius: 50px;
+          text-align: center;
+          line-height: 24px;
+          font-size: 14px;
+          align-items: center;
+          justify-content: center;
+      }
+      .modal-status-value li div.disabl {
+          color: #ffffff;
+          background-color: #ff0000;
+      }
+      .modal-status-value li div.enble {
+          background-color: #f4db7d;
+      }
+      .slick-center .modal-status-value li div.disabl,
+      .slick-center .modal-status-value li div.enble {
+          background-color: #fff;
+      }
+      .slick-center .modal-status-value li div.disabl {
+          color: #ff0000;
+      }
+      .status-slider .slick-dots button::before {
+          background-color: #f4db7d;
+          width: 10px;
+          height: 10px;
+      }
+      .status-slider .slick-dots button {
+          padding: 0;
+          width: 10px;
+          height: 10px;
+      }
+      .status-slider .slick-dots li {
+          height: auto;
+          width: auto;
+      }
+      .slick-dotted.status-slider {
+          margin-bottom: 0;
+      }
+      .ar .statusModal .modal-header button.close {
+          right: auto;
+          left: -15px;
+          float: left;
+      }
+      .modal-bottom {
+          max-width: 100%;
+          flex: 0 0 100%;
+          background-color: #f7f9f9;
+          border-radius: 0 0 42px 42px;
+          padding: 10px 25px 15px;
+      }
+      .modal-bottom p {
+          font-size: 14px;
+          margin: 0;
+      }
+      .modal-bottom ul {
+          margin: 0;
+          padding: 0;
+          line-height: 1;
+      }
+      .modal-bottom ul li {
+          font-size: 13px;
+      }
+      .ar .modal-status-value {
+          padding: 22px 0px;
+      }
+      .nightmode .modal-bottom,
+      .nightmode .modal-status-title {
+          background-color: #484848;
+      }
+      .nightmode .modal-status-title li,
+      .nightmode .status-box-top h3,
+      .nightmode .modal-status-value li .price {
+          color: #ffffff;
+      }
+      .nightmode #service_name {
+          color: #1a2238;
+      }
+      .nav-tabs > li.search-wrap > a {
+          padding-left: 8px;
+          padding-right: 10px;
+          /*background-color: #F4DB7D;
+border-color: #F4DB7D;
+color: #000;*/
+      }
+      .dashboard #search-serv .input-group .btn.btn-primary {
+          border-radius: 30px;
+          font-weight: 200;
+          padding-left: 13px;
+          padding-right: 13px;
+          margin-left: 10px;
+          width: 44px;
+          height: 44px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+      .ar.dashboard #search-serv .input-group .btn.btn-primary {
+          margin-left: 0;
+          margin-right: 10px;
+      }
+      #search-serv .input-group .form-control {
+          border-radius: 4px;
+      }
+      @media (max-width: 550px) {
+          .modal-logo {
+              border-radius: 42px 42px 0 0;
+          }
+          .modal-status-title {
+              display: none;
+          }
+          .statusModal .modal-body {
+              flex-direction: column;
+          }
+          .modal-left,
+          .modal-right {
+              max-width: 100%;
+              flex: 0 0 100%;
+          }
+          .statusModal .modal-lg {
+              width: auto;
+          }
+          .status-box-wrap {
+              max-width: 100%;
+              flex: 0 0 100%;
+          }
+          .status-box-top {
+              padding: 10px 0;
+          }
+          .modal-status-value {
+              padding: 10px 0px;
+          }
+          .modal-status-value li {
+              min-height: 38px;
+          }
+          .modal-status-value li div,
+          .modal-status-value li h5 {
+              position: relative;
+              padding-left: 75%;
+              border-radius: 4px;
+              height: auto;
+              line-height: 32px;
+              display: block;
+              margin-top: 0;
+              margin-bottom: 0;
+              width: auto;
+          }
+          .modal-status-value li div::before,
+          .modal-status-value li h5::before {
+              content: attr(data-head);
+              display: inline-block;
+              position: absolute;
+              left: 10px;
+              font-size: 14px;
+              line-height: 32px;
+          }
+          .modal-status-value li .price::before {
+              position: relative;
+              left: auto;
+              margin-right: 10px;
+          }
+          .modal-status-value li div i {
+              margin-right: 15px;
+              margin-left: -15px;
+          }
+          .modal-status-value li .price {
+              font-size: 14px;
+              line-height: 32px;
+              padding-left: 0;
+              display: inline-block;
+              white-space: nowrap;
+          }
+          .ar .modal-status-value li div::before,
+          .ar .modal-status-value li h5::before {
+              left: auto;
+              right: 10px;
+          }
+          .ar .modal-status-value li div,
+          .ar .modal-status-value li h5 {
+              padding-right: 75%;
+              padding-left: 0;
+          }
+          .ar .modal-status-value li div i {
+              margin-right: -15px;
+              margin-left: 15px;
+          }
+          .ar .modal-status-value li .price {
+              padding-right: 0;
+          }
+          .ar .modal-status-value li .price::before {
+              margin-left: 20px;
+              margin-right: 0;
+          }
+          .nightmode .modal-status-value li div {
+              color: #000;
+          }
+          .ar .statusModal .modal-header button.close {
+              left: 5px;
+          }
+          .ar .modal-logo {
+              border-radius: 42px 42px 0px 0;
+          }
+      }
+  </style>
+  <!-- <section id="info-banner">
+<div class="container-fluid">
+<div class="banner-inner">
+<div class="row">
+  <div class="col-sm-8" style="display: flex; justify-content: space-around;">
+    <div class="col-sm-6" style="padding: unset;">
+      <h2 class="banner-head">مرحبا بعودتك، ahmed16710!</h2>
+      <h3 class="banner-sub-head"><div><i class="fasfa-money-bill-alt"></i> رصيدك الحالي:<br><br>
+            <div style="display: flex;" >
+                <img  class="order-cartl"  src="<%- host %>style/images/dollar.png" />
+                <span class="viewmoney" style="margin: 0 4px;">$0.00&nbsp;
+          
+            </div>
+          <i class='farfa-eye-slash' style='cursor: pointer;'></i>
+        </span>
+      
+      
+      </div><div><i class="fasfa-sack-dollar"></i> انفقت معنا:<br><br>
+        <div style="display: flex;">
+                <img  class="order-cartl"  src="<%- host %>style/images/money.png" />
+                <span class="viewspent" style="margin: 0 4px;">$0.00</span>
+        </div>
+      </div></h3>
+    </div>
+       <div class="level-content level-content-custom">
+          <h2 class="level-head level-head-custom">
+                              جديد                                  </h2>
+          <h3 class="banner-sub-head" style="display: flex; justify-content: center;">حالة الحساب</h3>
+          <small class="note note-custom">للوصول للحالة المقبلة يرجى الانفاق بمبلغ $ 100
+           </small>
+           <div style="display: flex; align-items: center;">
+          <div><img  class="order-cartl" style="margin-left: 7px;"  src="<%- host %>style/images/fast-forward.png" /></div>
+          <div><img  class="order-cartl" style="margin-left: 7px;"  src="<%- host %>style/images/trace_not.svg" /></div>
+          <div><img  class="order-cartl" style="margin-left: 7px;"  src="<%- host %>style/images/trace_not.svg" /></div>
+          <div><img  class="order-cartl" style="margin-left: 7px;"  src="<%- host %>style/images/trace_not.svg" /></div>
+          <div><img  class="order-cartl" style="margin-left: 7px;"  src="<%- host %>style/images/trace_not.svg" /></div>
+          <div><img  class="order-cartl" style="margin-left: 7px;"  src="<%- host %>style/images/trace_not.svg" /></div>
+          <div><img  class="order-cartl" style="margin-left: 7px;"  src="<%- host %>style/images/trace_not.svg" /></div>
+       
+          <div><img  class="order-cartl" style="margin-left: 7px;"  src="<%- host %>style/images/trace.svg" /></div>
+           </div>
+        </div>
+    <div class="col-sm-6">
+      <div class="level-container">
+        <div class="level-wrap" data-toggle="modal" data-target="#statusModal">
+          <div class="svg-level">
+            <svg height="100%" width="100%">
+              <circle class="round-progress" style="stroke-dasharray: 329.743px; stroke-dashoffset: 295px;" cy="58" cx="58" r="53.5"></circle>
+            </svg>
+          </div>
+          <div class="level-inner"><span class="level-per">
+            10%</span></div>
+        </div>
+        <div class="level-content">
+          <h2 class="level-head">
+                              جديد                                  </h2>
+          <h3 class="banner-sub-head">حالة الحساب</h3>
+          <small class="note">                                    للوصول للحالة المقبلة يرجى الانفاق بمبلغ $ 100
+            </small>
+        </div>
+      </div>
+    </div> 
+ 
+ 
+  </div>
+  <div class="col-sm-4">
+    <div class="col-sm-6">
+      <h2 class="total-head">3739445</h2>
+      <p>طلب مكتمل</p>
+      <img src="https://res.cloudinary.com/smmcpan2/image/upload/v1636058543/4tobxr866xljsr5q.png" alt="" class="order-cart" />
+   
+          <div><img  class="order-cart"  src="<%- host %>style/images/clipboard.png" /></div>
+   
+    </div>
+    <div class="col-sm-6">
+      <div style="display: flex;">
+      <h2 class="points-head points-head-custom">النقاط <i class="fasfa-coins"></i></h2>
+          <div><img class="" src="<%- host %>style/images/hand-gesture.png" /></div>
+      </div>
+      <h2 class="points-head">النقاط <i class="fasfa-coins"></i></h2>
+      <a href="#" class="points-btn" data-toggle="modal" data-target="#pointModal"><i class="fas fa-exclamation"></i></a>
+      <small>$-/100</small>
+      <p><span class="uData" id="uFraction"></span>&nbsp;≈&nbsp;<span class="uData" id="uEarning"></span></p>
+      <a class="redeem-btn redeem-btn-custom" href="/tickets">
+        <div class="redeem-btn-custom">
+     <div class="wallet-nav"><img class="" src="<%- host %>style/images/wallet (1).png" /></div>
+        
+        <i class="fasfa-wallet"></i> 
+        تحويل النقاط
+      
+        </div>
+   
+      </a>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+-->
+
+  <section id="info-banner">
+      <div class="container-fluid">
+          <div class="banner-inner">
+              <div class="header-order">
+                  <div class="header-order-disolay" style="display: flex; width: 70%;">
+                      <div class="header-order-part1" style="padding: unset;">
+                          <div class="banner-head-custom" id="eredherh">مرحبا بعودتك، <%- user.username %>!</div>
+                          <h3 class="banner-sub-head-custom" style="margin-right: 30px;">
+                              <div class="row mony-banner-sub-head-custom_2">
+                                
+                                    <div class="border-left-banner-sub-head-custom col-xs-6 col-sm-6 head_header ">
+                                        <i class="fasfa-money-bill-alt"></i> رصيدك الحالي:<br />
+                                        <br />
+                                        <div style="display: flex;">
+                                            <img class="" src="<%- host %>style/images/dollar.png" />
+                                            <span class="viewmoney" style="margin: 0 4px;">$<%- user.balance.total %>&nbsp;</span>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="mony-banner-sub-head-custom col-xs-4 col-sm-6 head_header  mony-banner-sub-head-custom_2_spent">
+                                        <i class="fasfa-sack-dollar"></i> انفقت معنا:<br />
+                                        <br />
+                                        <div style="display: flex;">
+                                            <img class="" src="<%- host %>style/images/money.png" />
+                                            <span class="viewspent" style="margin: 0 4px;">$<%- user.balance.spent %></span>
+                                        </div>
+                                    </div>
+                                
+                              </div>
+                              
+                              
+
+                            <div class="border-left-banner-sub-head-custom mony-banner-sub-head-custom_1">
+                                <i class="fasfa-money-bill-alt"></i> رصيدك الحالي:<br />
+                                <br />
+                                <div style="display: flex;">
+                                    <img class="" src="<%- host %>style/images/dollar.png" />
+                                    <span class="viewmoney" style="margin: 0 4px;">$<%- user.balance.total %>&nbsp;</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mony-banner-sub-head-custom mony-banner-sub-head-custom_1 mony-banner-sub-head-custom_2_spent">
+                                <i class="fasfa-sack-dollar"></i> انفقت معنا:<br />
+                                <br />
+                                <div style="display: flex;">
+                                    <img class="" src="<%- host %>style/images/money.png" />
+                                    <span class="viewspent" style="margin: 0 4px;">$<%- user.balance.spent %></span>
+                                </div>
+                            </div>
+
+
+                          </h3>
+                      </div>
+
+                      <div class="level-content-custom">
+                          <h2 class="level-head-custom">
+                              <% if(user.balance.spent > 10000) { %> ملكي <% } else if(user.balance.spent > 7000) { %> VIP <% } else if(user.balance.spent > 2000) { %> مميز <% } else if(user.balance.spent > 1000) { %> نشيط <% } else
+                              if(user.balance.spent < 500 && user.balance.spent > 200) { %> مبتدئ <% } else if(user.balance.spent < 200) { %> جديد <% } %>
+                          </h2>
+                          <h3 class="banner-sub-head-custom" style="display: flex; justify-content: center;">مستوى الحساب</h3>
+                          <small class="note-custom">
+                              للوصول للحالة المقبلة يرجى الانفاق بمبلغ <% if(user.balance.spent > 10000) { %> $10000 <% } else if(user.balance.spent > 5000) { %> $5000 <% } else if(user.balance.spent > 2000) { %> $2000 <% } else
+                              if(user.balance.spent > 1000) { %> $1000 <% } else if(user.balance.spent < 500 && user.balance.spent > 100) { %> $500 <% } else if(user.balance.spent < 100) { %> $100 <% } %>
+                          </small>
+                          
+                          <a href="#" data-toggle="modal" data-target="#statusModal">
+                            <div class="arrow-hidden" style="display: flex; align-items: center;">
+                              <div><img class="order-cartl" style="margin-left: 7px; width: 35px; height: 35px;" src="<%- host %>style/images/fast-forward.png" /></div>
+                              <% if(user.balance.spent > 10000) { %>
+                                <div><img class="" style="margin-left: 7px; height: 15px;" src="<%- host %>style/images/trace.svg" /></div>
+                              <% } else { %>
+                                <div><img class="" style="margin-left: 7px; height: 15px;" src="<%- host %>style/images/trace_not.svg" /></div>
+                              <% } %> <% if(user.balance.spent > 5000) { %>
+                                <div><img class="" style="margin-left: 7px; height: 15px;" src="<%- host %>style/images/trace.svg" /></div>
+                              <% } else { %>
+                                <div><img class="" style="margin-left: 7px; height: 15px;" src="<%- host %>style/images/trace_not.svg" /></div>
+                              <% } %> <% if(user.balance.spent > 2000) { %>
+                                <div><img class="" style="margin-left: 7px; height: 15px;" src="<%- host %>style/images/trace.svg" /></div>
+                              <% } else { %>
+                                <div><img class="" style="margin-left: 7px; height: 15px;" src="<%- host %>style/images/trace_not.svg" /></div>
+                              <% } %> <% if(user.balance.spent > 1000) { %>
+                                <div><img class="" style="margin-left: 7px; height: 15px;" src="<%- host %>style/images/trace.svg" /></div>
+                              <% } else { %>
+                                <div><img class="" style="margin-left: 7px; height: 15px;" src="<%- host %>style/images/trace_not.svg" /></div>
+                              <% } %> <% if(user.balance.spent > 100) { %>
+                                <div><img class="" style="margin-left: 7px; height: 15px;" src="<%- host %>style/images/trace.svg" /></div>
+                              <% } else { %>
+                                <div><img class="" style="margin-left: 7px; height: 15px;" src="<%- host %>style/images/trace_not.svg" /></div>
+                              <% } %> <% if(user.balance.spent < 100) { %>
+                                <div><img class="" style="margin-left: 7px; height: 15px;" src="<%- host %>style/images/trace_not.svg" /></div>
+                              <% } else { %>
+                                <div><img class="" style="margin-left: 7px; height: 15px;" src="<%- host %>style/images/trace.svg" /></div>
+                              <% } %>
+                          </div>
+                          </a>
+                      </div>
+                  </div>
+                  <div class="header-order-part2 row">
+                      <div class="header-order-part2-padding col-xs-6 col-sm-5" style="width: 40%;">
+                          <h2 class="total-head-custom"><%- orders.id %></h2>
+                          <p class="total-head-custom-p">طلب مكتمل</p>
+
+                          <div><img class="order-cart" src="<%- host %>style/images/clipboard.png" /></div>
+                      </div>
+                      <div class="border-right-banner-sub-head-custom col-xs-6 col-sm-5 points" style="border-right: 4px solid #F4DB7D;">
+                          <div style="display: flex;">
+                              <h2 class="points-head-custom">
+                                  النقاط <a href="#" class="points-btn" data-toggle="modal" data-target="#pointModal"><i class="fas fa-coins"></i></a>
+                              </h2>
+
+                              <div><img class="" src="<%- host %>style/images/hand-gesture.png" /></div>
+                          </div>
+
+                          <div class="spent_d">صرف 1$ = 1 نقطة</div>
+                          <div class="spent_p">100 نقطة = 1$</div>
+                          <p class="nav-uData"><span class="uData" id="uFraction"></span>&nbsp;≈&nbsp;<span class="uData" id="uEarning"></span></p>
+                          <a href="<%- host %>tickets">
+                              <div class="redeem-btn-custom" style="width: 130px;border-radius: 50%;height: 50px;">
+                                  <div class="wallet-nav"><img class="" src="<%- host %>style/images/wallet (1).png" /></div>
+                                  تحويل النقاط
+                              </div>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-6">
+              <ul class="nav nav-tabs nav-tabs-custom" role="tablist">
+                  <li class="noti new_order active"><a href="#new-order" aria-controls="new-order" role="tab" data-toggle="tab">طلب جديد</a></li>
+                  <li class="noti favourite"><a href="#favourite-order" aria-controls="favourite-order" role="tab" data-toggle="tab">قائمة المفضلة</a></li>
+                  <!-- <li class="search-wrap">
+    <a href="#search-serv" aria-controls="search-serv" role="tab" data-toggle="tab"><i class="far fa-search"></i></a>
+  </li> -->
+                  <li class="noti update"><a href="#info-updates" aria-controls="info-updates" role="tab" data-toggle="tab">معلومات وتحديثات</a></li>
+                  <li class="noti read_before_order"><a href="#read-before" aria-controls="read-before" role="tab" data-toggle="tab">اقرأ قبل الطلب</a></li>
+              </ul>
+              <div class="well well-margin well-margin-custom">
+                  <div class="tosted-order" id="tosted_order">
+                      <div class="tosted-order-title">تم استلام طلبك بنجاح</div>
+                      <div class="tosted-order-flex">
+                          <div>رقم الخدمة :</div>
+                          <div>233</div>
+                      </div>
+
+                      <div class="tosted-order-flex">
+                          <div>الخدمة :</div>
+                          <div id="tosted_order_service_name"></div>
+                      </div>
+
+                      <div class="tosted-order-flex">
+                          <div>الرابط :</div>
+                          <div id="tosted_order_link"></div>
+                      </div>
+
+                      <div class="tosted-order-flex">
+                          <div>الكمية :</div>
+                          <div id="tosted_order_quantity"></div>
+                      </div>
+
+                      <div class="tosted-order-flex">
+                          <div>الثمن :</div>
+                          <div id="tosted_order_cost">$</div>
+                      </div>
+
+                      <div class="tosted-order-flex">
+                          <div>الرصيد المتبقي :</div>
+                          <div>$</div>
+                      </div>
+                  </div>
+                  <div class="tab-content">
+                      <div role="tabpanel" class="tab-pane active" id="new-order">
+                          <form class="rtl-form form-order-custom" action="/" method="post" id="order-form">
+                              <div class="form-group">
+                                  <label for="orderform-category" class="control-label">القسم</label>
+                                  <!-- <select class="form-control select2" id="orderform-category" name="OrderForm[category]">
+                              <option value="54"  selected >سناب شات</option>
+                              <option value="4217" >BigoLive</option>
+                              <option value="2804" >✅ تصويت موقع وشوشه + الفجر</option>
+                              <option value="162" >🔥 عروض خاصة [افضل الخدمات + الاكثر مبيعا] 🔥</option>
+                              <option value="139" >Whatsapp</option>
+                              <option value="177" >🔴 اشتراكات نيتفليكس</option>
+                              <option value="153" >🔵 باكجات فيسبوك بارتنر</option>
+                              <option value="86" >📺 اشتراكات IPTV (بي ان سبورت + العديد من قنوات التلفزيون)</option>
+                              <option value="143" >متابعين Clubhouse</option>
+                              <option value="203" >زيارات/دعوات Clubhouse</option>
+                              <option value="166" >Clubhouse CLUB</option>
+                              <option value="137" >🟣 ديسكورد</option>
+                              <option value="179" >🟣 Triller</option>
+                              <option value="120" >خدمات انستقرام [ضمان سنة] [حصري] 🔥🔥🔥</option>
+                              <option value="5653" >✅ خدمات انستقرام [حسابات مصرية موثقة بالعلامة الزرقاء] [تعليقات/متابعين]</option>
+                              <option value="103" >تعليقات / متابعين انستقرام [حسابات موثقة/حسابات قوية]</option>
+                              <option value="59" >خدمات انستقرام عربية منوعة</option>
+                              <option value="182" >🇰🇼 اشتراكات انستقرام [حسابات كويتية] [مدة الاشتراك: 30 يوم]</option>
+                              <option value="71" >لايكات انستقرام [رخيصة - مكس - جودة منخفضة]</option>
+                              <option value="3" >لايكات انستقرام</option>
+                              <option value="134" >لايكات انستقرام كل دقيقة</option>
+                              <option value="4" >لايكات انستقرام [ مستهدفة ]</option>
+                              <option value="35" >لايكات انستقرام [قوية - تساعد بالوصول الى الاكسبلور] 💎</option>
+                              <option value="174" >باكجات انستقرام عربية متنوعة</option>
+                              <option value="63" >باقات متابعين انستقرام حقيقي 💎 [عن طريق الاعلانات]</option>
+                              <option value="6" >متابعين انستقرام  [ مع ضمان ]</option>
+                              <option value="5" >متابعين انستقرام [ بدون ضمان ]</option>
+                              <option value="7" >متابعين انستقرام  [ مستهدفين ]</option>
+                              <option value="175" >🔴 باكجات متابعين انستقرام</option>
+                              <option value="167" >خدمات انستقرام [امريكا] 🇺🇲</option>
+                              <option value="168" >خدمات انستقرام [ايطاليا] 🇮🇹</option>
+                              <option value="169" >خدمات انستقرام [اندونيسيا] 🇮🇩</option>
+                              <option value="170" >خدمات انستقرام [روسيا] 🇷🇺</option>
+                              <option value="171" >خدمات انستقرام [الهند] 🇮🇳</option>
+                              <option value="8" >مشاهدات انستقرام</option>
+                              <option value="31" >IGTV</option>
+                              <option value="136" >انستقرام REEL</option>
+                              <option value="9" >منشن انستقرام / دايركت مسج</option>
+                              <option value="11" >تعليقات انستقرام</option>
+                              <option value="10" >انستقرام ستوري / انطباعات / حفظ البوست / وصول / زيارات للحساب / لايك لتعليق</option>
+                              <option value="12" >لايف انستقرام</option>
+                              <option value="46" >لايكات انستقرام تلقائية</option>
+                              <option value="47" >مشاهدات انستقرام تلقائية</option>
+                              <option value="48" >انستقرام تعليقات / انطباعات / حفظ / وصول تلقائية</option>
+                              <option value="13" >لايكات صفحات فيسبوك</option>
+                              <option value="188" >لايكات فيسبوك للمنشورات</option>
+                              <option value="190" >لايكات فيسبوك للمنشورات [رموز تعبيرية]</option>
+                              <option value="201" >🔵 لايكات/تعليقات فيسبوك على البث المباشر</option>
+                              <option value="189" >تعليقات فيسبوك للمنشورات</option>
+                              <option value="14" >فيسبوك خدمات اخرى [ حدث - نشر - ستوري - لايك/رد لتعليق ]</option>
+                              <option value="126" >باكجات فيسبوك عربية متنوعة - #1</option>
+                              <option value="191" >🔵 باكجات فيسبوك متنوعة ( تفاعل - شهرة - جيمرز ) - #2</option>
+                              <option value="16" >فيسبوك متابعين / اصدقاء / اعضاء جروبات</option>
+                              <option value="202" >🔵 باكجات متابعين فيسبوك</option>
+                              <option value="164" >توصيات وتقييمات فيسبوك</option>
+                              <option value="17" >فيسبوك مشاهدات فيديو</option>
+                              <option value="155" >🎦 مشاهدات فيسبوك بث مباشر [الارخص] [سيرفر #1]</option>
+                              <option value="154" >🎦 مشاهدات فيسبوك بث مباشر [سيرفر #2]</option>
+                              <option value="200" >🎦 مشاهدات فيسبوك بث مباشر [سيرفر #3]</option>
+                              <option value="199" >🎦 مشاهدات فيسبوك بث مباشر [سيرفر #4]</option>
+                              <option value="165" >🔵 اشتراكات مشاهدات بث مباشر [اشتراك شهري] [سيرفر 1]</option>
+                              <option value="33" >مشتركين يوتيوب</option>
+                              <option value="30" >مشاهدات يوتيوب</option>
+                              <option value="5860" >🔴 يوتيوب شورت</option>
+                              <option value="172" >مشاهدات يوتيوب [مدة مشاهدة عالية]</option>
+                              <option value="173" >مشاهدات يوتيوب [عن طريق الاقتراحات + كلمات مفتاحية]</option>
+                              <option value="125" >مشاهدات يوتيوب ادوردز</option>
+                              <option value="129" >مشاهدات يوتيوب [يمكن الربح منها - حقيقية]</option>
+                              <option value="36" >مشاهدات يوتيوب [مستهدفة]</option>
+                              <option value="60" >يوتيوب ساعات مشاهدة</option>
+                              <option value="186" >لايكات يوتيوب</option>
+                              <option value="187" >تعليقات يوتيوب</option>
+                              <option value="18" >خدمات يوتيوب اخرى [ لايك/ديس لايك لتعليق - نشر - ردود تعليقات ]</option>
+                              <option value="20" >يوتيوب بث مباشر / فيديوهات العرض الاول</option>
+                              <option value="118" >مشاركات فيديو يوتيوب</option>
+                              <option value="3810" >خدمات مجتمع يوتيوب</option>
+                              <option value="163" >تويتر [خدمات طارئة - سريعة جدا] 💣</option>
+                              <option value="19" >متابعين تويتر</option>
+                              <option value="128" >متابعين تويتر [عربي - خليجي] [من السعودية] [عن طريق الاعلانات والمسابقات] [باكجات مميزة] 🌟</option>
+                              <option value="21" >لايكات تويتر</option>
+                              <option value="22" >تويتر اعادة التغريدة ( ريتويت )</option>
+                              <option value="180" >🔵 باكجات تويتر</option>
+                              <option value="193" >🔵 منشن تويتر</option>
+                              <option value="23" >تصويت تويتر</option>
+                              <option value="24" >تويتر مشاهدات / انطباعات / بث مباشر / تعليقات / نقرات / تفضيل</option>
+                              <option value="97" >تويتر [ هاشتاق ترند ] كافة الدول</option>
+                              <option value="184" >مشاهدات تيك توك</option>
+                              <option value="183" >لايكات تيك توك</option>
+                              <option value="39" >متابعين تيك توك</option>
+                              <option value="185" >تعليقات/نشر تيك توك</option>
+                              <option value="138" >تيك توك بث مباشر</option>
+                              <option value="25" >لينكد ان</option>
+                              <option value="93" >لينكد ان - امريكا</option>
+                              <option value="26" >🔵 تيليجرام [اعضاء للقنوات + الجروبات]</option>
+                              <option value="195" >🔵 تيليجرام [مشاهدات للمنشورات]</option>
+                              <option value="6068" >🔵 تيليجرام [مشاهدة لمنشور واحد محدد] [دولة محددة]</option>
+                              <option value="197" >🔵 تيليجرام [مشاهدات تلقائية للمنشورات الجديدة]</option>
+                              <option value="198" >🔵 تيليجرام [مشاهدات تلقائية - اشتراك 30 يوم]</option>
+                              <option value="196" >🔵 تيليجرام [تصويت]</option>
+                              <option value="4013" >🔵 تيليجرام تفاعل</option>
+                              <option value="116" >👀 عروض زوار للمواقع حصرية [المصدر : تويتر] (لمدة محددة)</option>
+                              <option value="110" >👀  زيارات عربية للمواقع [المصدر : تويتر]</option>
+                              <option value="111" >👀 زيارات اجنبية للمواقع [المصدر : تويتر]</option>
+                              <option value="112" >👀 اشتراكات زيارات عربية [المصدر : تويتر]</option>
+                              <option value="159" >👀  زيارات للمواقع [المصدر : جوجل]</option>
+                              <option value="156" >👀  زيارات للمواقع [المصدر : انستقرام]</option>
+                              <option value="158" >👀  زيارات للمواقع [المصدر : فيسبوك]</option>
+                              <option value="157" >👀  زيارات للمواقع [المصدر : بينج]</option>
+                              <option value="51" >👀 زيارات للموقع من مصر + عن طريق الكلمات المفتاحية</option>
+                              <option value="76" >👀 زيارات حقيقية من جوجل</option>
+                              <option value="192" >👀 مشاهدات للمقالات على موقعك</option>
+                              <option value="146" >👀 SEO</option>
+                              <option value="72" >📉 خفض ترتيب موقعك في اليكسا - Alexa</option>
+                              <option value="77" >🌟 تنزيل تطبيقات + تقييمات</option>
+                              <option value="34" >تويتش ( Twitch )</option>
+                              <option value="37" >ساوند كلاود ( SoundCloud )</option>
+                              <option value="38" >سبوتيفاي ( Spotify )</option>
+                              <option value="83" >Spotify تشغيل عن طريق البحث</option>
+                              <option value="68" >باكجات Spotify</option>
+                              <option value="84" >Spotify [مستهدف]</option>
+                              <option value="135" >🔊 AudioMack</option>
+                              <option value="117" >👍 لايكي - Likee</option>
+                              <option value="61" >♛ Tidal</option>
+                              <option value="66" >Tumblr</option>
+                              <option value="94" >Pinterest</option>
+                              <option value="127" >🃏 PRIVATE</option>
+                            </select> -->
+                                  <select id="categories_order" class="form-control select2" onchange="getService(this.value)"> </select>
+                              </div>
+                              <div class="form-group" id="service_order_section">
+                                  <label for="orderform-service" class="control-label">
+                                      خدمة
+                                        <!-- <span class="label-badge"><i class="fas fa-hashtag"></i>
+                                        <span class="servID">90</span></span> -->
+                                  </label>
+                                  <!-- <select id="orderform-service" class="form-control select2" name="OrderForm[service]" onchange="chk(this);"></select> -->
+                                  <select id="select_service_order" class="form-control select2" > <!--onchange="selectServiceOrder(this.value);"-->
+                                   </select>
+                                  <span class="issues select_service_order_issue"></span>
+                              </div>
+                              <div class="form-group icon-group fav-service-section" id="link_order_service_section">
+                                  <span class="control-label">الرابط</span>
+                                  <input type="url" class="form-control" id="link_order_service" value="" placeholder="الرابط" />
+                                  <span class="issues link_service_custom_issue"></span>
+                              </div>
+
+                              <div class="form-group icon-group fav-service-section" id="answer_number_order_service_section">
+                                  <span class="control-label">عدد الاجابة</span>
+                                  <input type="number" class="form-control" id="answer_number_order_service" value="" />
+                                  <span class="issues answer_number_fav_service_issue"></span>
+                              </div>
+
+                              <div class="form-group icon-group fav-service-section" id="quantity_service_sectin">
+                                  <span class="control-label">الكمية</span>
+                                  <input type="number" class="form-control" id="quantity_service" onkeyup="chargeOrderCalc(this.value)" value="" />
+                                  <div class="min-fav-service-desc" id="min_max_quantity"></div>
+                                  <span class="issues quantity_service_issue"></span>
+                              </div>
+
+                              <div class="form-group icon-group fav-service-section" id="comments_service_section">
+                                  <span class="control-label">التعليقات (1 تعليق في كل سطر)</span>
+                                  <textarea class="form-control" id="comments_order_service" rows="12" cols="50" onkeyup="calcLine(this.value)"></textarea>
+                                  <span class="issues comments_order_service_issue"></span>
+                              </div>
+
+                              <div class="form-group icon-group fav-service-section" id="username_order_service_section">
+                                  <span class="control-label">اسم المستخدم</span>
+                                  <input type="text" class="form-control" id="Username_order_service" value="" />
+                                  <span class="issues Username_fav_service_issue"></span>
+                              </div>
+
+                              <div class="form-group icon-group fav-service-section" id="new_posts_order_service_section">
+                                  <span class="control-label"> المنشورات الجديدة </span>
+                                  <input type="text" class="form-control" id="new_posts_order_service" value="" />
+                                  <span class="issues new_posts_fav_service_issue"></span>
+                              </div>
+
+                              <div class="fav-service-section" id="date_order_service_section">
+                                  <div class="quantity">
+                                      <div class="date-fav-service">
+                                          <label for="date_fav_service" class="control-label">وقت الانتهاء</label>
+                                          <div class="form-group icon-group">
+                                              <input type="date" class="form-control" id="date_fav_service" value="" />
+                                              <span class="issues date_fav_service_issue"></span>
+                                          </div>
+                                      </div>
+
+                                      <div class="delay-fav-service">
+                                            <div class="control-label">الانتظار</div>
+                                            <select id="fav_service_delay" class="form-control" onchange="favServiceDelaySelect(this.value)">
+                                                <option value="" selected>اختيار وقت الانتظار</option>
+                                                <option value="0">لا يوجد</option>
+                                                <option value="5">5 دقيقة</option>
+                                                <option value="10">10 دقيقة</option>
+                                                <option value="15">15 دقيقة</option>
+                                                <option value="30">30 دقيقة</option>
+                                                <option value="60">60 دقيقة</option>
+                                                <option value="90">90 دقيقة</option>
+                                            </select>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="fav-service-section" id="quantity_order_min_max_service_section">
+                                  <div class="control-label">الكمية</div>
+
+                                  <div class="quantity">
+                                      <div class="form-group icon-group min-fav-service">
+                                          <input type="number" class="form-control" id="max_order_service" value="" placeholder="Max" />
+                                          <span class="issues max_fav_service_issue"></span>
+                                      </div>
+                                      <div class="form-group icon-group min-fav-service">
+                                          <input type="number" class="form-control" id="min_order_service" value="" placeholder="Min" />
+                                          <div class="min-fav-service-desc" id="min_max_order_quantity"></div>
+                                          <span class="issues min_fav_service_issue"></span>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="form-group hide fields" id="service_description">
+                                  <label for="service_description" class="control-label">وصف</label>
+                                  <div class="panel-body border-solid border-rounded"></div>
+                              </div>
+
+                              <div id="fields"></div>
+
+                              <div class="form-group" id="cost_order_service_section">
+                                  <label for="charge" class="control-label">ثمن الطلب</label>
+                                  <!-- <input type="text" class="form-control" id="charge" value="" readonly> -->
+                                  <input type="text" class="form-control" id="charge_order" value="" readonly />
+                              </div>
+                              <span class="issues order_all_service_issue"></span>
+                              <!-- <button type="submit" class="btn btn-primary">تاكيد الطلب</button> -->
+                              <button type="submit" class="btn btn-primary btn-primary-submit" id="confirm_order">تاكيد الطلب</button>
+                          </form>
+                      </div>
+                      <div role="tabpanel" class="tab-pane" id="favourite-order">
+                          <form class="form-fav" action="/" method="post" id="favourite-form">
+                              <div class="form-group control-label">
+                                  <label for="fav_category">القسم</label>
+                                  <select id="fav_category_custom" class="form-control"> <!--onchange="favCategorySelect(this)"-->
+                                  </select>
+                              </div>
+                              <div class="form-group control-label">
+                                <label for="fav_services">الخدمة</label>
+                                <select id="fav_services_custom" class="form-control">
+                                </select>
+                            </div>
+                              <div class="form-group icon-group fav-service-section" id="link_fav_service_section">
+                                  <span class="control-label">الرابط</span>
+                                  <input type="url" class="form-control" id="link_fav_service" value="" placeholder="الرابط" />
+                                  <span class="issues fav_service_custom_issue"></span>
+                              </div>
+
+                              <div class="form-group icon-group fav-service-section" id="answer_number_fav_service_section">
+                                  <span class="control-label">رقم الاجابة</span>
+                                  <input type="number" class="form-control" id="answer_number_fav_service" value="" />
+                                  <span class="issues answer_number_fav_service_issue"></span>
+                              </div>
+
+                              <div class="form-group icon-group fav-service-section" id="username_fav_service_section">
+                                  <span class="control-label">اسم المستخدم</span>
+                                  <input type="text" class="form-control" id="Username_fav_service" value="" />
+                                  <span class="issues Username_fav_service_issue"></span>
+                              </div>
+                              <div class="form-group icon-group fav-service-section" id="new_posts_fav_service_section">
+                                  <span class="control-label">المنشورات الجديدة</span>
+                                  <input type="text" class="form-control" id="new_posts_fav_service" value="" />
+                                  <span class="issues new_posts_fav_service_issue"></span>
+                              </div>
+                              <div class="fav-service-section" id="quantity_fav_service_section">
+                                  <div class="control-label">الكمية</div>
+
+                                  <div class="quantity">
+                                      <div class="form-group icon-group min-fav-service">
+                                          <input type="number" class="form-control" id="max_fav_service" value="" placeholder="Max" />
+                                          <span class="issues max_fav_service_issue"></span>
+                                      </div>
+                                      <div class="form-group icon-group min-fav-service">
+                                          <input type="number" class="form-control" id="min_fav_service" value="" placeholder="Min" />
+                                          <div class="min-fav-service-desc" id="min_fav_service_const"></div>
+                                          <span class="issues min_fav_service_issue"></span>
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div class="fav-service-section" id="date_fav_service_section">
+                                  <div class="quantity">
+                                      <div class="date-fav-service">
+                                          <label for="date_fav_service" class="control-label">وقت الانتهاء</label>
+                                          <div class="form-group icon-group">
+                                              <input type="date" class="form-control" id="date_fav_service" value="" />
+                                              <span class="issues date_fav_service_issue"></span>
+                                          </div>
+                                      </div>
+
+                                      <div class="delay-fav-service">
+                                          <div class="control-label">الانتظار</div>
+                                          <select id="fav_service_delay" class="form-control" onchange="favServiceDelaySelect(this.value)">
+                                              <option value="" selected>اختيار وقت الانتظار</option>
+                                              <option value="0">لا يوجد</option>
+                                              <option value="5">5 دقيقة</option>
+                                              <option value="10">10 دقيقة</option>
+                                              <option value="15">15 دقيقة</option>
+                                              <option value="30">30 دقيقة</option>
+                                              <option value="60">60 دقيقة</option>
+                                              <option value="90">90 دقيقة</option>
+                                          </select>
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div class="form-group icon-group fav-service-section" id="quantity_fav_service_section_readonly">
+                                  <span class="control-label">الكمية</span>
+                                  <input type="number" class="form-control" id="quantity_fav_service" value="" onkeyup="calcFav(this.value)" />
+                                  <div class="min-fav-service-desc" id="fav_min_max_quantity"></div>
+                                  <span class="issues quantity_fav_service_issue"></span>
+                              </div>
+
+                              <div class="form-group icon-group fav-service-section" id="comments_fav_service_section">
+                                  <span class="control-label">التعليقات (1 تعليق في كل سطر)</span>
+                                  <textarea class="form-control" id="comments_fav_service" rows="12" cols="50" onkeyup="calcLineFav(this.value)"></textarea>
+                                  <span class="issues comments_fav_service_issue"></span>
+                              </div>
+
+                              <div class="form-group icon-group" id="cost_fav_service_section">
+                                  <span class="control-label">ثمن الطلب</span>
+                                  <input type="number" class="form-control" id="cost_fav_service" value="" readonly />
+                                  <span class="issues cost_fav_service_issue"></span>
+                              </div>
+
+                              <div id="fav_fields"></div>
+                              <span class="issues order_all_service_fav_issue"></span>
+                              <div class="row">
+                                  <div class="col-lg-12">
+                                      <div class="how-is-work-btn">
+                                          <div class="sb-btn">
+                                              <button class="btn btn-primary btn-primary-submit" type="submit" id="submit_fav">تأكيد الطلب</button>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </form>
+                      </div>
+                      <div role="tabpanel" class="tab-pane" id="info-updates">
+                          <p>
+                              الخدمات حاليا مكتوبة على هذا التنسيق : <br />
+                              <b style="font-weight: bold;">اسم الخدمة [الحد الاعلى] [وقت البدا - السرعة]</b> <br />
+                              تبدا سرعة التوصيل بعد وقت البدا الموجود بالوصف. <br />
+                          </p>
+
+                          <p>
+                              🔥 = افضل الخدمات.<br />
+                              💧 = خاصية تجزئة الطلب مفعلة.<br />
+                              ♻ = زر التعويض مفعل.<br />
+                              ⛔ = زر الالغاء مفعل.<br />
+                              <b style="font-weight: bold;">Rxx</b> = فترة التعويض (xx تدل على عدد ايام التعويض, مثال: R30 = 30 يوم ضمان تعويض).<br />
+                              <b style="font-weight: bold;">ARxx</b> = فترة التعويض التلقائي (xx تدل على عدد ايام التعويض التلقائي, مثال: AR30 = 30 يوم تعويض تلقائي).
+                          </p>
+                          <p>
+                              <b style="font-weight: bold;">- الطلبات</b> ذات البدا الفوري يمكن ان تحتاج 0 -1 ساعة للبدا . (<b style="font-weight: bold;">الطلبات</b> التي تحتاج ساعة للبدا غالبا ما تبدا خلال دقائق قليلة).<br />
+                              <b style="font-weight: bold;">- H</b> كما في 1H, 12H, الخ تعني عدد الساعات للبدا. <br />
+                              <b style="font-weight: bold;">- HQ/LQ</b> = جودة عالية/جودة قليلة.<br />
+                              - <b style="font-weight: bold;">السرعة</b> تصل لغاية تعني xx/Day, مثال الطلب 10K/Day يمكن ان يكون 5K/Day, نحن نذكر هنا السرعة القصوى للخدمة, يرجى الرجوع الى صندوق الوصف لمزيد من التفاصيل..
+                          </p>
+                          <p>الخدمات الموجودة في قسم <b style="font-weight: bold;">🔥افضل الخدمات [ننصح بها] [خدمات حصرية] [الاكثر مبيعا] [الاسرع]</b> , هي خدمات ذات جودة عالية والاعلى طلبا من قبل العملاء.</p>
+                          <!--<p>
+                              لمزيد من الاخبار, شاهد قسم <a href="https://app.getbeamer.com/smmcpan/en" target="_blank" style="color: #f36c21 !important;">الاخبار</a> لموقعنا.<br />
+                              لمزيد من المعلومات, شاهد قسم <a href="https://smmcpan.com/faq" target="_blank" style="color: #f36c21 !important;">الاسئلة الشائعة</a> لموقعنا.<br />
+                              لمزيد من المساعدة, يرجى <a href="https://smmcpan.com/tickets" target="_blank" style="color: #f36c21 !important;">التواصل معنا</a> الان.
+                          </p>-->
+                      </div>
+                      <div role="tabpanel" class="tab-pane" id="read-before">
+                          <p><strong>يرجى قراءه جميع هذه النقاط بصورة جيدة قبل وضع اي طلب</strong></p>
+                          <p>
+                              - جميع الحسابات يجب ان تكون عامة قبل الطلب , وليست خاصة<br />
+                              - يرجى عدم وضع اكثر من طلب لنفس الرابط بنفس الوقت الا بعد اكتمال الطلب الاول<br />
+                              - يرجى التاكد ان عداد المشتركين والمشاهدات واللايكات وغيره عام وليس خاص قبل وضع الطلب<br />
+                              - لا يمكننا الغاء/تعديل اي طلب بعد وضعه نهائيا الا اذا وجد فيه مشاكل لذلك يرجى التاكد من الطلبات قبل وضعها <br />
+                              - اذا تم تحويل الحساب الى برايفت او تم حذف المنشور او المقطع بعد وضع الطلب سيتم اعتبار الطلب مكتمل ولا يمكننا الغائه نهائيا <br />
+                              - يمنع الطلب للحسابات ( الاباحية , السياسية , التطرف , واي محتوى يثير الرأي العام )<br />
+                              - عندما تقوم بوضع طلب جديد فانت توافق على شروط واحكام الموقع <br />
+                              - هام جدا : عندما تقوم بشحن الرصيد لا يمكننا باي حال من الاحوال اعادة ارسال الرصيد مجددا الى حساباتك , لذلك تاكد من الرصيد الذي تحتاجه قبل الشحن بالموقع<br />
+                          </p>
+
+                          <p><strong>نظام تعويض الطلبات : </strong></p>
+                          <p>- نظام التعويض يعمل بناء على عدد البدا , الكمية , العدد النهائي بالحساب الان لكل طلب بشكل منفرد على حدى</p>
+                          <p>- عندما تقوم بطلب تعويض لمجوعة طلبات فان كل طلب يعامل على حدى حسب عدد البدا والكمية والعدد النهائي لكل طلب على حدى</p>
+                          <p>
+                              - اذا قمت بطلب متابعين على سبيل المثال وحصل نقص بهم , يرجى منك مراسلتنا على التذاكر ورفع تذكرة تعويض حتى نقوم بتعويض الطلب من اجلك و يرجى منك عدم وضع اي طلب جديد قبل تعويض الطلب الذي قبله لان الطلب الجديد سوف
+                              ياخذ عدد البدا الحالي بالحساب ويقوم بالتنفيذ على حدى بالوقت الذي قمت فيه بوضع الطلب
+                          </p>
+                          <p>- مدة التعويض تختلف حسب التحديثات والضغط ولكنها بشكل عام ما بين 24-72 ساعة</p>
+                          <p>
+                              - اذا كان حسابك يحتوي على عدد متابعين كبير مثلا : 200 الف وقمت كمثال بطلب 2000 متابع , منطقيا فان الحساب سوف يحصل فيه نقص من المتابعين القدامى لذلك لا يمكننا التعويض في هذه الحالة الا اذا كان التزويد السابق
+                              كاملا من طرفنا ففي هذه الحالة نتحمل تعويض الحساب
+                          </p>
+                          <p><strong>لم ترى الخدمة التي تريدها ؟</strong></p>
+                          <p>يرجى رفع تذكرة عنوانها " اقترح " والفريق الفني سيتابع معك ويحاول اضافة الخدمة التي تريدها ان امكن</p>
+                          <p>لاي استفسار اخر يرجى التواصل معنا هنا : <a href="<%- host %>tickets">الدعم الفني</a></p>
+                      </div>
+                      <div role="tabpanel" class="tab-pane" id="search-serv">
+                          <div class="input-group form-group">
+                              <input type="number" id="input_service" class="form-control" placeholder="ضع رقم الخدمة" />
+                              <span class="input-group-btn">
+                                  <button type="button" class="btn btn-primary btn-sm" onclick="searchById();"><i class="fas fa-search"></i></button>
+                              </span>
+                          </div>
+                          <form  class="rtl-form" action="/" method="post">
+                            <div class="form-group">
+                              <input type="text" id="id_category_name" class="form-control" placeholder="القسم" readonly="">
+                              <input type="hidden" id="id_category">
+                            </div>
+                            <div class="form-group">
+                              <input type="text" id="id_service_name" class="form-control" placeholder="الخدمة" readonly="">
+                              <input type="hidden" id="id_service">
+                            </div>
+                            <div id="id_fields" class="mt-3"></div>
+                            <button type="submit" class="btn btn-primary">تاكيد الطلب</button>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="monitor-wrap">
+                  <div class="sevice-title">
+                      <div class="sevice-title-custom">
+                        <h2 id="service_name"></h2>
+                          
+                          <!--5374 - 999999.00 <span>لكل</span> instagram 1-->
+                      </div><!--<h2 id="service_name"></h2>-->
+                      <!-- <a id="example_link" target="_blank" href="" class="monitor-link">https://instagram.com/smmcpan</a> -->
+                  </div>
+                  <div class="monitor-stats monitor-stats-custom">
+                      <span class="monitor-misc-1"></span>
+                      <span class="monitor-misc-2"></span>
+                      <div class="monitor-row">
+                          <div class="monitor-col-1">
+                              <div class="monitor-icon-box monitor-icon-box-custom">
+                                  <!-- <img src="https://cdn.mypanel.link/1847ba/can01zlwgdmoi9mt.png" alt="monitor-icon" /> -->
+                                  <img class="" src="<%- host %>style/images/start.png" />
+                              </div>
+                              <div class="monitor-stats-content">
+                                  <h4 class="monitor-stats-head">وقت البدء</h4>
+                                  <h5 class="monitor-value" id="start_time"></h5>
+                              </div>
+                          </div>
+                          <div class="monitor-col-2">
+                              <div class="monitor-stats-content">
+                                  <h4 class="monitor-stats-head">السرعة</h4>
+                                  <h5 class="monitor-value" id="speed"></h5>
+                              </div>
+                              <div class="monitor-icon-box monitor-icon-box-custom">
+                                  <!-- <img src="https://cdn.mypanel.link/1847ba/doouikpw5gwzt0yd.png" alt="monitor-icon" /> -->
+                                  <img class="" src="<%- host %>style/images/running.png" />
+                              </div>
+                          </div>
+                      </div>
+                      <div class="monitor-row">
+                          <div class="monitor-col-1">
+                              <div class="monitor-icon-box monitor-icon-box-custom">
+                                  <!-- <img src="https://cdn.mypanel.link/1847ba/6fqcb4mplys3w8yi.png" alt="monitor-icon" /> -->
+                                  <img class="" src="<%- host %>style/images/itinerary.png" />
+                              </div>
+                              <div class="monitor-stats-content">
+                                  <h4 class="monitor-stats-head">الوقت التقريبي لتنفيذ ( كمية = 1000 )</h4>
+                                   <h5 class="monitor-value" id="average_time"></h5>
+                              </div>
+                          </div>
+                          <div class="monitor-col-2">
+                              <div class="monitor-stats-content">
+                                  <h4 class="monitor-stats-head">الضمان</h4>
+                                   <h5 class="monitor-value" id="guaranteed"></h5>
+                              </div>
+                              <div class="monitor-icon-box monitor-icon-box-custom">
+                                  <!-- <img src="https://cdn.mypanel.link/1847ba/448jo87zrq13iyzo.png" alt="monitor-icon" /> -->
+                                  <img class="" src="<%- host %>style/images/guarantee.png" />
+                              </div>
+                          </div>
+                      </div>
+                      <div class="monitor-row">
+                          <div class="monitor-col-1">
+                              <div class="monitor-icon-box monitor-icon-box-custom">
+                                  <!-- <img src="https://cdn.mypanel.link/1847ba/36db4b116yhymm8w.png" alt="monitor-icon" /> -->
+                                  <img class="" src="<%- host %>style/images/award.png" />
+                              </div>
+                              <div class="monitor-stats-content">
+                                    <h4 class="monitor-stats-head">الجودة</h4>
+                                    <h5 class="monitor-value" id="quality"></h5>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="monitor-row">
+                          <div class="monitor-col-3">
+                              <div class="monitor-icon-box monitor-icon-box-custom">
+                                  <!-- <img src="https://cdn.mypanel.link/1847ba/kl7zpf2oq0sb8s06.png" alt="monitor-icon" /> -->
+                                  <img class="" src="<%- host %>style/images/review.png" />
+                              </div>
+                              <div class="monitor-stats-content">
+                                  <h4 class="monitor-stats-head">وصف الخدمة</h4>
+                                   <h5 class="monitor-value" id="description"></h5>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="monitor-notes">
+                          <div class="monitor-notes-custom">
+                              لا تقلق إذا تم عرض أي من هذه المعلومات N / A أو NULL ، فليست جميع الخدمات تحتوي على هذه الخاصية ، كما يمكنك إعطائها ثانية للتحديث أثناء تبديل الخدمات ، فنحن نقوم بتحميلها عند التبديل بدلاً من الكل معًا بنفس
+                              الوقت لجعل الموقع يعمل بشكل أسرع وان تكون المعلومات دقيقة قدر الإمكان.
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Status Modal -->
+  <div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="statusModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="statusModalLabel">حالات الحساب</h4>
+              </div>
+              <div class="modal-body">
+                  <p>ملاحظة : يمكنك شراء المستوى : VIP لمدة شهر من خدماتنا ضمن قسم VIP</p>
+                  <div class="row">
+                      <div class="col-md-4" style="padding: 0 5px;">
+                          <div class="single-bg-plc" style="padding: 10px; color: black; background: #f4db7d; height: 50px; justify-content: inherit; border-radius: 12px;">
+                              <i class="fal fa-medal"></i>
+                              <div style="margin-left: 10px; margin-right: 10px; font-size: 12px; line-height: 1; width: 100%;">
+                                  <span style="">لم تنفق أكثر من</span> <br />
+                                  <strong style="margin-bottom: 0; color: black; font-size: 18px;">جديد</strong>
+                              </div>
+                              <div style=""><strong style="font-size: 22px;">$100</strong><span style="font-size: 18px; font-weight: bold;"></span></div>
+                          </div>
+                          <div
+                              style="
+                                  background: #F4DB7D;
+                                  text-align: center;
+                                  border-bottom-left-radius: 12px;
+                                  border-bottom-right-radius: 12px;
+                                  margin-left: 10px;
+                                  margin-right: 10px;
+                                  padding: 10px;
+                                  border: 5px double #f4db7d;
+                                  border-top: 0;
+                              "
+                          >
+                              <div><span class="option">دعم فني 24/7</span></div>
+                              <div><span class="option">رصيد اضافي يصل لغاية 5%</span></div>
+                              <div>
+                                  <strike><span class="option disabled">تفعيل الدفع عبر بايبال</span></strike>
+                              </div>
+                              <div>
+                                  <strike><span class="option disabled">الدخول لسحب شهري على جائزة بقيمة 50 دولار</span></strike>
+                              </div>
+                              <div>
+                                  <strike><span class="option disabled">متجر الكتروني مجاني لمدة شهر</span></strike>
+                              </div>
+                              <div>
+                                  <strike><span class="option disabled">خصم 5% على 3 خدمات مختارة</span></strike>
+                              </div>
+                              <div>
+                                  <strike><span class="option disabled">دعم فني مباشرة من الادمن</span></strike>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-4" style="padding: 0 5px;">
+                          <div class="single-bg-plc" style="padding: 10px; color: black; background: #f4db7d; height: 50px; justify-content: inherit; border-radius: 12px;">
+                              <i class="fal fa-medal"></i>
+                              <div style="margin-left: 10px; margin-right: 10px; font-size: 12px; line-height: 1; width: 100%;">
+                                  <span style="">انفقت أكثر من</span> <br />
+                                  <strong style="margin-bottom: 0; color: black; font-size: 18px;">مبتدىء</strong>
+                              </div>
+                              <div style=""><strong style="font-size: 22px;">$100</strong><span style="font-size: 18px; font-weight: bold;"></span></div>
+                          </div>
+                          <div
+                              style="
+                                  background: #F4DB7D;
+                                  text-align: center;
+                                  border-bottom-left-radius: 12px;
+                                  border-bottom-right-radius: 12px;
+                                  margin-left: 10px;
+                                  margin-right: 10px;
+                                  padding: 10px;
+                                  border: 5px double #f4db7d;
+                                  border-top: 0;
+                              "
+                          >
+                              <div><span class="option">دعم فني 24/7</span></div>
+                              <div><span class="option">رصيد اضافي يصل لغاية 5%</span></div>
+                              <div><span class="option">تفعيل الدفع عبر بايبال</span></div>
+                              <div>
+                                  <strike><span class="option disabled">الدخول لسحب شهري على جائزة بقيمة 50 دولار</span></strike>
+                              </div>
+                              <div>
+                                  <strike><span class="option disabled">متجر الكتروني مجاني لمدة شهر</span></strike>
+                              </div>
+                              <div>
+                                  <strike><span class="option disabled">خصم 5% على 3 خدمات مختارة</span></strike>
+                              </div>
+                              <div>
+                                  <strike><span class="option disabled">دعم فني مباشرة من الادمن</span></strike>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-4" style="padding: 0 5px;">
+                          <div class="single-bg-plc" style="padding: 10px; color: black; background: #f4db7d; height: 50px; justify-content: inherit; border-radius: 12px;">
+                              <i class="fal fa-medal"></i>
+                              <div style="margin-left: 10px; margin-right: 10px; font-size: 12px; line-height: 1; width: 100%;">
+                                  <span style="">انفقت أكثر من</span> <br />
+                                  <strong style="margin-bottom: 0; color: black; font-size: 18px;">نشيط</strong>
+                              </div>
+                              <div style=""><strong style="font-size: 22px;">$1K</strong><span style="font-size: 18px; font-weight: bold;"></span></div>
+                          </div>
+                          <div
+                              style="
+                                  background: #F4DB7D;
+                                  text-align: center;
+                                  border-bottom-left-radius: 12px;
+                                  border-bottom-right-radius: 12px;
+                                  margin-left: 10px;
+                                  margin-right: 10px;
+                                  padding: 10px;
+                                  border: 5px double #f4db7d;
+                                  border-top: 0;
+                              "
+                          >
+                              <div><span class="option">دعم فني 24/7</span></div>
+                              <div><span class="option">رصيد اضافي يصل لغاية 5%</span></div>
+                              <div><span class="option">تفعيل الدفع عبر بايبال</span></div>
+                              <div><span class="option">الدخول لسحب شهري على جائزة بقيمة 50 دولار</span></div>
+                              <div>
+                                  <strike><span class="option disabled">متجر الكتروني مجاني لمدة شهر</span></strike>
+                              </div>
+                              <div>
+                                  <strike><span class="option disabled">خصم 5% على 3 خدمات مختارة</span></strike>
+                              </div>
+                              <div>
+                                  <strike><span class="option disabled">دعم فني مباشرة من الادمن</span></strike>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row" style="margin-top: 15px;">
+                      <div class="col-md-4" style="padding: 0 5px;">
+                          <div class="single-bg-plc" style="padding: 10px; color: black; background: #f4db7d; height: 50px; justify-content: inherit; border-radius: 12px;">
+                              <i class="fal fa-medal"></i>
+                              <div style="margin-left: 10px; margin-right: 10px; font-size: 12px; line-height: 1; width: 100%;">
+                                  <span style="">انفقت أكثر من</span> <br />
+                                  <strong style="margin-bottom: 0; color: black; font-size: 20px;">مميز</strong>
+                              </div>
+                              <div style=""><strong style="font-size: 22px;">$2K</strong><span style="font-size: 18px; font-weight: bold;"></span></div>
+                          </div>
+                          <div
+                              style="
+                                  background: #F4DB7D;
+                                  text-align: center;
+                                  border-bottom-left-radius: 12px;
+                                  border-bottom-right-radius: 12px;
+                                  margin-left: 10px;
+                                  margin-right: 10px;
+                                  padding: 10px;
+                                  border: 5px double #f4db7d;
+                                  border-top: 0;
+                              "
+                          >
+                              <div><span class="option">دعم فني 24/7</span></div>
+                              <div><span class="option">رصيد اضافي يصل لغاية 5%</span></div>
+                              <div><span class="option">تفعيل الدفع عبر بايبال</span></div>
+                              <div><span class="option">الدخول لسحب شهري على جائزة بقيمة 50 دولار</span></div>
+                              <div><span class="option">متجر الكتروني مجاني لمدة شهر</span></div>
+                              <div>
+                                  <strike><span class="option disabled">خصم 5% على 3 خدمات مختارة</span></strike>
+                              </div>
+                              <div>
+                                  <strike><span class="option disabled">دعم فني مباشرة من الادمن</span></strike>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-4" style="padding: 0 5px;">
+                          <div class="single-bg-plc" style="padding: 10px; color: black; background: #f4db7d; height: 50px; justify-content: inherit; border-radius: 12px;">
+                              <i class="fal fa-medal"></i>
+                              <div style="margin-left: 10px; margin-right: 10px; font-size: 12px; line-height: 1; width: 100%;">
+                                  <span style="">انفقت أكثر من</span> <br />
+                                  <strong style="margin-bottom: 0; color: black; font-size: 20px;">VIP</strong>
+                              </div>
+                              <div style=""><strong style="font-size: 22px;">$5K</strong><span style="font-size: 18px; font-weight: bold;"></span></div>
+                          </div>
+                          <div
+                              style="
+                                  background: #F4DB7D;
+                                  text-align: center;
+                                  border-bottom-left-radius: 12px;
+                                  border-bottom-right-radius: 12px;
+                                  margin-left: 10px;
+                                  margin-right: 10px;
+                                  padding: 10px;
+                                  border: 5px double #f4db7d;
+                                  border-top: 0;
+                              "
+                          >
+                              <div><span class="option">دعم فني 24/7</span></div>
+                              <div><span class="option">رصيد اضافي يصل لغاية 5%</span></div>
+                              <div><span class="option">تفعيل الدفع عبر بايبال</span></div>
+                              <div><span class="option">الدخول لسحب شهري على جائزة بقيمة 50 دولار</span></div>
+                              <div><span class="option">متجر الكتروني مجاني لمدة شهر</span></div>
+                              <div><span class="option">خصم 5% على 3 خدمات مختارة</span></div>
+                              <div>
+                                  <strike><span class="option disabled">دعم فني مباشرة من الادمن</span></strike>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-4" style="padding: 0 5px;">
+                          <div class="single-bg-plc" style="padding: 10px; color: black; background: #f4db7d; height: 50px; justify-content: inherit; border-radius: 12px;">
+                              <i class="fal fa-medal"></i>
+                              <div style="margin-left: 10px; margin-right: 10px; font-size: 12px; line-height: 1; width: 100%;">
+                                  <span style="">انفقت أكثر من</span> <br />
+                                  <strong style="margin-bottom: 0; color: black; font-size: 20px;">ملكي</strong>
+                              </div>
+                              <div style=""><strong style="font-size: 22px;">$10k</strong><span style="font-size: 18px; font-weight: bold;"></span></div>
+                          </div>
+                          <div
+                              style="
+                                  background: #F4DB7D;
+                                  text-align: center;
+                                  border-bottom-left-radius: 12px;
+                                  border-bottom-right-radius: 12px;
+                                  margin-left: 10px;
+                                  margin-right: 10px;
+                                  padding: 10px;
+                                  border: 5px double #f4db7d;
+                                  border-top: 0;
+                              "
+                          >
+                              <div><span class="option">دعم فني 24/7</span></div>
+                              <div><span class="option">رصيد اضافي يصل لغاية 5%</span></div>
+                              <div><span class="option">تفعيل الدفع عبر بايبال</span></div>
+                              <div><span class="option">الدخول لسحب شهري على جائزة بقيمة 50 دولار</span></div>
+                              <div><span class="option">متجر الكتروني مجاني لمدة شهر</span></div>
+                              <div><span class="option">خصم 5% على 3 خدمات مختارة</span></div>
+                              <div><span class="option">دعم فني مباشرة من الادمن</span></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Point Modal -->
+  <div class="modal fade statusModal" id="pointModal" tabindex="-1" role="dialog" aria-labelledby="pointModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body">
+                  <div class="modal-left">
+                      <div class="modal-logo"><img src="<%- host %>style/images/logo.png" /></div>
+                      <ul class="modal-status-title">
+                          <li>متاح</li>
+                          <li>يمكن تحويل >= 500 نقطة</li>
+                          <li>يمكن تحويل >= 250 نقطة</li>
+                          <li>يمكن تحويل >= 100 نقطة</li>
+                          <li>تحويل النقاط باقل من 4 ايام</li>
+                          <li>كل 100 نقطة ~</li>
+                      </ul>
+                  </div>
+                  <div class="modal-right">
+                      <div class="status-box-wrap active-level">
+                          <div class="status-box-top">
+                              <h4>مستوى الحساب</h4>
+                              <h3>
+                                  جديد
+                                  <!--<% if(user.balance.spent > 10000) { %> ملكي <% } else if(user.balance.spent > 5000) { %> VIP <% } else if(user.balance.spent > 2000) { %> مميز <% } else if(user.balance.spent > 1000) { %> نشيط <% } else
+                                  if(user.balance.spent < 500 && user.balance.spent > 100) { %> مبتدئ <% } else if(user.balance.spent < 100) { %> جديد <% } %>-->
+                              </h3>
+                              <div class="status-box-badge"><img src="https://res.cloudinary.com/smmcpan2/image/upload/v1627851339/p2.png" /></div>
+                          </div>
+                          <ul class="modal-status-value">
+                              <li>
+                                  <div class="disabl" data-head="متاح"><i class="fal fa-times"></i></div>
+                              </li>
+                              <li>
+                                  <div class="disabl" data-head="يمكن تحويل >= 500 نقطة"><i class="fal fa-times"></i></div>
+                              </li>
+                              <li>
+                                  <div class="disabl" data-head="يمكن تحويل >= 250 نقطة"><i class="fal fa-times"></i></div>
+                              </li>
+                              <li>
+                                  <div class="disabl" data-head="يمكن تحويل >= 100 نقطة"><i class="fal fa-times"></i></div>
+                              </li>
+                              <li>
+                                  <div class="disabl" data-head="تحويل النقاط باقل من 4 ايام"><i class="fal fa-times"></i></div>
+                              </li>
+                              <li><h5 class="price" data-head="كل 100 نقطة ~">~</h5></li>
+                          </ul>
+                      </div>
+                      <div class="status-box-wrap active-level">
+                          <div class="status-box-top">
+                              <h4>مستوى الحساب</h4>
+                              <h3>مبتدئ</h3>
+                              <div class="status-box-badge"><img src="https://res.cloudinary.com/smmcpan2/image/upload/v1627851339/p1.png" /></div>
+                          </div>
+                          <ul class="modal-status-value">
+                              <li>
+                                  <div class="enble" data-head="متاح"><i class="fal fa-check"></i></div>
+                              </li>
+                              <li>
+                                  <div class="enble" data-head="يمكن تحويل >= 500 نقطة"><i class="fal fa-check"></i></div>
+                              </li>
+                              <li>
+                                  <div class="disabl" data-head="يمكن تحويل >= 250 نقطة"><i class="fal fa-times"></i></div>
+                              </li>
+                              <li>
+                                  <div class="disabl" data-head="يمكن تحويل >= 100 نقطة"><i class="fal fa-times"></i></div>
+                              </li>
+                              <li>
+                                  <div class="disabl" data-head="تحويل النقاط باقل من 4 ايام"><i class="fal fa-times"></i></div>
+                              </li>
+                              <li>
+                                  <h5 class="price" data-head="كل 100 نقطة ~"><sup>$</sup>1.00</h5>
+                              </li>
+                          </ul>
+                      </div>
+                      <div class="status-box-wrap active-level">
+                          <div class="status-box-top">
+                              <h4>مستوى الحساب</h4>
+                              <h3>نشيط</h3>
+                              <div class="status-box-badge"><img src="https://res.cloudinary.com/smmcpan2/image/upload/v1627851339/p3.png" /></div>
+                          </div>
+                          <ul class="modal-status-value">
+                              <li>
+                                  <div class="enble" data-head="متاح"><i class="fal fa-check"></i></div>
+                              </li>
+                              <li>
+                                  <div class="enble" data-head="يمكن تحويل >= 500 نقطة"><i class="fal fa-check"></i></div>
+                              </li>
+                              <li>
+                                  <div class="enble" data-head="يمكن تحويل >= 250 نقطة"><i class="fal fa-check"></i></div>
+                              </li>
+                              <li>
+                                  <div class="disabl" data-head="يمكن تحويل >= 100 نقطة"><i class="fal fa-times"></i></div>
+                              </li>
+                              <li>
+                                  <div class="disabl" data-head="تحويل النقاط باقل من 4 ايام"><i class="fal fa-times"></i></div>
+                              </li>
+                              <li>
+                                  <h5 class="price" data-head="كل 100 نقطة ~"><sup>$</sup>1.25</h5>
+                              </li>
+                          </ul>
+                      </div>
+                      <div class="status-box-wrap active-level">
+                          <div class="status-box-top">
+                              <h4>مستوى الحساب</h4>
+                              <h3>مميز</h3>
+                              <div class="status-box-badge"><img src="https://res.cloudinary.com/smmcpan2/image/upload/v1627851339/p5.png" /></div>
+                          </div>
+                          <ul class="modal-status-value">
+                              <li>
+                                  <div class="enble" data-head="متاح"><i class="fal fa-check"></i></div>
+                              </li>
+                              <li>
+                                  <div class="enble" data-head="يمكن تحويل >= 500 نقطة"><i class="fal fa-check"></i></div>
+                              </li>
+                              <li>
+                                  <div class="enble" data-head="يمكن تحويل >= 250 نقطة"><i class="fal fa-check"></i></div>
+                              </li>
+                              <li>
+                                  <div class="enble" data-head="يمكن تحويل >= 100 نقطة"><i class="fal fa-check"></i></div>
+                              </li>
+                              <li>
+                                  <div class="disabl" data-head="تحويل النقاط باقل من 4 ايام"><i class="fal fa-times"></i></div>
+                              </li>
+                              <li>
+                                  <h5 class="price" data-head="كل 100 نقطة ~"><sup>$</sup>1.50</h5>
+                              </li>
+                          </ul>
+                      </div>
+                      <div class="status-box-wrap active-level">
+                          <div class="status-box-top">
+                              <h4>مستوى الحساب</h4>
+                              <h3>VIP</h3>
+                              <div class="status-box-badge"><img src="https://res.cloudinary.com/smmcpan2/image/upload/v1627851339/p4.png" /></div>
+                          </div>
+                          <ul class="modal-status-value">
+                              <li>
+                                  <div class="enble" data-head="متاح"><i class="fal fa-check"></i></div>
+                              </li>
+                              <li>
+                                  <div class="enble" data-head="يمكن تحويل >= 500 نقطة"><i class="fal fa-check"></i></div>
+                              </li>
+                              <li>
+                                  <div class="enble" data-head="يمكن تحويل >= 250 نقطة"><i class="fal fa-check"></i></div>
+                              </li>
+                              <li>
+                                  <div class="enble" data-head="يمكن تحويل >= 100 نقطة"><i class="fal fa-check"></i></div>
+                              </li>
+                              <li>
+                                  <div class="enble" data-head="تحويل النقاط باقل من 4 ايام"><i class="fal fa-check"></i></div>
+                              </li>
+                              <li>
+                                  <h5 class="price" data-head="كل 100 نقطة ~"><sup>$</sup>1.75</h5>
+                              </li>
+                          </ul>
+                      </div>
+
+                      <div class="status-box-wrap">
+                          <div class="status-box-top">
+                              <h4>مستوى الحساب</h4>
+                              <h3>ملكي</h3>
+                              <div class="status-box-badge"><img src="https://res.cloudinary.com/smmcpan2/image/upload/v1627851339/p6.png" /></div>
+                          </div>
+                          <ul class="modal-status-value">
+                              <li>
+                                  <div class="enble" data-head="متاح"><i class="fal fa-check"></i></div>
+                              </li>
+                              <li>
+                                  <div class="enble" data-head="يمكن تحويل >= 500 نقطة"><i class="fal fa-check"></i></div>
+                              </li>
+                              <li>
+                                  <div class="enble" data-head="يمكن تحويل >= 250 نقطة"><i class="fal fa-check"></i></div>
+                              </li>
+                              <li>
+                                  <div class="enble" data-head="يمكن تحويل >= 100 نقطة"><i class="fal fa-check"></i></div>
+                              </li>
+                              <li>
+                                  <div class="enble" data-head="تحويل النقاط باقل من 4 ايام"><i class="fal fa-check"></i></div>
+                              </li>
+                              <li>
+                                  <h5 class="price" data-head="كل 100 نقطة ~"><sup>$</sup>2.00</h5>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="modal-bottom">
+                      <div class="note-wrap-top">
+                          <p><strong>ملاحظات :</strong></p>
+                          <ul>
+                              <li>سوف تحصل على نقاط كلما طلبت, كل 1 دولار يتم انفاقه = 1 نقطة</li>
+                              <li>كل 100 نقطة = 1-2 دولار حسب مستوى الحساب</li>
+                              <li>لا يمكنك تحويل اقل من 100 نقطة الى رصيدك</li>
+                              <li>لتحويل النقاط الى رصيد , يرجى التواصل معنا على <a href="<% host %>tickets">التذاكر</a> واختيار الموضوع : النقاط واكتب بالرسالة : يرجى تحويل النقاط جميعها الى رصيد</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- <div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <h4 class="modal-title" id="pointModalLabel">شرح عن نظام النقاط</h4>
+</div>
+<div class="modal-body">
+  <p><strong>ملاحظات :</strong></p>
+  <ul>
+    <li>سوف تحصل على نقاط كلما طلبت, كل 1 دولار يتم انفاقه = 1 نقطة</li>
+    <li>كل 100 نقطة = 1-2 دولار حسب مستوى الحساب</li>
+    <li>لا يمكنك تحويل اقل من 100 نقطة الى رصيدك</li>
+    <li>لتحويل النقاط الى رصيد , يرجى التواصل معنا على التذاكر واختيار الموضوع : النقاط واكتب بالرسالة : يرجى تحويل النقاط جميعها الى رصيد</li>
+  </ul>
+  <p class="text-center">👇👇👇👇👇👇👇👇👇👇👇👇👇👇</p>
+  <hr/>
+  <div class="point-wrap">
+    <div class="point-badge level-1">
+      <span>Level 1</span>
+    </div>
+    <div class="point-content active">
+      <div class="left-content">
+        <h4>مستوى الحساب</h4>
+        <h3>«جديد»</h3>
+      </div>
+      <div class="right-content">
+        <h4>غير متاح</h4>
+        <h3><span></span>$1.00 لكل 100 نقطة</h3>
+        <h3><span></span></h3>
+      </div>
+    </div>
+  </div>
+  <div class="point-wrap">
+    <div class="point-badge level-1">
+      <span>Level 2</span>
+    </div>
+    <div class="point-content">
+      <div class="left-content">
+        <h4>مستوى الحساب</h4>
+        <h3>«مبتدىء»</h3>
+      </div>
+      <div class="right-content">
+        <h4>سوف تحصل على</h4>
+        <h3><span></span>$1.00 لكل 100 نقطة</h3>
+        
+      </div>
+    </div>
+  </div>
+  <div class="point-wrap">
+    <div class="point-badge level-3">
+      <span>Level 3</span>
+    </div>
+    <div class="point-content">
+      <div class="left-content">
+        <h4>مستوى الحساب</h4>
+        <h3>«نشيط»</h3>
+      </div>
+      <div class="right-content">
+        <h4>سوف تحصل على</h4>
+        <h3><span></span>$1.25 لكل 100 نقطة</h3>
+      </div>
+    </div>
+  </div>
+  <div class="point-wrap">
+    <div class="point-badge level-4">
+      <span>Level 4</span>
+    </div>
+    <div class="point-content">
+      <div class="left-content">
+        <h4>مستوى الحساب</h4>
+        <h3>«مميز»</h3>
+      </div>
+      <div class="right-content">
+        <h4>سوف تحصل على</h4>
+        <h3><span></span>$1.50 لكل 100 نقطة</h3>
+      </div>
+    </div>
+  </div>
+  <div class="point-wrap">
+    <div class="point-badge level-5">
+      <span>Level 5</span>
+    </div>
+    <div class="point-content">
+      <div class="left-content">
+        <h4>مستوى الحساب</h4>
+        <h3>«VIP»</h3>
+      </div>
+      <div class="right-content">
+        <h4>سوف تحصل على</h4>
+        <h3><span></span>$1.75 لكل 100 نقطة</h3>
+      </div>
+    </div>
+  </div>
+  <div class="point-wrap">
+    <div class="point-badge level-5">
+      <span>Level 6</span>
+    </div>
+    <div class="point-content">
+      <div class="left-content">
+        <h4>مستوى الحساب</h4>
+        <h3>«ملكي»</h3>
+      </div>
+      <div class="right-content">
+        <h4>سوف تحصل على</h4>
+        <h3><span></span>$2.00 لكل 100 نقطة</h3>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div> -->
+  </div>
+  <!--
+
+<div class="modal fade" id="verifyModal" tabindex="-1" style="display: none;" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">×</span>
+  </button>
+  <h4 class="modal-title">Verify Link First</h4>
+</div>
+<div class="modal-body">
+  <h4 id="title"></h4>
+  <img id="image" src="/app/img/placeholder.png">
+</div>
+<div class="modal-footer p-1">
+  <button id="confirm_verify" class="btn btn-primary btn-block">Confirm</button>
+</div>
+</div>
+</div>
+</div>-->
+  <div id="loader" class="loader"><div class="spinner-grow"></div></div>
+</main>

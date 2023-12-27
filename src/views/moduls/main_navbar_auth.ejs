@@ -1,0 +1,405 @@
+<nav class="navbar navbar-default navbar-static-top  rtl-navbar ">
+  <div class="container-fluid">
+     <div class="navbar-header">
+        <div class="brand-right">
+         <div class="mode mob-mode">
+            <a class="toggle" href="javascript:toggleMode()"><span class="menu-icon">
+               <span id="toggleMIcon" class="material-icons">nights_stay</span></span>
+            </a>
+            
+         </div>
+           <div class="dropdown opt-drop">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <!-- <span class="menu-icon"><img src="https://cdn.mypanel.link/1847ba/ci9ipfpbc1iquwxb.png" alt="gender" /></span> -->
+              <span class="menu-icon">
+                  <% if(user.gender == 1) { %>
+                     <img src="<%- host %>style/images/woman.png" alt="gender icon" class="gender_img" />                   
+                  <% } else { %>
+                     <img src="<%- host %>style/images/male.png" alt="gender icon" class="gender_img" />                   
+                  <% } %>
+               </span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                 <!--<li>
+                    <a href="<%- host %>updates">التحديثات</a>
+                 </li>-->
+                 <li role="separator" class="divider"></li>
+                 <li ><a href="<%- host %>account" >الحساب</a></li>
+                 <li ><a href="<%- host %>api/auth/sign_out" >تسجيل خروج</a></li>
+              </ul>
+           </div>
+           <!--<div class="dropdown lang-drop">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" title="عربي">
+              <span class="menu-icon"><span class="flag-icon flag-icon-squared flag-icon-sa"></span></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                 <li  class="active"><a  href="#"><span class="flag-icon flag-icon-squared flag-icon-sa"></span></a></li>
+                 <li ><a  href="#"><span class="flag-icon flag-icon-squared flag-icon-us"></span></a></li>
+              </ul>
+           </div>-->
+           <button type="button" class="navbar-toggle x collapsed" open="false" id="navbar_collapse" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           </button>
+        </div>
+        <a class="navbar-brand" href="/">
+           <div style="width: 180px;" class="main_logo_nav">
+        <img style="width: 100%; height: 100%;" src="<%- host %>style/images/logo.png" alt="Almashahir1 main logo" title="Almashahir1 main logo">
+           </div>
+        </a>
+     </div>
+     <div id="navbar" class="collapse navbar-collapse" >
+        <ul class="nav navbar-nav navbar-mobile">
+         <% if(user.role == 1) { %>
+             <li >
+               <a href="<%- host %>admin/users" >
+                  <span class="mob-menu-text">المستخدمين</span>
+                  <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/services_icon.png" alt="menu-icon"/></span></div>
+               </a>
+            </li>
+             <li >
+               <a href="<%- host %>admin/settings" >
+                  <span class="mob-menu-text">الاعدادات العامة</span>
+                  <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/services_icon.png" alt="menu-icon"/></span></div>
+               </a>
+              </li>
+              <li>
+               <a href="<%- host %>admin/tickets" >
+                  <span class="mob-menu-text">الدعم الفني</span>
+                  <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/support_icon.png" alt="menu-icon"/></span></div>
+               </a>
+            </li> 
+            <li >
+               <a href="<%- host %>admin/faqs" >
+                <span class="mob-menu-text">الاسئلة الشائعة</span>
+                <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/services_icon.png" alt="menu-icon"/></span></div>               </a>
+          </li> 
+          <li >
+            <a href="<%- host %>admin/orders" >
+               <span class="mob-menu-text"> سجل الطلبات</span>
+               <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/orders_icon.png" alt="menu-icon"/></span></div>
+            </a>
+         </li>
+         <li>
+            <a href="<%- host %>admin/tickets" >
+               <span class="mob-menu-text">الدعم الفني</span>
+               <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/support_icon.png" alt="menu-icon"/></span></div>
+            </a>
+         </li>
+         <li >
+            <a href="<%- host %>admin/services" >
+               <span class="mob-menu-text">الخدمات</span>
+               <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/services_icon.png" alt="menu-icon"/></span></div>
+            </a>
+         </li>
+       
+          <li >
+            <a href="<%- host %>admin/providers" >
+             <span class="mob-menu-text">الموزعين</span>
+             <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/services_icon.png" alt="menu-icon"/></span></div>
+            </a>
+          </li>
+
+
+          <li >
+            <a href="<%- host %>admin/trasactions" >
+               <span class="mob-menu-text">المدفوعات</span>
+               <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/services_icon.png" alt="menu-icon"/></span></div>
+            </a>
+         </li>
+
+
+          <li  class="active" >
+            <a href="<%- host %>" >
+               <span class="mob-menu-text">طلب جديد</span>
+               <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/another_$$.png" alt="menu-icon"/></span></div>
+            </a>
+         </li>
+         <li  class="active" >
+            <a href="<%- host %>admin/refills" >
+               <span class="mob-menu-text">إعادة تعبئة</span>
+               <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/another_$$.png" alt="menu-icon"/></span></div>
+            </a>
+         </li>
+         <% } else { %>
+            <!--<li >
+               <a href="<%- host %>faqs" >
+                <span class="mob-menu-text">الاسئلة الشائعة</span>
+                <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/icons8-question-mark-80 (1).png" alt="menu-icon"/></span></div>
+               </a>
+          </li>-->
+               <% if(url == '') { %>
+                  <li  class="active" >
+                     <a href="<%- host %>" >
+                        <span class="mob-menu-text">طلب جديد</span>
+                        <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/another_$$.png" alt="menu-icon"/></span></div>
+                     </a>
+                  </li>
+               <% } else { %>
+                  <li >
+                     <a href="<%- host %>" >
+                        <span class="mob-menu-text">طلب جديد</span>
+                        <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/another_$$.png" alt="menu-icon"/></span></div>
+                     </a>
+                  </li>
+               <% } %>
+               <% if(url == 'orders') { %>
+                  <li class="active">
+                     <a href="<%- host %>orders" >
+                        <span class="mob-menu-text"> سجل الطلبات</span>
+                        <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/orders_icon.png" alt="menu-icon"/></span></div>
+                     </a>
+                  </li>
+               <% } else { %>
+                  <li>
+                     <a href="<%- host %>orders" >
+                        <span class="mob-menu-text"> سجل الطلبات</span>
+                        <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/orders_icon.png" alt="menu-icon"/></span></div>
+                     </a>
+                  </li>
+               <% } %>
+               
+               <% if(url == 'refills') { %>
+                  <li class="active">
+                     <a href="<%- host %>refills" >
+                        <span class="mob-menu-text">إعادة تعبئة</span>
+                        <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/another_$$.png" alt="menu-icon"/></span></div>
+                     </a>
+                  </li>
+               <% } else { %>
+                  <li>
+                     <a href="<%- host %>refills" >
+                        <span class="mob-menu-text">إعادة تعبئة</span>
+                        <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/another_$$.png" alt="menu-icon"/></span></div>
+                     </a>
+                  </li>
+               <% } %>
+               
+               <% if(url == 'addfunds') { %>
+                  <li class="active">
+                     <a href="<%- host %>addfunds" >
+                        <span class="mob-menu-text">إضافة رصيد</span>
+                        <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/add_founds_icon.png" alt="menu-icon"/></span></div>
+                     </a>
+                  </li>
+               <% } else { %>
+                  <li>
+                     <a href="<%- host %>addfunds" >
+                        <span class="mob-menu-text">إضافة رصيد</span>another_$$.png
+                        <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/add_founds_icon.png" alt="menu-icon"/></span></div>
+                     </a>
+                  </li>
+               <% } %>
+               
+               <% if(url == 'tickets') { %>
+                  <li class="active">
+                     <a href="<%- host %>tickets" >
+                        <span class="mob-menu-text">الدعم الفني</span>
+                        <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/support_logo.png" alt="menu-icon"/></span></div>
+                     </a>
+                  </li>
+               <% } else { %>
+                  <li>
+                     <a href="<%- host %>tickets" >
+                        <span class="mob-menu-text">الدعم الفني</span>
+                        <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/support_icon.png" alt="menu-icon"/></span></div>
+                     </a>
+                  </li>
+               <% } %>
+               
+               <% if(url == 'services') { %>
+                  <li class="active">
+                     <a href="<%- host %>services" >
+                        <span class="mob-menu-text">الخدمات</span>
+                        <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/services_icon.png" alt="menu-icon"/></span></div>
+                     </a>
+                  </li>
+               <% } else { %>
+                  <li>
+                     <a href="<%- host %>services" >
+                        <span class="mob-menu-text">الخدمات</span>
+                        <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/services_icon.png" alt="menu-icon"/></span></div>
+                     </a>
+                  </li>
+               <% } %>
+               
+               <% if(url == 'child-panels') { %>
+                  <li class="active">
+                     <a href="<%- host %>child-panels" >
+                        <span class="mob-menu-text">متجر الكتروني</span>
+                        <div class="mob-menu-right"><span class="mob-menu-icon"><img src="https://cdn.mypanel.link/1847ba/0jymh2dwlr2blcp9.png" alt="menu-icon"/></span></div>
+                     </a>
+                  </li>
+               <% } else { %>
+                  <li>
+                     <a href="<%- host %>child-panels" >
+                        <span class="mob-menu-text">متجر الكتروني</span>
+                        <div class="mob-menu-right"><span class="mob-menu-icon"><img src="https://cdn.mypanel.link/1847ba/0jymh2dwlr2blcp9.png" alt="menu-icon"/></span></div>
+                     </a>
+                  </li>
+               <% } %>
+               
+               <% if(url == 'affiliates') { %>
+                  <li class="active">
+                     <a href="<%- host %>affiliates">
+                        <span class="mob-menu-text">التسويق بالعمولة</span>
+                        <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/ways_to_earn.png" alt="menu-icon"/></span></div>
+                     </a>
+                  </li>
+               <% } else { %>
+                  <li >
+                     <a href="<%- host %>affiliates">
+                        <span class="mob-menu-text">التسويق بالعمولة</span>
+                        <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/ways_to_earn.png" alt="menu-icon"/></span></div>
+                     </a>
+                  </li>
+               <% } %>
+               
+               <% if(url == 'gifts') { %>
+                  <li class="active">
+                     <a href="<%- host %>gifts" >
+                        <span class="mob-menu-text">رصيد مجانا</span>
+                        <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/ways_to_earn.png" alt="menu-icon"/></span></div>
+                     </a>
+                  </li>
+               <% } else { %>
+                  <li >
+                     <a href="<%- host %>gifts" >
+                        <span class="mob-menu-text">رصيد مجانا</span>
+                        <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/ways_to_earn.png" alt="menu-icon"/></span></div>
+                     </a>
+                  </li>
+               <% } %>
+               
+               <% if(url == 'api') { %>
+                  <li class="active">
+                     <a href="<%- host %>api" >
+                        <span class="mob-menu-text">API</span>
+                        <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/api_icon.png" alt="menu-icon"/></span></div>
+                     </a>
+                  </li>
+               <% } else { %>
+                  <li>
+                     <a href="<%- host %>api" >
+                        <span class="mob-menu-text">API</span>
+                        <div class="mob-menu-right"><span class="mob-menu-icon"><img src="<%- host %>style/images/api_icon.png" alt="menu-icon"/></span></div>
+                     </a>
+                  </li>
+               <% } %>
+              
+         <% } %>
+           
+        </ul>
+        <ul class="nav navbar-nav navbar-left-block">
+           <li class="dropdown new_order">
+               <a href="<%- host %>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                 <span class="menu-icon">
+                    <img src="<%- host %>style/images/new_order_icon.png" alt="menu-icon"/>
+                  </span>
+                  <span class="menu-text">
+                     طلب جديد 
+                     <span class="caret"></span>
+                  </span>
+               </a>
+              <ul class="dropdown-menu">
+                 <li><a href="<%- host %>">طلب جديد</a></li>
+                 <% if(user.role == 1) { %>
+                  <li><a href="<%- host %>admin/refills">إعادة تعبئة</a></li>
+                  <% } else { %>
+                     <li><a href="<%- host %>refills">إعادة تعبئة</a></li>
+                 <% } %>
+                 
+                 <!--<li><a href="#">الطلبات الجماعية</a></li>-->
+              </ul>
+           </li>
+            <% if(user.role == 1) { %>
+               <li><a href="<%- host %>admin/orders"><span class="menu-icon"><img src="<%- host %>style/images/orders_icon.png" alt="menu-icon"/></span><span class="menu-text">سجل الطلبات</span></a></li>
+            <% } %>
+            <% if(user.role > 1) { %>
+               <li><a href="<%- host %>orders"><span class="menu-icon"><img src="<%- host %>style/images/orders_icon.png" alt="menu-icon"/></span><span class="menu-text">سجل الطلبات</span></a></li>
+            <% } %> <!--<%- host %>style/images/orders_icon.png-->
+          
+            <% if(user.role == 1) { %>
+               <li><a href="<%- host %>admin/users"><span class="menu-icon"><img src="<%- host %>style/images/orders_icon.png" alt="menu-icon"/></span><span class="menu-text">المستخدمين</span></a></li>
+            <% } %>
+            <% if(user.role > 1) { %>
+               <li>
+                  <a href="<%- host %>addfunds"><span class="menu-icon"><img src="<%- host %>style/images/add_founds_icon.png" alt="menu-icon"/></span><span class="menu-text">اضافة رصيد</span></a>
+               </li><!--<%- host %>style/images/add_founds_icon.png-->
+            <% } %>
+            <li>
+               <% if(user.role == 1) { %>
+                  <a href="<%- host %>admin/tickets"><span class="menu-icon"><img src="<%- host %>style/images/support_icon.png" alt="menu-icon"/></span><span class="menu-text">الدعم الفني</span></a>
+               <% } else { %>
+                  <a href="<%- host %>tickets"><span class="menu-icon"><img src="<%- host %>style/images/support_icon.png" alt="menu-icon"/><span class="ticket-count"><%- tickets %></span></span><span class="menu-text">الدعم الفني</span></a>
+               <% } %>
+            </li><!--<%- host %>style/images/support_icon.png-->
+            <li>
+               <% if(user.role > 1) { %>
+                  <a href="<%- host %>services"><span class="menu-icon"><img src="<%- host %>style/images/services_icon.png" alt="menu-icon"/></span><span class="menu-text">الخدمات</span></a>
+               <% } else { %>
+                  <a href="<%- host %>admin/services"><span class="menu-icon"><img src="<%- host %>style/images/services_icon.png" alt="menu-icon"/></span><span class="menu-text">الخدمات</span></a>
+               <% } %>
+               <% if(user.role == 1) { %>
+                  <li><a href="<%- host %>admin/payments"><span class="menu-icon"><img src="<%- host %>style/images/orders_icon.png" alt="menu-icon"/></span><span class="menu-text">المدفوعات</span></a></li>
+               <% } %>
+            </li><!--<%- host %>style/images/services_icon.png-->
+            <% if(user.role == 1) { %>
+               <li>
+                  <a href="<%- host %>admin/faqs"><span class="menu-icon"><img src="<%- host %>style/images/services_icon.png" alt="menu-icon"/></span></span><span class="menu-text">الاسئلة الشائعة</span></a>
+               </li>
+               <li>
+                  <a href="<%- host %>admin/providers"><span class="menu-icon"><img src="<%- host %>style/images/services_icon.png" alt="menu-icon"/></span><span class="menu-text"> الموزعين</span></a>
+               </li>
+               <li>
+                  <a href="<%- host %>admin/settings"><span class="menu-icon"><img src="<%- host %>style/images/services_icon.png" alt="menu-icon"/></span><span class="menu-text">الاعدادات العامة</span></a>
+               </li>
+            <% } else { %>
+               <li class="dropdown type_profite">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="menu-icon"><img src="<%- host %>style/images/ways_to_earn.png" alt="menu-icon"/></span><span class="menu-text">طرق الربح <span class="caret"></span></span></a>
+                  <ul class="dropdown-menu">
+                     <li>
+                        <a href="<%- host %>affiliates">التسويق بالعمولة</a>
+                     </li>
+                     <li>
+                        <a href="<%- host %>child-panels">متجر الكتروني</a>
+                     </li>
+                     <li>
+                        <a href="<%- host %>gifts">رصيد مجانا</a>
+                     </li>
+                  </ul>
+               </li>
+            <% } %>
+           
+        </ul>
+        <ul class="nav navbar-nav navbar-right navbar-right-block">
+           <!--<li class="update">
+              <a href="<%- host %>updates"><span class="menu-icon"><span class="material-icons">notifications_active</span></span><span class="menu-text">التحديثات</span></a>
+           </li>-->
+           <li class="mode"><a class="toggle" href="javascript:toggleMode()"><span class="menu-icon"><span id="toggleDIcon" class="material-icons">nights_stay</span></span><span id="toggleText" class="menu-text"> الوضع الليلي</span></a></li>
+           
+           <li class="dropdown setting">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="menu-icon profPic">
+               <% if(user.gender == 1) { %>
+                  <img src="<%- host %>style/images/woman.png" alt="gender icon" class="gender_img" />                   
+                <% } else { %>
+                  <img src="<%- host %>style/images/male.png" alt="gender icon" class="gender_img" />                   
+                <% } %>
+              </span><span class="menu-text">الاعدادات <span class="caret"></span></span></a>
+              <ul class="dropdown-menu">
+                 <li><a href="<%- host %>account" >الحساب</a></li>
+                 <li><a href="<%- host %>api/auth/sign_out" >تسجيل خروج</a></li>
+              </ul>
+           </li>
+            <!--<li class="dropdown lang">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="menu-icon"><span class="flag-icon flag-icon-squared flag-icon-sa"></span></span><span class="menu-text">عربي<span class="caret"></span></span></a>
+              <ul class="dropdown-menu dropdown-max-height">
+                 <li class="active"><a href="#">عربي</a></li>
+                 <li><a href="#">English</a></li>
+              </ul>
+            </li>-->
+        </ul>
+     </div>
+  </div>
+</nav>

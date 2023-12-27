@@ -1,0 +1,54 @@
+[{
+  "_id": {
+    "$oid": "62a8457b372ef535c05526db"
+  },
+  "status": true,
+  "provider": 1,
+  "name": "Secsers",
+  "key": "dd937a7a49e2ca2c130d981d09075ccb",
+  "linkApi": "https://secsers.com/api/v2",
+  "description": "https://secsers.com/api/v2",
+  "createAt": {
+    "$date": "2022-06-14T08:23:23.436Z"
+  },
+  "updateAt": {
+    "$date": "2022-06-14T08:23:23.436Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62febad257c31b710b82ac63"
+  },
+  "status": false,
+  "provider": 2,
+  "name": "Smmfollows",
+  "key": "482ff1d0ff58cf7bbba8dd535e84f67f",
+  "linkApi": "https://smmfollows.com/api/v2",
+  "description": "",
+  "createAt": {
+    "$date": "2022-08-18T22:18:58.080Z"
+  },
+  "updateAt": {
+    "$date": "2022-08-18T22:18:58.080Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6301b32057c31b710b830424"
+  },
+  "status": true,
+  "provider": 3,
+  "name": "Justanotherpanel",
+  "key": "5b0edc6dfc931fdec53cbe21bfa83e86",
+  "linkApi": "https://justanotherpanel.com/api/v2",
+  "description": "",
+  "createAt": {
+    "$date": "2022-08-21T04:22:56.470Z"
+  },
+  "updateAt": {
+    "$date": "2022-08-21T04:22:56.470Z"
+  },
+  "__v": 0
+}]

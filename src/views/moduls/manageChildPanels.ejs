@@ -1,0 +1,121 @@
+<main class="inner-wrap">
+    <div class="container-fluid">
+        <div class="row option-row">
+            <div class="col-sm-4ll">
+                <p class="breadcrumbs users-breadcrumbs">أنت الآن على: <strong>المتاجر</strong></p>
+            </div>
+            <div class="col-sm-4 users-btns">
+                <div class="btn-group filter-btn">
+
+                    <ul class="dropdown-menu">
+                    </ul>
+                </div>
+                
+            </div>
+            <!-- <div class="col-sm-4"><p class="breadcrumbs">أنت الآن على: <strong>الطلبات</strong></p></div> -->
+            <div class="col-sm-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="input-group search-bar">
+                    <input id="search" type="text" class="form-control" placeholder="بحث" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default"><i class="far fa-search" aria-hidden="true"></i></button>
+                    </span>
+                    </div>
+  
+                <div class="table-responsive">
+                    <table class="table custom-table mob-table results rtl-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>المستخدم</th>
+                                <th>الدومين</th>
+                                <th>العملة</th>
+                                <th>اسم المستخدم</th>
+                                <th>حالة المتجر</th>
+                                <th>تعديل</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(var i = 0; i < requestChildPanels.length; i++) { %>
+                                <tr class="table-cont">
+                                    <td data-head="#">
+                                        <%- requestChildPanels[i].requestChildPanel %>
+                                    </td>
+                                    <td data-head="المستخدم">
+                                        <%- requestChildPanels[i].userId.username %>
+                                    </td>
+                                    <td data-head="الدومين"><%- requestChildPanels[i].domain %></td>
+                                    <td data-head="العملة"><%- requestChildPanels[i].currency %></td>
+                                    <td data-head="اسم المستخدم"><%- requestChildPanels[i].username %></td>
+                                    <td data-head="حالة المتجر"><%= requestChildPanels[i].status === true ? 'يعمل' : 'موقف مؤقتا' %></td>
+                                    <td class="actions" data-head="actions">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="far fa-chevron-down"></i>
+                                        </button>
+                                        <ul class="dropdown-menu edit-dropdown-menu">
+                                            <li>
+                                                <button
+                                                    class="edit-btn"
+                                                    onclick="openEditModal(this)"
+                                                    data-_id="<%- requestChildPanels[i]._id %>"
+                                                    data-status="<%- requestChildPanels[i].status %>"
+                                                    data-username="<%- requestChildPanels[i].username %>"
+                                                    data-user="<%- requestChildPanels[i].userId.username %>"
+                                                    data-domain="<%- requestChildPanels[i].domain %>"
+                                                    data-requestChildPanel="<%- requestChildPanels[i].requestChildPanel %>"
+                                                >
+                                                    تعديل
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="edit-modal responsive-modal" id="edit_modal" style="height: 620px;">
+        <div class="edit-user-title">
+            <span>تعديل مستخدم</span>
+            <button class="close-edit-modal" id="edit_modal_close">X</button>
+        </div>
+        <div class="line"></div>
+        <div class="form-group icon-group">
+            <span>#</span>
+            <input type="text" class="form-control" id="requestChildPanel" placeholder="#" disabled />
+        </div>
+        <div class="form-group icon-group">
+            <span>المستخدم</span>
+            <input type="text" class="form-control" id="user" placeholder="المستخدم" disabled />
+        </div>
+        <div class="form-group icon-group">
+            <span>اسم المستخدم</span>
+            <input type="text" class="form-control" id="username" placeholder="اسم المستخدم" disabled />
+        </div>
+        <div class="form-group icon-group">
+            <span>الدومين</span>
+            <input type="text" class="form-control" id="domain" placeholder="الدومين" disabled />
+        </div>
+        <div class="form-group icon-group">
+            <span> حالة المتجر</span>
+            <select class="status_shop" id="status_shop"></select>  
+        </div>
+
+        <div class="edit-modal-btns">
+            <button class="edit-user" id="edit_user">تعديل</button>
+            <button class="cancel" id="edit_modal_cancel">إغلاق</button>
+        </div>
+        <div class="issues add-user-message"></div>
+    </div>
+
+  </main>
+  
+  <script src="<%- host %>js/assets/jquery.min.js"></script>
+  <script src="<%- host %>js/assets/manageChildPanels.js"></script>

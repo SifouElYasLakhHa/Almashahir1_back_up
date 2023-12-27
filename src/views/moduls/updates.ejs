@@ -1,0 +1,50 @@
+<main class="inner-wrap">
+    <div class="container-fluid">
+<div class="row option-row">
+<div class="col-sm-4">
+  <div class="btn-group filter-btn">
+    <button type="button" class="btn btn-default dropdown-toggle srvtgl" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fal fa-filter"></i><span> فلترة البحث</span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="javascript:filterByCategory('')">All</a></li>
+      <li><a class="dropdown-item" href="javascript:filterByCategory('Service Enabled')">تفعيل خدمة</a></li>
+      <li><a class="dropdown-item" href="javascript:filterByCategory('Service Disabled')">ايقاف الخدمة</a></li>
+      <li><a class="dropdown-item" href="javascript:filterByCategory('Price INCREASED')">رفع سعر خدمة</a></li>
+      <li><a class="dropdown-item" href="javascript:filterByCategory('Price DECREASED')">خفض سعر خدمة</a></li>
+    </ul>
+  </div>
+</div>
+<div class="col-sm-4"><p class="breadcrumbs">أنت الآن على: <strong>التحديثات</strong></p></div>
+<div class="col-sm-4">
+      </div>
+</div>
+<div class="row">
+<div class="col-md-12">
+  <div class="input-group search-bar">
+    <input id="search" type="text" class="form-control" placeholder="بحث">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="button"><i class="far fa-search"></i></button>
+    </span>
+  </div>
+  <div class="table-responsive  rtl-content ">
+    <table class="table custom-table update-table mob-table">
+      <thead>
+        <tr>
+          <th>رقم الخدمة</th>
+          <th class="width-service-name">الخدمة</th>
+          <th>التاريخ </th>
+          <th class="text-center">الاجراء</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="table-pagination">
+      <ul></ul>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+  </main>

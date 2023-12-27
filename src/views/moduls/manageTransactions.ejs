@@ -1,0 +1,186 @@
+<main class="inner-wrap">
+    <div class="container-fluid">
+        <div class="row option-row">
+            <div class="col-sm-4ll">
+                <p class="breadcrumbs users-breadcrumbs">أنت الآن على: <strong>الموزعين</strong></p>
+            </div>
+            <div class="col-sm-4 users-btns">
+                <div class="btn-group filter-btn">
+                    <!-- <button type="button" class="btn btn-default "><i class="fal fa-sort-alpha-up"></i> <span>المستخدمين</span></button>
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       <i class="far fa-chevron-down"></i>
+    </button> -->
+                    <ul class="dropdown-menu">
+                        <!--<li class="active"><a href="/orders">كل الطلبات</a></li>
+      <li ><a href="/orders/pending">قيد الانتظار</a></li>
+      <li ><a href="/orders/inprogress">قيد التنفيذ</a></li>
+      <li ><a href="/orders/completed">مكتمل</a></li>
+      <li ><a href="/orders/partial">مكتمل جزئي</a></li>
+      <li ><a href="/orders/processing">قيد المعالجة</a></li>
+      <li ><a href="/orders/canceled">ملغي</a></li>-->
+                    </ul>
+                </div>
+                <button id="add_provider" type="button" class="btn btn-default users-btn add-provider" style="background-color: #f4db7d; color: #1a2238; font-weight: bold; border: 0; font-size: 18px;">
+                    <!-- <i class="fal fa-sort-alpha-up"></i> -->
+                    <span>إضافة موزع</span>
+                </button>
+            </div>
+            <!-- <div class="col-sm-4"><p class="breadcrumbs">أنت الآن على: <strong>الطلبات</strong></p></div> -->
+            <div class="col-sm-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                  <div class="input-group search-bar">
+                  <input id="search" type="text" class="form-control" placeholder="بحث" />
+                  <span class="input-group-btn">
+                      <button type="button" class="btn btn-default"><i class="far fa-search" aria-hidden="true"></i></button>
+                  </span>
+                  </div>
+                <div class="table-responsive">
+                    <table class="table custom-table mob-table results rtl-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>المستخدم</th>
+                                <th>وسيلة الدفع</th>
+                                <th>المبلغ</th>
+                                <th>النسبة المؤوية للبونيس</th>
+                                <th>حالته</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(var i = 0; i < providers.length; i++) { %>
+                            <tr>
+                                <td><%- providers[i].id %></td>
+                                <td><%- providers[i].name %></td>
+                                <td><%- providers[i].description %></td>
+                                <td><%- providers[i].linkApi %></td>
+                                <td><%= providers[i].status === true ? 'يعمل' : 'متوقف' %></td>
+                                <td class="actions">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="far fa-chevron-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu edit-dropdown-menu">
+                                        <li>
+                                            <button
+                                                class="edit-btn"
+                                                onclick="openEditProviderModal(this)"
+                                                id="edit_provider_data"
+                                                data-id="<%- providers[i]._id %>"
+                                                data-name="<%- providers[i].name %>"
+                                                data-description="<%- providers[i].description%>"
+                                                data-linkApi="<%- providers[i].linkApi%>"
+                                                data-status="<%- providers[i].status%>"
+                                                data-key="<%- providers[i].key%>"
+                                            >
+                                                تعديل
+                                            </button>
+                                        </li>
+  
+                                        <li><button onclick="DeleteProvider(this)" class="delete-user" id="delete_user_provider" data-id="<%- providers[i]._id %>">حذف</button></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="users-modal responsive-modal" id="add_provider_modal">
+        <div class="add-user-title">
+            <span>اضافة موزع</span>
+            <button class="close-modal" id="add_provider_modal_close">X</button>
+        </div>
+        <div class="line"></div>
+        <div class="form-group icon-group">
+            <span>اسم الموزع</span>
+            <input type="text" class="form-control" id="add_provider_name" value="" placeholder="اسم الموزع" />
+            <span class="issues addname_provider_issue"></span>
+        </div>
+        <div class="form-group icon-group">
+            <span> الوصف</span>
+            <textarea class="form-control" id="add_provider_des" placeholder="الوصف" rows="4" cols="50"></textarea>
+  
+            <span class="issues username_issue"></span>
+        </div>
+        <div class="form-group icon-group">
+            <span>الرابط</span>
+            <input type="url" class="form-control" id="link_provider" value="" placeholder="الرابط" />
+            <span class="issues link_provider_issue"></span>
+        </div>
+        <div class="form-group icon-group">
+            <span> key</span>
+            <input type="text" class="form-control" id="key_provider" value="" placeholder="key" />
+            <span class="issues key_provider_issue"></span>
+        </div>
+        <div class="users-modal-btns">
+            <button class="add-user" id="add_provider_btn">اضافة</button>
+            <button class="cancel" id="add_provider_modal_cancel">إغلاق</button>
+        </div>
+        <div class="issues add-user-message"></div>
+    </div>
+  
+    <div class="users-modal responsive-modal" id="edit_provider_modal">
+        <div class="add-user-title">
+            <span>تعديل موزع</span>
+            <button class="close-modal" id="edit_provider_modal_close">X</button>
+        </div>
+        <div class="line"></div>
+        <div class="form-group icon-group">
+            <span>اسم الموزع</span>
+            <input type="text" class="form-control" id="edit_provider_name" value="" placeholder="اسم الموزع" />
+            <span class="issues username_provider_issue"></span>
+        </div>
+        <div class="form-group icon-group">
+            <span> الوصف</span>
+  
+            <textarea class="form-control" id="edit_provider_des" value="" rows="4" cols="50" placeholder="الوصف"></textarea>
+            <span class="issues description_provider_issue"></span>
+        </div>
+        <div class="form-group icon-group">
+            <span>الرابط</span>
+            <input type="url" class="form-control" id="edit_link_provider" value="" placeholder="الرابط" />
+            <span class="issues link_provider_issue"></span>
+        </div>
+        <div class="form-group icon-group">
+            <span> key</span>
+            <input type="text" class="form-control" id="edit_key_provider" value="" placeholder="key" />
+            <span class="issues key_provider_issue"></span>
+        </div>
+  
+        <div>
+            <div>الحالة</div>
+            <select name="" id="select_status" class="select-suspends">
+                <option value="true">يعمل</option>
+  
+                <option value="false">لا يعمل</option>
+            </select>
+        </div>
+        <div class="users-modal-btns">
+            <button class="add-user" id="edit_provider_btn">تعديل</button>
+            <button class="cancel" id="edit_provider_modal_cancel">إغلاق</button>
+        </div>
+        <div class="issues add-user-message"></div>
+    </div>
+  
+    <div class="delete-item-modal responsive-modal" id="delete_item_provider_modal">
+        <div class="add-user-title">
+            <span>حذف نوع خدمة</span>
+            <button class="close-modal" id="delete_item_provider_modal_close">X</button>
+        </div>
+        <div class="line"></div>
+        <div class="message">هل انت متأكد من الحذف ؟</div>
+  
+        <div class="users-modal-btns">
+            <button class="delete" id="delete_item_provider_modal_btn">نعم</button>
+            <button class="cancel" id="delete_item_provider_modal_cancel">لا</button>
+        </div>
+        <div class="issues add-user-message"></div>
+    </div>
+  </main>
+  
+  <script src="<%- host %>js/assets/jquery.min.js"></script>
+  <script src="<%- host %>js/assets/provider.js"></script>
+  

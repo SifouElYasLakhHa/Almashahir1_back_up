@@ -1,0 +1,45 @@
+[{
+  "_id": {
+    "$oid": "6264d10804f7353b28e4ed16"
+  },
+  "newUser": true,
+  "status": true,
+  "min": 5,
+  "max": {
+    "$numberLong": "1000000000000"
+  },
+  "id": 1,
+  "name": "فيزا - ماستر كارد - ابل باي - قوقل باي / بونص 2٪",
+  "keys": [
+    {
+      "_id": {
+        "$oid": "6264d10804f7353b28e4ed17"
+      },
+      "name": "public_key",
+      "value": "pk_live_51KqQkpHP7Scq2xyIYFoMD9eZY4kDHdzr6RgmoSNn5GKnamMhiOpMS8OGi1QQigi7IZKPEW2nQvAxI79kFsuU1Vzb0075TkikKO"
+    },
+    {
+      "_id": {
+        "$oid": "6264d10804f7353b28e4ed18"
+      },
+      "name": "secret_key",
+      "value": "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"
+    },
+    {
+      "_id": {
+        "$oid": "6264d10804f7353b28e4ed19"
+      },
+      "name": "webhook_secret",
+      "value": "test"
+    },
+    ""
+  ],
+  "createAt": {
+    "$date": "2022-04-24T04:24:40.122Z"
+  },
+  "updateAt": {
+    "$date": "2022-04-24T04:24:40.122Z"
+  },
+  "__v": 0,
+  "discount": "2"
+}]

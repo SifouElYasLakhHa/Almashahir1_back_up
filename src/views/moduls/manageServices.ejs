@@ -1,0 +1,987 @@
+<main class="inner-wrap">
+    <div class="container-fluid">
+        <div class="row option-row">
+            <!-- <div class="col-sm-4">
+                <div class="btn-group filter-btn">
+                    <button type="button" class="btn btn-default"><i class="fal fa-sort-alpha-up"></i> <span>حدد  حالة المستخدم</span></button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="far fa-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="active"><a href="/orders">كل الطلبات</a></li>
+                        <li><a href="/orders/pending">قيد الانتظار</a></li>
+                        <li><a href="/orders/inprogress">قيد التنفيذ</a></li>
+                        <li><a href="/orders/completed">مكتمل</a></li>
+                        <li><a href="/orders/partial">مكتمل جزئي</a></li>
+                        <li><a href="/orders/processing">قيد المعالجة</a></li>
+                        <li><a href="/orders/canceled">ملغي</a></li>
+                    </ul>
+                </div>
+            </div> -->
+            <div class="col-sm-4 services-page">
+                <p class="breadcrumbs">أنت الآن على: <strong>الخدمات</strong></p>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+        <div class="services-actions">
+            <!-- <div class="services-actions-create-search">
+                <select name="" id="">
+                    <option value="">All</option>
+                    <option value="">Service name</option>
+                    <option value="">Service ID</option>
+                    <option value="">External ID</option>
+                </select>
+                <input type="search" placeholder="search">
+            </div> -->
+            <div class="row services-actions-create">
+                <div class="col-lg-4 add_new_btn" >
+                    <button id="add_new_service">إضافة خدمة</button>
+                </div>
+                <div class="col-lg-4 add_new_btn">
+                    <button id="add_service_category">إضافة الفئة</button>
+                </div>
+                <div class="col-lg-4 add_new_btn">
+                    <button id="import_service_category">Import</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="input-group search-bar">
+                    <input id="search" type="text" class="form-control" placeholder="بحث" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><i class="far fa-search"></i></button>
+                    </span>
+                </div>
+                <div class="table-responsive">
+                    <table class="table custom-table mob-table results rtl-table">
+                        <thead>
+                            <tr>
+                                
+                                <th>الرقم</th>
+                                <th class="width-service-name">الاسم</th>
+                                <th class="nowrap cont-width">السعر لكل 1000</th>
+                                <th class="nowrap">الحد الادنى</th>
+                                <th class="nowrap">الحد الاقصى</th>
+                                
+                                <th class="nowrap">
+                                    معدل الوقت لكل 1000
+                                    <span class="fa fa-exclamation-circle" data-toggle="tooltip" data-placement="top" title="معدل الوقت على أساس آخر 10 أوامر مكتملة لكل 1000 كمية"></span>
+                                </th>
+                                <th>حالة الخدمة</th>
+                                <th>حالة الفئة</th>
+                                <th>الترتيب</th>
+                                <th>تعديل</th>
+                            </tr>
+                        </thead>
+  
+                        <tbody>
+                            <% for(var i = 0; i < categories.length; i++) { %>
+                            <tr class="cate-row" data-category="<%- categories[i].category.name %>">
+                                <td colspan="1" data-id="<%- categories[i].category._id %>"><%- categories[i].category.category %></td>
+                                <td colspan="6" class="mk-icons"><%- categories[i].category.name %></td>
+                                <td colspan="1" class="mk-icons"><%= categories[i].category.status === true ? 'مفعلة' : 'غير مفعلة' %></td>
+                                <td colspan="1" data-id="<%- categories[i].category._id %>"><%- categories[i].category.sort %></td>
+                                <td colspan="2" class="actions">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="far fa-chevron-down"></i>
+                                        </button>
+                                        <ul class="dropdown-menu edit-dropdown-menu">
+                                            <li><button onclick="openEditCatNameModal(this)" class="edit-btn" id="" data-id="<%- categories[i].category._id %>" data-name="<%- categories[i].category.name %>" data-sort="<%- categories[i].category.sort %>" data-status="<%- categories[i].category.status %>" data-description="<%- categories[i].category.description %>">تعديل الفئة</button></li>
+                                            <li><button class="suspends-user" data-id="<%- categories[i]._id %>">تخفيض خاص</button></li>
+                                            <li><button onclick="editSortCategory(this)" class="suspends-user" data-name="<%- categories[i].category.name %>" data-id="<%- categories[i].category._id %>">تغيير الترتيب</button></li>
+                                            <li><button onclick="deleteCategory(this)" class="set-password delete_category" id="" data-id="<%- categories[i].category._id %>">حذف الفئة</button></li>
+                                        </ul>
+                                </td>
+                            </tr>
+                            <% for(var k = 0; k < categories[i].services.length; k++) { %>
+                                <tr class="table-cont serv-row" data-category="<%- categories[i].category.name %>">
+                                    
+                                    <td data-head="الرقم"><%- categories[i].services[k].service %></td>
+                                    <td data-head="الاسم" class="service-name mk-icons"><%- categories[i].services[k].name %></td>
+                                    <td data-head="السعر لكل 1000" class="cont-width rate-badge">
+
+                                        <%- categories[i].services[k].price.newPrice %>
+                                        <br>
+                                    
+                                        <span <%= categories[i].services[k].price.originalPrice > categories[i].services[k].price.newPrice ? 'style="color: red;"' : '' %>><%- categories[i].services[k].price.originalPrice %></span>
+                                    </td>
+                                    <td data-head="الحد الادنى"><%- categories[i].services[k].min %></td>
+                                    <td data-head="الحد الاقصى"><%- categories[i].services[k].max %></td>
+                                    <td data-head="معدل الوقت لكل 1000" class="nowrap"><%- categories[i].services[k].executionTime %></td>
+                                    
+                                    <td data-head="حالة الخدمة" data-id="<%- JSON.stringify(categories[i].services[k]._id) %>" style="cursor: pointer;"> <!--onclick="detailShow(this)"-->
+                                        <a class="btn-primary table-btn btn-sm btn-serv"><%= categories[i].services[k].status === true ? 'مفعلة' : 'غير مفعلة' %></a>
+                                    </td>
+                                    <td data-head="حالة الفئة"><%= categories[i].category.status === true ? 'مفعلة' : 'غير مفعلة' %></td>
+                                    <td data-head="الترتيب"><%- categories[i].services[k].sortCategory %></td>
+                                    <td data-head="تعديل" class="actions" data-head="actions">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="far fa-chevron-down"></i>
+                                        </button>
+                                        <ul class="dropdown-menu edit-dropdown-menu">
+                                            
+                                            <li><button onclick="editServiceStatus(this)" class="suspends-user" data-id="<%- categories[i].services[k]._id %>" data-status="<%- categories[i].services[k].status %>">تغيير حالة الخدمة</button></li>
+                                            <li><button onclick="editSortService(this)" class="suspends-user" data-category="<%- categories[i].services[k].categoryId %>" data-name="<%- categories[i].services[k].name %>" data-id="<%- categories[i].services[k]._id %>" data-sort="<%- categories[i].services[k].sortCategory %>">تغيير الترتيب</button></li>
+                                            <li>
+                                                <button
+                                                class="edit-btn"
+                                                onclick="editServiceApi(this)"
+                                                data-id="<%- categories[i].services[k]._id %>"
+                                                >
+                                                    تعديل
+                                                </button>
+                                            </li>
+                                            <li><button onclick="alert('Hihhihihihiihiihih');" class="delete-user" id="delete_user" >حذف</button></li>
+                                            <li><button onclick="copyService(this)" class="delete-user" data-id="<%- categories[i].services[k]._id %>">نسخ</button></li>
+                                        </ul> <!--deleteService(this); data-id="<%- categories[i].services[k]._id %>"-->
+                                    </td>
+                                </tr>
+                            <% } %> <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="add-service-modal" id="add_service_modal">
+        <div class="edit-user-title">
+            <span>اضافة خدمة</span>
+            <button class="close-edit-modal" id="add_service_modal_close">X</button>
+        </div>
+        <div class="line"></div>
+        <div class="form-group icon-group">
+            <span>اسم الخدمة</span>
+            <input type="text" class="form-control" id="add_service_name" value="" placeholder="اسم الخدمة" required/>
+            <span class="issues name-ser-add-issue"></span>
+        </div>
+        <div class="form-group icon-group">
+            <span>الفئات</span>
+            <select name="" id="add_service_select_category" class="select-suspends" onchange="selectCate(this.value)" required>
+                <option value="selectOption">اختيار الفئة</option>
+                <% for(var i = 0; i < categories.length; i++) { %>
+                <option value="<%- categories[i].category._id %>"><%- categories[i].category.name %></option>
+                <% } %>
+            </select>
+        </div>
+        <div class="form-group icon-group">
+            <span>الترتيب</span>
+            <select id="add_service_select_sort" class="select-suspends" >
+                <option value="selectOption">اختيار ترتيب الخدمة</option>
+            </select>
+        </div>
+        <div class="mode-provider-section">
+            <span>نوع الخدمة</span>
+            <select name="" id="open_type_services_value" onchange="openTypeServices(this.value)" required> 
+                <option value="api">تلقائي</option>
+
+                <option value="manual">يدوي</option>
+            </select>
+            <div class="select-service" id="select_type_service">
+                <span>نوع الخدمة</span>
+                <select class="select-suspends" id="all_type_service" onchange="selectTypeServiceId(this)" required>
+                    <option value="">اختيار نوع الخدمة</option>
+                </select>
+            </div>
+            <div class="select-provider-hide" id="add_service_provider_hide">
+                <div>الموزع</div>
+                <select class="select-suspends" name="" id="add_service_provider" onchange="selectProvider(this.value)" required>
+                    <option value="">اختيار الموزع</option>
+                    <% for(var i = 0; i < providers.length; i++) { %>
+                        <option value="<%- providers[i]._id %>"><%- providers[i].name %></option>
+                    <% } %>
+                </select>
+                <span class="issues provider-ser-add-issue"></span>
+            </div>
+
+            <div class="select-service" id="select_service">
+                <span>الخدمات</span>
+                <select class="select-suspends" id="selectBox" onchange="selectService(this)" required> </select>
+            </div>
+            <div class="select-service" id="select_service_allow">
+                <div>Drip-feed</div>
+                <select class="select-suspends" name="" id="dripfeed" onchange="dripfeedValue(this.value)" required>
+                    <option value="false">سماح</option>
+                    <option value="true">عدم سماح</option>
+                </select>
+            </div>
+        </div>
+        <span>السعر لكل 1000</span>
+
+        <div class="switch-custom">
+            <div class="form-group icon-group rate-put" id="rate_put">
+                <input type="number" class="form-control" id="rate_per_1000" value="" required/>
+                <span class="issues username_issue"></span>
+            </div>
+            <div class="container-fluid">
+                
+                <div class="Refill-modal rate-modal-section" id="rate_modal">
+                    <div class="rate-modal-custom">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 add_service_rate">
+                                <div class="form-group icon-group form-text">
+                                    <input type="number" class="form-control" id="rate" value="" disabled required/>
+                                    <span class="issues email_issue"></span>
+                                    <label for="rate" class="static-value" id="lable_rate"></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 add_service_rate">
+                                <div class="form-group icon-group form-text">
+                                    <input type="number" class="form-control" onkeyup="calc(this.value)" id="presntage" value="" required/>
+                                    <span class="issues email_issue"></span>
+                                    <label for="presntage" class="static-value-presntage" id="lable_presntage">%</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 add_service_rate">
+                                <div class="form-group icon-group form-text">
+                                    <input type="number" class="form-control" id="fixed" onkeyup="calcFixed(this.value)" value="" required/>
+                                    <span class="issues email_issue"></span>
+                                    <label for="fixed" class="static-value-presntage" id="lable_fixed">ثابت</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+           
+            <!-- </div> -->
+
+            <!-- </div> -->
+            <label class="switch Refill-modal" id="switch_rate">
+                <input type="checkbox" id="open_rate" />
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <div class="min-max-order">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 value_services">
+                        <div class="form-group icon-group min-order form-text">
+                            <span>الحد الأدنى</span>
+            
+                            <div class="min-order-swich">
+                                <div class="min-order-swich-static-value">
+                                    <input type="number" class="form-control" id="min_order_value" value="" required/>
+                                    <span class="issues username_issue"></span>
+                                    <label for="min_order_value" class="static-value" id="min_order_value_fix"></label>
+                                </div>
+                                <label class="switch order-swich" id="min_order_swich">
+                                    <input type="checkbox" id="min_order" checked required/>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 value_services">
+                        <div class="form-group icon-group max-order form-text">
+                            <span>الحد الأقصى</span>
+                            <div class="min-order-swich">
+                                <div class="min-order-swich-static-value">
+                                    <input type="number" class="form-control" id="max_order_value" value="" required/>
+                                    <span class="issues username_issue"></span>
+                                    <label for="max_order_value" class="static-value" id="max_order_value_fix"></label>
+                                </div>
+                                <label class="switch order-swich" id="max_order_swich">
+                                    <input type="checkbox" id="max_order" checked/>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            
+        </div>
+        <div class="status-service-provider">
+            <label class="switch">
+                <input type="checkbox" id="status_service_provider" checked />
+                <span class="slider round"></span>
+            </label>
+            <div>حالة الخدمة نفس حالة الموزع</div>
+        </div>
+        <div class="mode-provider-section-custom">
+            <span>سماح نفس الرابط أكثر من مرة</span>
+            <select name="" id="link_duplicates" onchange="linkDuplicatesType(this.value)" required>
+                <option value="false" id="false">لا</option>
+                <option value="true" id="true">نعم</option>
+            </select>
+        </div>
+        <div class="mode-provider-section">
+            <div>
+                <span>التعويض</span>
+                <label class="switch">
+                    <input type="checkbox" id="open_Refill" />
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <div class="Refill-modal" id="Refill_modal">
+                <div class="refill-type">
+                    <div>التعويض</div>
+                    <select name="" id="" required>
+                        <option>يدوي</option>
+                        <option>تلقائي</option>
+                    </select>
+                </div>
+                <div>
+                    <span>أيام التعويض</span>
+                    <div class="form-group icon-group">
+                        <input type="text" class="form-control" value="" id="days" required/>
+                        <span class="issues email_issue"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="users-modal-btns">
+            <button class="add-user" id="add_service_api">اضافة</button>
+            <button class="cancel" id="add_service_modal_cancel">إغلاق</button>
+        </div>
+    </div>
+
+
+    
+
+
+    <div class="add-service-modal" id="import_service_modal">
+        <div class="edit-user-title">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-11 col-md-11 col-xs-10">
+                        
+                        <div class="row">
+                            <div class="col-lg-5 col-md-10 col-lg-5">
+                                <span>Import</span>
+                            </div>
+                            <div class="col-lg-6 col-md-10 providers_service_select_categories_class" style="display: none;">
+                                
+<select id="providers_service_select_categories" class="select-suspends">
+    <!--<option>اختيار  الفئة</option><option value="[ 30% OFF - Limited Time ] ✚ Instagram Ads [Package] ✔︎" data-id="62a7f4305df47a3f602481d4">[ 30% OFF - Limited Time ] ✚ Instagram Ads [Package] ✔︎</option><option value="✚ Google Reviews [ Price Decreased ]" data-id="false">✚ Google Reviews [ Price Decreased ]</option><option value="✚ Trustpilot.com Reviews [ Price Decreased ]" data-id="false">✚ Trustpilot.com Reviews [ Price Decreased ]</option><option value="✚ Twitter NFT Services | Real ADS" data-id="false">✚ Twitter NFT Services | Real ADS</option><option value="✚ Discord NFT Services | Real ADS" data-id="false">✚ Discord NFT Services | Real ADS</option><option value="✚ Instagram NFT Services | Real ADS" data-id="false">✚ Instagram NFT Services | Real ADS</option><option value="✚ Behance.net [ Designers ] NEW" data-id="false">✚ Behance.net [ Designers ] NEW</option><option value="✚ Facebook Reels Short Videos NEW" data-id="false">✚ Facebook Reels Short Videos NEW</option><option value="✚ Facebook Profile Followers" data-id="false">✚ Facebook Profile Followers</option><option value="✚ Facebook Page Likes | Followers" data-id="false">✚ Facebook Page Likes | Followers</option><option value="✚  Facebook Post Likes | Reactions" data-id="false">✚  Facebook Post Likes | Reactions</option><option value="✚ Facebook Views Watch Long Videos" data-id="false">✚ Facebook Views Watch Long Videos</option><option value="✚ Facebook Comments" data-id="false">✚ Facebook Comments</option><option value="✚ Facebook Reviews &amp; Events" data-id="false">✚ Facebook Reviews &amp; Events</option><option value="✚ Facebook Live Stream" data-id="false">✚ Facebook Live Stream</option><option value="✚ Facebook Auto Live Stream Views [ Subscription ]" data-id="false">✚ Facebook Auto Live Stream Views [ Subscription ]</option><option value="✚ Facebook Arab Services 🇵🇸" data-id="false">✚ Facebook Arab Services 🇵🇸</option><option value="✚ Facebook Vietnamese Services 🇻🇳" data-id="false">✚ Facebook Vietnamese Services 🇻🇳</option><option value="✚ Facebook Indian Services  🇮🇳" data-id="false">✚ Facebook Indian Services  🇮🇳</option><option value="✚ Facebook Bangladesh Services  🇧🇩" data-id="false">✚ Facebook Bangladesh Services  🇧🇩</option><option value="✚ Tiktok Views" data-id="false">✚ Tiktok Views</option><option value="✚ TikTok Views [ Last Videos ] Viral 🔥" data-id="false">✚ TikTok Views [ Last Videos ] Viral 🔥</option><option value="✚ TikTok Views | Country Targeted" data-id="false">✚ TikTok Views | Country Targeted</option><option value="✚ TikTok Likes" data-id="false">✚ TikTok Likes</option><option value="✚ TikTok Followers" data-id="false">✚ TikTok Followers</option><option value="✚ TikTok Livestream" data-id="false">✚ TikTok Livestream</option><option value="✚ Tiktok Comments" data-id="false">✚ Tiktok Comments</option><option value="✚ TikTok Shares | Explore" data-id="false">✚ TikTok Shares | Explore</option><option value="✚ TikTok Auto Services" data-id="false">✚ TikTok Auto Services</option><option value="✚ Tiktok [ Targeted ]" data-id="false">✚ Tiktok [ Targeted ]</option><option value="✚ Tiktok Arab Packages" data-id="false">✚ Tiktok Arab Packages</option><option value="✚ TikTok Arab Subscription 🇦🇪" data-id="false">✚ TikTok Arab Subscription 🇦🇪</option><option value="✚ Telegram Members" data-id="false">✚ Telegram Members</option><option value="✚ Telegram Post Views" data-id="false">✚ Telegram Post Views</option><option value="✚ Telegram Post Views [Auto]" data-id="false">✚ Telegram Post Views [Auto]</option><option value="✚  Telegram Post React" data-id="false">✚  Telegram Post React</option><option value="✚ Telegram Post React [Auto]" data-id="false">✚ Telegram Post React [Auto]</option><option value="✚ Telegram Post Shares" data-id="false">✚ Telegram Post Shares</option><option value="✚ Telegram Post Votes/Comments" data-id="false">✚ Telegram Post Votes/Comments</option><option value="✚ Telegram Direct Message" data-id="false">✚ Telegram Direct Message</option><option value="✚ Instagram 𝐑𝐞𝐞𝐥𝐬 [Views - Likes - Comments]" data-id="false">✚ Instagram 𝐑𝐞𝐞𝐥𝐬 [Views - Likes - Comments]</option><option value="✚ Instagram Followers - [ Targeted by Country ]" data-id="false">✚ Instagram Followers - [ Targeted by Country ]</option><option value="✚ Instagram Followers - [ Guaranteed with Refill ]" data-id="false">✚ Instagram Followers - [ Guaranteed with Refill ]</option><option value="✚ Instagram Followers - [ Cheapest - No Refill ]" data-id="false">✚ Instagram Followers - [ Cheapest - No Refill ]</option><option value="✚ Instagram Followers - [ Lifetime Refill ]" data-id="false">✚ Instagram Followers - [ Lifetime Refill ]</option><option value="✚ Instagram [ Arab / عرب ] 🇵🇸" data-id="false">✚ Instagram [ Arab / عرب ] 🇵🇸</option><option value="✚ Instagram [ Brazil ] 🇧🇷" data-id="false">✚ Instagram [ Brazil ] 🇧🇷</option><option value="✚ Instagram [Views]" data-id="false">✚ Instagram [Views]</option><option value="✚ Instagram TV [IGTV]" data-id="false">✚ Instagram TV [IGTV]</option><option value="✚ Instagram Comments" data-id="false">✚ Instagram Comments</option><option value="✚ Instagram Likes 🔥" data-id="false">✚ Instagram Likes 🔥</option><option value="✚ Instagram Likes [Targeted]" data-id="false">✚ Instagram Likes [Targeted]</option><option value="✚ Instagram [Male &amp; Female]" data-id="false">✚ Instagram [Male &amp; Female]</option><option value="✚ Instagram - [Live Video]" data-id="false">✚ Instagram - [Live Video]</option><option value="✚ Instagram Story - Impressions - Saves - Reach" data-id="false">✚ Instagram Story - Impressions - Saves - Reach</option><option value="✚ Instagram [Auto] Likes" data-id="false">✚ Instagram [Auto] Likes</option><option value="✚ Instagram [Auto] Views" data-id="false">✚ Instagram [Auto] Views</option><option value="✚ Instagram [Auto] Comments - Impressions - Saves - Reach" data-id="false">✚ Instagram [Auto] Comments - Impressions - Saves - Reach</option><option value="✚  Instagram Data Scraper" data-id="false">✚  Instagram Data Scraper</option><option value="✚ Instagram Direct Message" data-id="false">✚ Instagram Direct Message</option><option value="✚ Instagram Mentions" data-id="false">✚ Instagram Mentions</option><option value="✚ Youtube Shorts" data-id="false">✚ Youtube Shorts</option><option value="✚ Youtube Likes" data-id="false">✚ Youtube Likes</option><option value="✚ Youtube Subscribers" data-id="false">✚ Youtube Subscribers</option><option value="✚ Youtube Comments" data-id="false">✚ Youtube Comments</option><option value="✚ Youtube Views" data-id="false">✚ Youtube Views</option><option value="✚ Youtube Views [ Targeted ]" data-id="false">✚ Youtube Views [ Targeted ]</option><option value="✚ Youtube Views [ High Retention ]" data-id="false">✚ Youtube Views [ High Retention ]</option><option value="✚ YouTube Views [GEO - RAV™]" data-id="false">✚ YouTube Views [GEO - RAV™]</option><option value="✚ Youtube Live Stream [Concurrent]" data-id="false">✚ Youtube Live Stream [Concurrent]</option><option value="✚ YouTube Auto Unique Views" data-id="false">✚ YouTube Auto Unique Views</option><option value="✚ Youtube WatchTime [4000 Hours]" data-id="false">✚ Youtube WatchTime [4000 Hours]</option><option value="✚ Youtube Monetizable Package [Subscribers+Hours]" data-id="false">✚ Youtube Monetizable Package [Subscribers+Hours]</option><option value="✚ YouTube Shares [SocialMedia]" data-id="false">✚ YouTube Shares [SocialMedia]</option><option value="✚ YouTube Shares [Targeted]" data-id="false">✚ YouTube Shares [Targeted]</option><option value="✚ YouTube Shares [Targeted+Referrer]" data-id="false">✚ YouTube Shares [Targeted+Referrer]</option><option value="✚ YouTube Auto Shares" data-id="false">✚ YouTube Auto Shares</option><option value="✚ Twitter Likes" data-id="false">✚ Twitter Likes</option><option value="✚ Twitter Followers" data-id="false">✚ Twitter Followers</option><option value="✚ Twitter Packages" data-id="false">✚ Twitter Packages</option><option value="✚ Twitter Retweets" data-id="false">✚ Twitter Retweets</option><option value="✚ Twitter Poll Votes" data-id="false">✚ Twitter Poll Votes</option><option value="✚ Twitter [Views/Impressions/Clicks]" data-id="false">✚ Twitter [Views/Impressions/Clicks]</option><option value="✚ Twitter Comments [Targeted]" data-id="false">✚ Twitter Comments [Targeted]</option><option value="✚ Twitter Comments Package" data-id="false">✚ Twitter Comments Package</option><option value="✚ Twitter Mentions" data-id="false">✚ Twitter Mentions</option><option value="✚ Twitter Data Scraper" data-id="false">✚ Twitter Data Scraper</option><option value="✚ Twitter Direct Message" data-id="false">✚ Twitter Direct Message</option><option value="✚ Snapchat Followers" data-id="false">✚ Snapchat Followers</option><option value="✚ Snapchat Story Views" data-id="false">✚ Snapchat Story Views</option><option value="✚ Snapchat Packages" data-id="false">✚ Snapchat Packages</option><option value="✚ Kwai" data-id="false">✚ Kwai</option><option value="✚ Kwai Comments [ Arab ]" data-id="false">✚ Kwai Comments [ Arab ]</option><option value="✚ Twitch [Followers]" data-id="false">✚ Twitch [Followers]</option><option value="✚ Twitch [Views]" data-id="false">✚ Twitch [Views]</option><option value="✚ Twitch [Live]" data-id="false">✚ Twitch [Live]</option><option value="✚ Pinterest" data-id="false">✚ Pinterest</option><option value="✚ Spotify" data-id="false">✚ Spotify</option><option value="✚ Spotify Packages" data-id="false">✚ Spotify Packages</option><option value="✚ Spotify [Targeted]" data-id="false">✚ Spotify [Targeted]</option><option value="✚ Website Social Signals" data-id="false">✚ Website Social Signals</option><option value="✚ Google Visitors [Custom Keywords]" data-id="false">✚ Google Visitors [Custom Keywords]</option><option value="✚ Website Traffic [Custom Keywords/Targeted]" data-id="false">✚ Website Traffic [Custom Keywords/Targeted]
+
+    </option><option value="✚ Website Traffic from Mobile" data-id="false">✚ Website Traffic from Mobile</option><option value="✚ Website Cryptocurrency Traffic" data-id="false">✚ Website Cryptocurrency Traffic</option><option value="✚ Website Traffic from USA 🇺🇸" data-id="false">✚ Website Traffic from USA 🇺🇸</option><option value="✚ Website Traffic from UK 🇬🇧" data-id="false">✚ Website Traffic from UK 🇬🇧</option><option value="✚ Website Traffic from India 🇮🇳" data-id="false">✚ Website Traffic from India 🇮🇳</option><option value="✚ Website Traffic from Brazil 🇧🇷" data-id="false">✚ Website Traffic from Brazil 🇧🇷</option><option value="✚ Website Traffic from Indonesia 🇮🇩" data-id="false">✚ Website Traffic from Indonesia 🇮🇩</option><option value="✚ Website Traffic from Germany 🇩🇪" data-id="false">✚ Website Traffic from Germany 🇩🇪</option><option value="✚ Website Traffic from Turkey 🇹🇷" data-id="false">✚ Website Traffic from Turkey 🇹🇷</option><option value="✚ Website Traffic from France 🇫🇷" data-id="false">✚ Website Traffic from France 🇫🇷</option><option value="✚ Website Traffic from Canada 🇨🇦" data-id="false">✚ Website Traffic from Canada 🇨🇦</option><option value="✚ Website Traffic from Russia 🇷🇺" data-id="false">✚ Website Traffic from Russia 🇷🇺</option><option value="✚ Website Traffic from Ukraine 🇺🇦" data-id="false">✚ Website Traffic from Ukraine 🇺🇦</option><option value="✚ Website Traffic from Mexico 🇲🇽" data-id="false">✚ Website Traffic from Mexico 🇲🇽</option><option value="✚ Website Traffic from Vietnam 🇻🇳" data-id="false">✚ Website Traffic from Vietnam 🇻🇳</option><option value="✚ Website Traffic from Italy 🇮🇹" data-id="false">✚ Website Traffic from Italy 🇮🇹</option><option value="✚ Website Traffic from Poland 🇵🇱" data-id="false">✚ Website Traffic from Poland 🇵🇱</option><option value="✚ Website Traffic from Netherlands 🇳🇱" data-id="false">✚ Website Traffic from Netherlands 🇳🇱</option><option value="✚ Website Traffic from Spain 🇪🇸" data-id="false">✚ Website Traffic from Spain 🇪🇸</option><option value="✚ Website Traffic from China 🇨🇳" data-id="false">✚ Website Traffic from China 🇨🇳</option><option value="✚ Website Traffic from Singapore 🇸🇬" data-id="false">✚ Website Traffic from Singapore 🇸🇬</option><option value="✚ Website Traffic from Taiwan 🇹🇼" data-id="false">✚ Website Traffic from Taiwan 🇹🇼</option><option value="✚ Website Traffic from Thailand 🇹🇭" data-id="false">✚ Website Traffic from Thailand 🇹🇭</option><option value="✚ Website Traffic from Japan 🇯🇵" data-id="false">✚ Website Traffic from Japan 🇯🇵</option><option value="✚  Website Traffic from Pakistan 🇵🇰" data-id="false">✚  Website Traffic from Pakistan 🇵🇰</option><option value="✚ Website Traffic from Egypt 🇪🇬" data-id="false">✚ Website Traffic from Egypt 🇪🇬</option><option value="✚ Website Traffic from Portugal 🇵🇹" data-id="false">✚ Website Traffic from Portugal 🇵🇹</option><option value="✚ Website Traffic from Romania 🇷🇴" data-id="false">✚ Website Traffic from Romania 🇷🇴</option><option value="✚ Website Traffic from Moldova 🇲🇩" data-id="false">✚ Website Traffic from Moldova 🇲🇩</option><option value="✚ Website Traffic from Switzerland🇨🇭" data-id="false">✚ Website Traffic from Switzerland🇨🇭</option><option value="✚ Website Traffic from Sweden 🇸🇪" data-id="false">✚ Website Traffic from Sweden 🇸🇪</option><option value="✚ Website Traffic from Iran 🇮🇷" data-id="false">✚ Website Traffic from Iran 🇮🇷</option><option value="✚ Website Traffic from Ireland 🇮🇪" data-id="false">✚ Website Traffic from Ireland 🇮🇪</option><option value="✚ Website Traffic from Israel 🇮🇱" data-id="false">✚ Website Traffic from Israel 🇮🇱</option><option value="✚ Website Traffic from South Africa 🇿🇦" data-id="false">✚ Website Traffic from South Africa 🇿🇦</option><option value="✚ Website Traffic from South Korea 🇰🇷" data-id="false">✚ Website Traffic from South Korea 🇰🇷</option><option value="✚ Website Traffic from Hong Kong 🇭🇰" data-id="false">✚ Website Traffic from Hong Kong 🇭🇰</option><option value="✚ Website Traffic from Australia 🇦🇺" data-id="false">✚ Website Traffic from Australia 🇦🇺</option><option value="✚ Website Traffic from Argentina 🇦🇷" data-id="false">✚ Website Traffic from Argentina 🇦🇷</option><option value="✚ Website Traffic from Bangladesh 🇧🇩" data-id="false">✚ Website Traffic from Bangladesh 🇧🇩</option><option value="✚ Website Traffic from Colombia 🇨🇴" data-id="false">✚ Website Traffic from Colombia 🇨🇴</option><option value="✚ Website Traffic from Finland 🇫🇮" data-id="false">✚ Website Traffic from Finland 🇫🇮</option><option value="✚ Website Traffic from Philippines 🇵🇭" data-id="false">✚ Website Traffic from Philippines 🇵🇭</option><option value="✚ Mobile App Ratings &amp; Reviews" data-id="false">✚ Mobile App Ratings &amp; Reviews</option><option value="✚ TripAdvisor Reviews" data-id="false">✚ TripAdvisor Reviews</option><option value="✚ Audiomack" data-id="false">✚ Audiomack</option><option value="✚ Clubhouse Followers | Room Visitor" data-id="false">✚ Clubhouse Followers | Room Visitor</option><option value="✚ Coub" data-id="false">✚ Coub</option><option value="✚ Discord" data-id="false">✚ Discord</option><option value="✚ Discord Direct Message" data-id="false">✚ Discord Direct Message</option><option value="✚ Datpiff" data-id="false">✚ Datpiff</option><option value="✚ Dailymotion" data-id="false">✚ Dailymotion</option><option value="✚ LinkedIn" data-id="false">✚ LinkedIn</option><option value="✚ Likee.com" data-id="false">✚ Likee.com</option><option value="✚ IMDB" data-id="false">✚ IMDB</option><option value="✚ SoundCloud" data-id="false">✚ SoundCloud</option><option value="✚ Shopee" data-id="false">✚ Shopee</option><option value="✚ Shazam" data-id="false">✚ Shazam</option><option value="✚ Napster" data-id="false">✚ Napster</option><option value="✚ MixCloud" data-id="false">✚ MixCloud</option><option value="✚ Quora" data-id="false">✚ Quora</option><option value="✚ Reddit" data-id="false">✚ Reddit</option><option value="✚ Reverbenation" data-id="false">✚ Reverbenation</option><option value="✚ Vimeo [Lifetime]" data-id="false">✚ Vimeo [Lifetime]</option><option value="✚ VK.com" data-id="false">✚ VK.com</option><option value="✚ Tidal" data-id="false">✚ Tidal</option><option value="✚ Tumblr" data-id="false">✚ Tumblr</option><option value="✚ Yandex Zen" data-id="false">✚ Yandex Zen</option><option value="✚ Ok.ru" data-id="false">✚ Ok.ru</option>
+-->
+</select>
+
+                                <!--<select id="providers_service_select_categories"  class="select-suspends">
+                                </select>-->
+                            </div>
+                            <div class="col-lg-12 col-md-12 price_services_import_class" style="display: none;">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" id="fixed_price" placeholder="Fixed">
+                                            <label for="Issues fixed_price" class="issues fixed_price_import_issues"></label>
+                                        </div>
+                                    </div>
+                                    <!--<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                        <span>+</span>
+                                    </div>-->
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" id="percentage_price" placeholder="Percentage">
+                                            <label for="Issues percentage_price" class="issues percentage_price_import_issues"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-1 col-md-1 col-xs-1">
+                        <button class="close-edit-modal cancel_import_modal_x" id="cancel_import_modal">X</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="form-group icon-group providers_all_import" >
+            <span>الموزعون</span>
+            <select id="providers_service_select_category"  class="select-suspends"  required>
+            </select>
+        </div>
+
+        <div class="row all_import">
+            <div class="col-lg-12" id="step_1_import">
+                <div class="input-group search-bar">
+                    <input id="search_import" type="text" class="form-control" placeholder="بحث" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><i class="far fa-search"></i></button>
+                    </span>
+                </div>
+                
+                
+                <div class="table-responsive">
+                    <table class="table custom-table mob-table results_import rtl-table">
+                        <thead>
+                            <tr>
+                                <th colspan="10"><input type="checkbox" class="form-check-input checker_category_all_services"></th>
+                                <th colspan="10">الاسم</th>
+                                <!--<th colspan="1">الأحداث</th>-->
+                            </tr>
+                        </thead>
+  
+                        <tbody>
+                            <!--<tr class="table-cont serv-row items_import" data-service-rate="4">
+                                <td data-head="#">
+                                    <div class="row">
+                                        <div class="col-lg-6"><input type="checkbox" class="form-check-input check_box_add_all_service"></div>
+                                        <div class="col-lg-6">
+                                            <span class="lock" onclick="lockStatus(this, $('.lock').index(this))"><i class="fas fa-unlock"></i></span>
+                                            <input type="number" class="form-control rate_services_import" style="width: 80px;" value="5">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td data-head="الاسم" class="items_td_import" data-service-rate="1" data-service-type="Poll" data-service-refill="true" data-service-service_provider_id="7554" data-service-min="50" data-service-max="500">Poll</td>
+                            </tr>
+                            <tr class="table-cont serv-row items_import" data-service-rate="1">
+                                <td data-head="#">
+                                    <div class="row">
+                                        <div class="col-lg-6"><input type="checkbox" class="form-check-input check_box_add_all_service"></div>
+                                        <div class="col-lg-6">
+                                            <span class="lock" onclick="lockStatus(this, $('.lock').index(this))"><i class="fas fa-unlock"></i></span>
+                                            <input type="number" class="form-control rate_services_import" style="width: 80px;" value="5">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td data-head="الاسم" class="items_td_import" data-service-rate="1" data-service-type="Default"  data-service-refill="false" data-service-service_provider_id="7554" data-service-min="50" data-service-max="500" >Default</td>
+                            </tr>-->
+                            <!--<% for(var i = 0; i < categories.length; i++) { %>
+                            <tr class="cate-row" data-category="<%- categories[i].category.name %>">
+                                <td colspan="1" data-id="<%- categories[i].category._id %>"><%- categories[i].category.category %></td>
+                                <td colspan="6" class="mk-icons"><%- categories[i].category.name %></td>
+                                <td colspan="1" class="mk-icons"><%= categories[i].category.status === true ? 'مفعلة' : 'غير مفعلة' %></td>
+                                <td colspan="1" data-id="<%- categories[i].category._id %>"><%- categories[i].category.sort %></td>
+                                <td colspan="2" class="actions">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="far fa-chevron-down"></i>
+                                        </button>
+                                        <ul class="dropdown-menu edit-dropdown-menu">
+                                            <li><button onclick="openEditCatNameModal(this)" class="edit-btn" id="" data-id="<%- categories[i].category._id %>" data-name="<%- categories[i].category.name %>" data-sort="<%- categories[i].category.sort %>" data-status="<%- categories[i].category.status %>" data-description="<%- categories[i].category.description %>">تعديل الفئة</button></li>
+                                            <li><button class="suspends-user" data-id="<%- categories[i]._id %>">تخفيض خاص</button></li>
+                                            <li><button onclick="editSortCategory(this)" class="suspends-user" data-name="<%- categories[i].category.name %>" data-id="<%- categories[i].category._id %>">تغيير الترتيب</button></li>
+                                            <li><button onclick="deleteCategory(this)" class="set-password" id="" data-id="<%- categories[i].category._id %>">حذف الفئة</button></li>
+                                        </ul>
+                                </td>
+                            </tr>
+                            <% for(var k = 0; k < categories[i].services.length; k++) { %>
+                            <tr class="table-cont serv-row" data-category="<%- categories[i].category.name %>">
+                                
+                                <td data-head="الرقم"><%- categories[i].services[k].service %></td>
+                                <td data-head="الاسم" class="service-name mk-icons"><%- categories[i].services[k].name %></td>
+                                <td data-head="السعر لكل 1000" class="cont-width rate-badge"><%- categories[i].services[k].price.newPrice %></td>
+                                <td data-head="الحد الادنى"><%- categories[i].services[k].min %></td>
+                                <td data-head="الحد الاقصى"><%- categories[i].services[k].max %></td>
+                                <td data-head="معدل الوقت لكل 1000" class="nowrap"><%- categories[i].services[k].executionTime %></td>
+                                
+                                <td data-head="حالة الخدمة" data-id="<%- JSON.stringify(categories[i].services[k]._id) %>" style="cursor: pointer;"> <!--onclick="detailShow(this)"-- >
+                                    <a class="btn-primary table-btn btn-sm btn-serv"><%= categories[i].services[k].status === true ? 'مفعلة' : 'غير مفعلة' %></a>
+                                </td>
+                                <td data-head="حالة الفئة"><%= categories[i].category.status === true ? 'مفعلة' : 'غير مفعلة' %></td>
+                                <td data-head="الترتيب"><%- categories[i].services[k].sortCategory %></td>
+                                <td data-head="تعديل" class="actions" data-head="actions">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="far fa-chevron-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu edit-dropdown-menu">
+                                        
+                                        <li><button onclick="editServiceStatus(this)" class="suspends-user" data-id="<%- categories[i].services[k]._id %>" data-status="<%- categories[i].services[k].status %>">تغيير حالة الخدمة</button></li>
+                                        <li><button onclick="editSortService(this)" class="suspends-user" data-category="<%- categories[i].services[k].categoryId %>" data-name="<%- categories[i].services[k].name %>" data-id="<%- categories[i].services[k]._id %>" data-sort="<%- categories[i].services[k].sortCategory %>">تغيير الترتيب</button></li>
+                                        <li>
+                                            <button
+                                              class="edit-btn"
+                                              onclick="editServiceApi(this)"
+                                              data-id="<%- categories[i].services[k]._id %>"
+                                            >
+                                                تعديل
+                                            </button>
+                                        </li>
+                                        <li><button onclick="deleteService(this)" class="delete-user" id="delete_user" data-id="<%- categories[i].services[k]._id %>">حذف</button></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <% } %> <% } %>-->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-12" id="step_2_import">
+                <div class="input-group search-bar">
+                    <input id="search_2_import" type="text" class="form-control" placeholder="بحث" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><i class="far fa-search"></i></button>
+                    </span>
+                </div>
+                <div class="input-group search-bar select_category_services_import_class" style="display: none;">
+                    <select id="select_category_services_import"  class="select-suspends" style="width: 250px;">
+                        <!--<option>اختيار  الفئة</option><option value="[ 30% OFF - Limited Time ] ✚ Instagram Ads [Package] ✔︎" data-id="62a7f4305df47a3f602481d4">[ 30% OFF - Limited Time ] ✚ Instagram Ads [Package] ✔︎</option><option value="✚ Google Reviews [ Price Decreased ]" data-id="false">✚ Google Reviews [ Price Decreased ]</option><option value="✚ Trustpilot.com Reviews [ Price Decreased ]" data-id="false">✚ Trustpilot.com Reviews [ Price Decreased ]</option><option value="✚ Twitter NFT Services | Real ADS" data-id="false">✚ Twitter NFT Services | Real ADS</option><option value="✚ Discord NFT Services | Real ADS" data-id="false">✚ Discord NFT Services | Real ADS</option><option value="✚ Instagram NFT Services | Real ADS" data-id="false">✚ Instagram NFT Services | Real ADS</option><option value="✚ Behance.net [ Designers ] NEW" data-id="false">✚ Behance.net [ Designers ] NEW</option><option value="✚ Facebook Reels Short Videos NEW" data-id="false">✚ Facebook Reels Short Videos NEW</option><option value="✚ Facebook Profile Followers" data-id="false">✚ Facebook Profile Followers</option><option value="✚ Facebook Page Likes | Followers" data-id="false">✚ Facebook Page Likes | Followers</option><option value="✚  Facebook Post Likes | Reactions" data-id="false">✚  Facebook Post Likes | Reactions</option><option value="✚ Facebook Views Watch Long Videos" data-id="false">✚ Facebook Views Watch Long Videos</option><option value="✚ Facebook Comments" data-id="false">✚ Facebook Comments</option><option value="✚ Facebook Reviews &amp; Events" data-id="false">✚ Facebook Reviews &amp; Events</option><option value="✚ Facebook Live Stream" data-id="false">✚ Facebook Live Stream</option><option value="✚ Facebook Auto Live Stream Views [ Subscription ]" data-id="false">✚ Facebook Auto Live Stream Views [ Subscription ]</option><option value="✚ Facebook Arab Services 🇵🇸" data-id="false">✚ Facebook Arab Services 🇵🇸</option><option value="✚ Facebook Vietnamese Services 🇻🇳" data-id="false">✚ Facebook Vietnamese Services 🇻🇳</option><option value="✚ Facebook Indian Services  🇮🇳" data-id="false">✚ Facebook Indian Services  🇮🇳</option><option value="✚ Facebook Bangladesh Services  🇧🇩" data-id="false">✚ Facebook Bangladesh Services  🇧🇩</option><option value="✚ Tiktok Views" data-id="false">✚ Tiktok Views</option><option value="✚ TikTok Views [ Last Videos ] Viral 🔥" data-id="false">✚ TikTok Views [ Last Videos ] Viral 🔥</option><option value="✚ TikTok Views | Country Targeted" data-id="false">✚ TikTok Views | Country Targeted</option><option value="✚ TikTok Likes" data-id="false">✚ TikTok Likes</option><option value="✚ TikTok Followers" data-id="false">✚ TikTok Followers</option><option value="✚ TikTok Livestream" data-id="false">✚ TikTok Livestream</option><option value="✚ Tiktok Comments" data-id="false">✚ Tiktok Comments</option><option value="✚ TikTok Shares | Explore" data-id="false">✚ TikTok Shares | Explore</option><option value="✚ TikTok Auto Services" data-id="false">✚ TikTok Auto Services</option><option value="✚ Tiktok [ Targeted ]" data-id="false">✚ Tiktok [ Targeted ]</option><option value="✚ Tiktok Arab Packages" data-id="false">✚ Tiktok Arab Packages</option><option value="✚ TikTok Arab Subscription 🇦🇪" data-id="false">✚ TikTok Arab Subscription 🇦🇪</option><option value="✚ Telegram Members" data-id="false">✚ Telegram Members</option><option value="✚ Telegram Post Views" data-id="false">✚ Telegram Post Views</option><option value="✚ Telegram Post Views [Auto]" data-id="false">✚ Telegram Post Views [Auto]</option><option value="✚  Telegram Post React" data-id="false">✚  Telegram Post React</option><option value="✚ Telegram Post React [Auto]" data-id="false">✚ Telegram Post React [Auto]</option><option value="✚ Telegram Post Shares" data-id="false">✚ Telegram Post Shares</option><option value="✚ Telegram Post Votes/Comments" data-id="false">✚ Telegram Post Votes/Comments</option><option value="✚ Telegram Direct Message" data-id="false">✚ Telegram Direct Message</option><option value="✚ Instagram 𝐑𝐞𝐞𝐥𝐬 [Views - Likes - Comments]" data-id="false">✚ Instagram 𝐑𝐞𝐞𝐥𝐬 [Views - Likes - Comments]</option><option value="✚ Instagram Followers - [ Targeted by Country ]" data-id="false">✚ Instagram Followers - [ Targeted by Country ]</option><option value="✚ Instagram Followers - [ Guaranteed with Refill ]" data-id="false">✚ Instagram Followers - [ Guaranteed with Refill ]</option><option value="✚ Instagram Followers - [ Cheapest - No Refill ]" data-id="false">✚ Instagram Followers - [ Cheapest - No Refill ]</option><option value="✚ Instagram Followers - [ Lifetime Refill ]" data-id="false">✚ Instagram Followers - [ Lifetime Refill ]</option><option value="✚ Instagram [ Arab / عرب ] 🇵🇸" data-id="false">✚ Instagram [ Arab / عرب ] 🇵🇸</option><option value="✚ Instagram [ Brazil ] 🇧🇷" data-id="false">✚ Instagram [ Brazil ] 🇧🇷</option><option value="✚ Instagram [Views]" data-id="false">✚ Instagram [Views]</option><option value="✚ Instagram TV [IGTV]" data-id="false">✚ Instagram TV [IGTV]</option><option value="✚ Instagram Comments" data-id="false">✚ Instagram Comments</option><option value="✚ Instagram Likes 🔥" data-id="false">✚ Instagram Likes 🔥</option><option value="✚ Instagram Likes [Targeted]" data-id="false">✚ Instagram Likes [Targeted]</option><option value="✚ Instagram [Male &amp; Female]" data-id="false">✚ Instagram [Male &amp; Female]</option><option value="✚ Instagram - [Live Video]" data-id="false">✚ Instagram - [Live Video]</option><option value="✚ Instagram Story - Impressions - Saves - Reach" data-id="false">✚ Instagram Story - Impressions - Saves - Reach</option><option value="✚ Instagram [Auto] Likes" data-id="false">✚ Instagram [Auto] Likes</option><option value="✚ Instagram [Auto] Views" data-id="false">✚ Instagram [Auto] Views</option><option value="✚ Instagram [Auto] Comments - Impressions - Saves - Reach" data-id="false">✚ Instagram [Auto] Comments - Impressions - Saves - Reach</option><option value="✚  Instagram Data Scraper" data-id="false">✚  Instagram Data Scraper</option><option value="✚ Instagram Direct Message" data-id="false">✚ Instagram Direct Message</option><option value="✚ Instagram Mentions" data-id="false">✚ Instagram Mentions</option><option value="✚ Youtube Shorts" data-id="false">✚ Youtube Shorts</option><option value="✚ Youtube Likes" data-id="false">✚ Youtube Likes</option><option value="✚ Youtube Subscribers" data-id="false">✚ Youtube Subscribers</option><option value="✚ Youtube Comments" data-id="false">✚ Youtube Comments</option><option value="✚ Youtube Views" data-id="false">✚ Youtube Views</option><option value="✚ Youtube Views [ Targeted ]" data-id="false">✚ Youtube Views [ Targeted ]</option><option value="✚ Youtube Views [ High Retention ]" data-id="false">✚ Youtube Views [ High Retention ]</option><option value="✚ YouTube Views [GEO - RAV™]" data-id="false">✚ YouTube Views [GEO - RAV™]</option><option value="✚ Youtube Live Stream [Concurrent]" data-id="false">✚ Youtube Live Stream [Concurrent]</option><option value="✚ YouTube Auto Unique Views" data-id="false">✚ YouTube Auto Unique Views</option><option value="✚ Youtube WatchTime [4000 Hours]" data-id="false">✚ Youtube WatchTime [4000 Hours]</option><option value="✚ Youtube Monetizable Package [Subscribers+Hours]" data-id="false">✚ Youtube Monetizable Package [Subscribers+Hours]</option><option value="✚ YouTube Shares [SocialMedia]" data-id="false">✚ YouTube Shares [SocialMedia]</option><option value="✚ YouTube Shares [Targeted]" data-id="false">✚ YouTube Shares [Targeted]</option><option value="✚ YouTube Shares [Targeted+Referrer]" data-id="false">✚ YouTube Shares [Targeted+Referrer]</option><option value="✚ YouTube Auto Shares" data-id="false">✚ YouTube Auto Shares</option><option value="✚ Twitter Likes" data-id="false">✚ Twitter Likes</option><option value="✚ Twitter Followers" data-id="false">✚ Twitter Followers</option><option value="✚ Twitter Packages" data-id="false">✚ Twitter Packages</option><option value="✚ Twitter Retweets" data-id="false">✚ Twitter Retweets</option><option value="✚ Twitter Poll Votes" data-id="false">✚ Twitter Poll Votes</option><option value="✚ Twitter [Views/Impressions/Clicks]" data-id="false">✚ Twitter [Views/Impressions/Clicks]</option><option value="✚ Twitter Comments [Targeted]" data-id="false">✚ Twitter Comments [Targeted]</option><option value="✚ Twitter Comments Package" data-id="false">✚ Twitter Comments Package</option><option value="✚ Twitter Mentions" data-id="false">✚ Twitter Mentions</option><option value="✚ Twitter Data Scraper" data-id="false">✚ Twitter Data Scraper</option><option value="✚ Twitter Direct Message" data-id="false">✚ Twitter Direct Message</option><option value="✚ Snapchat Followers" data-id="false">✚ Snapchat Followers</option><option value="✚ Snapchat Story Views" data-id="false">✚ Snapchat Story Views</option><option value="✚ Snapchat Packages" data-id="false">✚ Snapchat Packages</option><option value="✚ Kwai" data-id="false">✚ Kwai</option><option value="✚ Kwai Comments [ Arab ]" data-id="false">✚ Kwai Comments [ Arab ]</option><option value="✚ Twitch [Followers]" data-id="false">✚ Twitch [Followers]</option><option value="✚ Twitch [Views]" data-id="false">✚ Twitch [Views]</option><option value="✚ Twitch [Live]" data-id="false">✚ Twitch [Live]</option><option value="✚ Pinterest" data-id="false">✚ Pinterest</option><option value="✚ Spotify" data-id="false">✚ Spotify</option><option value="✚ Spotify Packages" data-id="false">✚ Spotify Packages</option><option value="✚ Spotify [Targeted]" data-id="false">✚ Spotify [Targeted]</option><option value="✚ Website Social Signals" data-id="false">✚ Website Social Signals</option><option value="✚ Google Visitors [Custom Keywords]" data-id="false">✚ Google Visitors [Custom Keywords]</option>
+                        <option value="✚ Website Traffic [Custom Keywords/Targeted]" data-id="false">✚ Website Traffic [Custom Keywords/Targeted]</option><option value="✚ Website Traffic from Mobile" data-id="false">✚ Website Traffic from Mobile</option><option value="✚ Website Cryptocurrency Traffic" data-id="false">✚ Website Cryptocurrency Traffic</option><option value="✚ Website Traffic from USA 🇺🇸" data-id="false">✚ Website Traffic from USA 🇺🇸</option><option value="✚ Website Traffic from UK 🇬🇧" data-id="false">✚ Website Traffic from UK 🇬🇧</option><option value="✚ Website Traffic from India 🇮🇳" data-id="false">✚ Website Traffic from India 🇮🇳</option><option value="✚ Website Traffic from Brazil 🇧🇷" data-id="false">✚ Website Traffic from Brazil 🇧🇷</option><option value="✚ Website Traffic from Indonesia 🇮🇩" data-id="false">✚ Website Traffic from Indonesia 🇮🇩</option><option value="✚ Website Traffic from Germany 🇩🇪" data-id="false">✚ Website Traffic from Germany 🇩🇪</option><option value="✚ Website Traffic from Turkey 🇹🇷" data-id="false">✚ Website Traffic from Turkey 🇹🇷</option><option value="✚ Website Traffic from France 🇫🇷" data-id="false">✚ Website Traffic from France 🇫🇷</option><option value="✚ Website Traffic from Canada 🇨🇦" data-id="false">✚ Website Traffic from Canada 🇨🇦</option><option value="✚ Website Traffic from Russia 🇷🇺" data-id="false">✚ Website Traffic from Russia 🇷🇺</option><option value="✚ Website Traffic from Ukraine 🇺🇦" data-id="false">✚ Website Traffic from Ukraine 🇺🇦</option><option value="✚ Website Traffic from Mexico 🇲🇽" data-id="false">✚ Website Traffic from Mexico 🇲🇽</option><option value="✚ Website Traffic from Vietnam 🇻🇳" data-id="false">✚ Website Traffic from Vietnam 🇻🇳</option><option value="✚ Website Traffic from Italy 🇮🇹" data-id="false">✚ Website Traffic from Italy 🇮🇹</option><option value="✚ Website Traffic from Poland 🇵🇱" data-id="false">✚ Website Traffic from Poland 🇵🇱</option><option value="✚ Website Traffic from Netherlands 🇳🇱" data-id="false">✚ Website Traffic from Netherlands 🇳🇱</option><option value="✚ Website Traffic from Spain 🇪🇸" data-id="false">✚ Website Traffic from Spain 🇪🇸</option><option value="✚ Website Traffic from China 🇨🇳" data-id="false">✚ Website Traffic from China 🇨🇳</option><option value="✚ Website Traffic from Singapore 🇸🇬" data-id="false">✚ Website Traffic from Singapore 🇸🇬</option><option value="✚ Website Traffic from Taiwan 🇹🇼" data-id="false">✚ Website Traffic from Taiwan 🇹🇼</option><option value="✚ Website Traffic from Thailand 🇹🇭" data-id="false">✚ Website Traffic from Thailand 🇹🇭</option><option value="✚ Website Traffic from Japan 🇯🇵" data-id="false">✚ Website Traffic from Japan 🇯🇵</option><option value="✚  Website Traffic from Pakistan 🇵🇰" data-id="false">✚  Website Traffic from Pakistan 🇵🇰</option><option value="✚ Website Traffic from Egypt 🇪🇬" data-id="false">✚ Website Traffic from Egypt 🇪🇬</option><option value="✚ Website Traffic from Portugal 🇵🇹" data-id="false">✚ Website Traffic from Portugal 🇵🇹</option><option value="✚ Website Traffic from Romania 🇷🇴" data-id="false">✚ Website Traffic from Romania 🇷🇴</option><option value="✚ Website Traffic from Moldova 🇲🇩" data-id="false">✚ Website Traffic from Moldova 🇲🇩</option><option value="✚ Website Traffic from Switzerland🇨🇭" data-id="false">✚ Website Traffic from Switzerland🇨🇭</option><option value="✚ Website Traffic from Sweden 🇸🇪" data-id="false">✚ Website Traffic from Sweden 🇸🇪</option><option value="✚ Website Traffic from Iran 🇮🇷" data-id="false">✚ Website Traffic from Iran 🇮🇷</option><option value="✚ Website Traffic from Ireland 🇮🇪" data-id="false">✚ Website Traffic from Ireland 🇮🇪</option><option value="✚ Website Traffic from Israel 🇮🇱" data-id="false">✚ Website Traffic from Israel 🇮🇱</option><option value="✚ Website Traffic from South Africa 🇿🇦" data-id="false">✚ Website Traffic from South Africa 🇿🇦</option><option value="✚ Website Traffic from South Korea 🇰🇷" data-id="false">✚ Website Traffic from South Korea 🇰🇷</option><option value="✚ Website Traffic from Hong Kong 🇭🇰" data-id="false">✚ Website Traffic from Hong Kong 🇭🇰</option><option value="✚ Website Traffic from Australia 🇦🇺" data-id="false">✚ Website Traffic from Australia 🇦🇺</option><option value="✚ Website Traffic from Argentina 🇦🇷" data-id="false">✚ Website Traffic from Argentina 🇦🇷</option><option value="✚ Website Traffic from Bangladesh 🇧🇩" data-id="false">✚ Website Traffic from Bangladesh 🇧🇩</option><option value="✚ Website Traffic from Colombia 🇨🇴" data-id="false">✚ Website Traffic from Colombia 🇨🇴</option><option value="✚ Website Traffic from Finland 🇫🇮" data-id="false">✚ Website Traffic from Finland 🇫🇮</option><option value="✚ Website Traffic from Philippines 🇵🇭" data-id="false">✚ Website Traffic from Philippines 🇵🇭</option><option value="✚ Mobile App Ratings &amp; Reviews" data-id="false">✚ Mobile App Ratings &amp; Reviews</option><option value="✚ TripAdvisor Reviews" data-id="false">✚ TripAdvisor Reviews</option><option value="✚ Audiomack" data-id="false">✚ Audiomack</option><option value="✚ Clubhouse Followers | Room Visitor" data-id="false">✚ Clubhouse Followers | Room Visitor</option><option value="✚ Coub" data-id="false">✚ Coub</option><option value="✚ Discord" data-id="false">✚ Discord</option><option value="✚ Discord Direct Message" data-id="false">✚ Discord Direct Message</option><option value="✚ Datpiff" data-id="false">✚ Datpiff</option><option value="✚ Dailymotion" data-id="false">✚ Dailymotion</option><option value="✚ LinkedIn" data-id="false">✚ LinkedIn</option><option value="✚ Likee.com" data-id="false">✚ Likee.com</option><option value="✚ IMDB" data-id="false">✚ IMDB</option><option value="✚ SoundCloud" data-id="false">✚ SoundCloud</option><option value="✚ Shopee" data-id="false">✚ Shopee</option><option value="✚ Shazam" data-id="false">✚ Shazam</option><option value="✚ Napster" data-id="false">✚ Napster</option><option value="✚ MixCloud" data-id="false">✚ MixCloud</option><option value="✚ Quora" data-id="false">✚ Quora</option><option value="✚ Reddit" data-id="false">✚ Reddit</option><option value="✚ Reverbenation" data-id="false">✚ Reverbenation</option><option value="✚ Vimeo [Lifetime]" data-id="false">✚ Vimeo [Lifetime]</option><option value="✚ VK.com" data-id="false">✚ VK.com</option><option value="✚ Tidal" data-id="false">✚ Tidal</option><option value="✚ Tumblr" data-id="false">✚ Tumblr</option><option value="✚ Yandex Zen" data-id="false">✚ Yandex Zen</option><option value="✚ Ok.ru" data-id="false">✚ Ok.ru</option>
+                    -->
+                    </select>
+
+                    </select>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="table custom-table mob-table results_2_import rtl-table">
+                        <thead>
+                            <tr>
+                                <th colspan="10">#</th>
+                                <th colspan="10">الاسم</th>
+                                <!--<th colspan="1">الأحداث</th>-->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--<tr class="table-cont serv-row" data-category="[ 30% OFF - Limited Time ] ✚ Instagram Ads [Package] ✔︎">
+                                <td data-head="#"><input type="checkbox" class="form-check-input check_box_add_all_service_step_2"></td>
+                                <td data-head="الاسم">test_2</td>
+                            </tr>-->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+        <span class="issues import_select_sort_issues"></span>
+        <div class="edit-modal-btns">
+            <button class="edit-user next_import" id="import_sort_category" disabled>التالي</button>
+            <button class="edit-user add_import disabled" id="add_services_import" disabled>اظافة</button>
+            <button class="cancel cancel_import_modal_btn" >إغلاق</button>
+            <button class="cancel back_import_modal_btn">الرجوع</button>
+        </div>
+        <div class="issues import-user-message"></div>
+    </div>
+
+
+
+    <!--  
+        بدأ تغيير ترتيب الفئة 
+    -->
+    <div class="add-category-modal edit_sort_category_modal" style="height: 350px;" id="sort_category_modal">
+        <div class="edit-user-title">
+            <span> ترتيب الفئة </span>
+            <button class="close-edit-modal sort_category_modal_close" id="sort_category_modal_close">X</button>
+        </div>
+        <div class="line"></div>
+
+        <div class="form-group icon-group">
+            <span>اسم الفئة</span>
+            <input type="text" class="form-control" id="sort_category_name" value="" disabled/>
+        </div>
+        <div>تغيير تريبها مع</div>
+        <select id="sort_select_category" class="select-suspends">
+        </select>
+        <div class="edit-modal-btns">
+            <button class="edit-user" id="edit_sort_category">تغيير</button>
+            <button class="cancel sort_category_modal_close" id="sort_category_modal_cancel">إغلاق</button>
+        </div>
+        <div class="issues add-user-message"></div>
+    </div>
+
+    <!--  
+        نهاية تغيير ترتيب الفئة 
+    -->
+
+
+    <!--  
+        بدأ تغيير ترتيب الخدمة 
+    -->
+    <div class="add-category-modal edit_sort_service_modal" style="height: 350px;" id="sort_service_modal">
+        <div class="edit-user-title">
+            <span> ترتيب الخدمة </span>
+            <button class="close-edit-modal sort_service_modal_close" id="sort_service_modal_close">X</button>
+        </div>
+        <div class="line"></div>
+
+        <div class="form-group icon-group">
+            <span>اسم الخدمة</span>
+            <input type="text" class="form-control" id="sort_service_name" value="" disabled/>
+        </div>
+        <div>تغيير تريبها مع</div>
+        <select id="sort_select_services" class="select-suspends">
+        </select>
+        <div class="edit-modal-btns">
+            <button class="edit-user" id="edit_sort_service">تغيير</button>
+            <button class="cancel sort_service_modal_close" id="sort_service_modal_cancel">إغلاق</button>
+        </div>
+        <div class="issues add-user-message"></div>
+    </div>
+
+    <!--  
+        نهاية تغيير ترتيب الخدمة 
+    -->
+
+
+    <div class="add-category-modal" style="height: 350px;" id="add_category_modal">
+        <div class="edit-user-title">
+            <span> إضافة الفئة </span>
+            <button class="close-edit-modal" id="add_category_modal_close">X</button>
+        </div>
+        <div class="line"></div>
+
+        <div class="form-group icon-group">
+            <span>اسم الفئة</span>
+            <input type="text" class="form-control" id="add_category_name" value="" />
+            <span class="issues category_name_issue"></span>
+        </div>
+        <div>موقعها</div>
+        <select name="" id="add_select_sort" class="select-suspends">
+            <option value="top">الأعلى</option>
+
+            <option value="buttom">الأسفل</option>
+        </select>
+        <div class="edit-modal-btns">
+            <button class="edit-user" id="add_category">إضافة</button>
+            <button class="cancel" id="add_category_modal_cancel">إغلاق</button>
+        </div>
+        <div class="issues add-user-message"></div>
+    </div>
+
+    <div class="add-category-modal" id="edit_category_modal">
+        <div class="edit-user-title">
+            <span> تعديل الفئة </span>
+            <button class="close-edit-modal" id="edit_category_modal_close">X</button>
+        </div>
+        <div class="line"></div>
+
+        <div class="form-group icon-group">
+            <span>اسم الفئة</span>
+            <input type="text" class="form-control" id="edit_category_name" value="" />
+            <span class="issues edit_category_name"></span>
+        </div>
+
+        <div class="form-group icon-group">
+            <span>وصف الخدمة</span>
+            <textarea class="form-control" id="edit_category_description" placeholder="وصف الخدمة" rows="4" cols="50"></textarea>
+            <span class="issues username_issue"></span>
+        </div>
+
+        <!--<div class="form-group icon-group">
+            <span>ترتيب الفئة</span>
+            <input type="number" class="form-control" id="edit_category_sort" value="" min="0"/>
+            <span class="issues category_sort_issue"></span>
+        </div>-->
+        <div>حالتها</div>
+        <select name="" id="edit_status_category" class="select-suspends">
+            <option value="true">مفعلة</option>
+            <option value="false">غير مفعلة</option>
+        </select>
+        <div class="edit-modal-btns">
+            <button class="edit-user" id="edit_category">تعديل</button>
+            <button class="cancel" id="edit_category_modal_cancel">إغلاق</button>
+        </div>
+        <div class="issues add-user-message"></div>
+    </div>
+
+    <div class="delete-item-modal responsive-modal" id="delete_item_cat_modal">
+        <div class="add-user-title">
+            <span>حذف الفئة</span>
+            <button class="close-modal" id="delete_item_cat_modal_close">X</button>
+        </div>
+        <div class="line"></div>
+        <div class="message">هل انت متأكد من الحذف ؟</div>
+
+        <div class="users-modal-btns">
+            <button class="delete" id="delete_item_cat_btn">نعم</button>
+            <button class="cancel" id="delete_item_cat_modal_cancel">لا</button>
+        </div>
+        <div class="issues add-user-message"></div>
+    </div>
+
+    
+
+
+
+    <div class="add-service-modal" id="edit_service_modal">
+        <div class="edit-user-title">
+            <span>تعديل خدمة</span>
+            <button class="close-edit-modal" id="add_service_modal_close" onclick="closeEdit()">X</button>
+        </div>
+        <div class="line"></div>
+        <div class="form-group icon-group">
+            <span>اسم الخدمة</span>
+            <input type="text" class="form-control" id="edit_service_name" value="" placeholder="اسم الخدمة" />
+            <span class="issues name-ser-add-issue"></span>
+        </div>
+
+        <div class="form-group icon-group">
+            <span>وصف الخدمة</span>
+            <textarea class="form-control" id="edit_service_description" placeholder="وصف الخدمة" rows="4" cols="50"></textarea>
+            
+        </div>
+        <!--<div class="form-group icon-group">
+            <span>وقت التنفيذ</span>
+            <textarea class="form-control" id="edit_service_executionTime" placeholder="وقت التنفيذ" rows="4" cols="50"></textarea>
+        </div>-->
+        <div class="form-group icon-group">
+            <span>الجودة</span>
+            <textarea class="form-control" id="edit_service_quality" placeholder="الجودة" rows="4" cols="50"></textarea>
+            
+        </div>
+        <div class="form-group icon-group">
+            <span>السرعة</span>
+            <textarea class="form-control" id="edit_service_speed" placeholder="السرعة" rows="4" cols="50"></textarea>
+            
+        </div>
+        <div class="form-group icon-group">
+            <span>وقت التنفيذ لكل 1000</span>
+            <textarea class="form-control" id="edit_service_averageTime" placeholder="وقت التنفيذ لكل 1000" rows="4" cols="50"></textarea>
+            
+        </div>
+        <div class="form-group icon-group">
+            <span>وقت البدأ</span>
+            <textarea class="form-control" id="edit_service_startTime" placeholder="وقت البدأ" rows="4" cols="50"></textarea>
+            
+        </div>
+        <div class="form-group icon-group">
+            <span>الضمان</span>
+            <textarea class="form-control" id="edit_service_guarantee" placeholder="الضمان" rows="4" cols="50"></textarea>
+            
+        </div>
+
+        <div class="form-group icon-group">
+            <span> الفئات</span>
+            <select name="" id="edit_service_select_category" class="select-suspends" onchange="selectCateEdit(this.value)">
+                <option value="selectOption">اختيار الفئة</option>
+
+                <% for(var i = 0; i < categories.length; i++) { %>
+                    <option value="<%- categories[i].category._id %>"><%- categories[i].category.name %></option>
+                <% } %>
+            </select>
+        </div>
+        <!--<div class="form-group icon-group">
+            <span>الترتيب</span>
+            <select id="edit_service_select_sort" class="select-suspends" >
+                <option value="selectOption">اختيار ترتيب الخدمة</option>
+            </select>
+        </div>-->
+        <div class="mode-provider-section">
+            <span>Mode</span>
+            <select id="edit_open_type_services_value" onchange="openTypeServicesEdit()">
+                <option value="api">تلقائي</option>
+                <option value="manual">يدوي</option>
+            </select>
+            <select id="edit_type_service" style="display: none;">
+            </select>
+            <!--<div class="select-service" id="edit_select_type_service" style="display: none;">
+                <span>نوع الخدمة</span>
+                <select class="select-suspends" id="all_type_service_edit" onchange="selectTypeServiceIdEdit(this)">
+                    <option value="">اختيار النوع</option>
+                </select>
+            </div>-->
+            <div class="select-provider-hide" id="edit_service_provider_hide">
+                <div>الموزعون</div>
+                <select class="select-suspends" name="" id="edit_service_provider" onchange="editSelectProvider(this.value)">
+                    <option value="">اختيار الموزع</option>
+                    <% for(var i = 0; i < providers.length; i++) { %>
+                        <option value="<%- providers[i]._id %>"><%- providers[i].name %></option>
+                    <% } %>
+                </select>
+                <span class="issues provider-ser-add-issue"></span>
+            </div>
+            <div class="mode-provider-section" style="padding: 0px;">
+                <span>الخدمات</span>
+                <select id="select_service_provider" onchange="selectServiceEdit(this)">
+                </select>
+            </div>
+            
+            <!--<div class="select-service" id="edit_select_service">
+                <span>الخدمات</span>
+                <select class="select-suspends" id="selectBox_edit" onchange="selectServiceEdit(this)"> </select>
+            </div>-->
+            <div class="select-service" id="edit_select_service_allow">
+                <div>Drip-feed</div>
+                <select class="select-suspends" name="" id="edt_dripfeed" onchange="edtDripfeedValue(this.value)">
+                    <option value="false">سماح</option>
+                    <option value="true">عدم سماح</option>
+                </select>
+            </div>
+        </div>
+        <span>السعر لكل 1000</span>
+        <div class="switch-custom">
+            <div class="form-group icon-group rate-put" id="edit_rate_put">
+                <input type="number" class="form-control" id="edit_rate_per_1000" value=""/>
+                <span class="issues username_issue"></span>
+            </div>
+        <div class="container-fluid"> 
+            <div class="Refill-modal rate-modal-section" id="edit_rate_modal">
+                <div class="rate-modal-custom">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 add_service_rate">
+                            <div class="form-group icon-group form-text">
+                                <input type="number" class="form-control" id="edit_rate" value="" disabled />
+                                <span class="issues email_issue"></span>
+                                <label for="rate" class="static-value" id="edit_lable_rate"></label>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 add_service_rate">
+                            <div class="form-group icon-group form-text">
+                                <input type="number" class="form-control" onkeyup="calcEditService(this.value)" id="edit_presntage" value="" />
+                                <span class="issues email_issue"></span>
+                                <label for="presntage" class="static-value-presntage" id="edit_lable_presntage"> %</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 add_service_rate">
+                            <div class="form-group icon-group form-text">
+                                <input type="number" class="form-control" id="edit_fixed" onkeyup="calcFixedEdit(this.value)" value="" />
+                                <span class="issues email_issue"></span>
+                                <label for="fixed" class="static-value-presntage" id="edit_lable_fixed">ثابت</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- </div> -->
+        </div>
+            <!-- </div> -->
+            <label class="switch Refill-modal" id="switch_rate_edit">
+                <input type="checkbox" id="open_rate_edit" onchange="openFixRate()" checked />
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <div class="min-max-order">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 value_services">
+                        <div class="form-group icon-group min-order form-text">
+                            <span>الحد الادنى</span>
+                            <div class="min-order-swich">
+                                <div class="min-order-swich-static-value">
+                                    <input type="number" class="form-control" id="edit_min_order_value" value="" />
+                                    <span class="issues username_issue"></span>
+                                    <label for="min_order_value" class="static-value" id="edit_min_order_value_fix"></label>
+                                </div>
+                                <label class="switch order-swich" id="min_order_swich_edit">
+                                    <input type="checkbox" id="min_order_edit" checked="true" onchange="minOrderEdit()" />
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 value_services">
+                        <div class="form-group icon-group max-order form-text">
+                            <span>الحد الأقصى</span>
+                            <div class="min-order-swich">
+                                <div class="min-order-swich-static-value">
+                                    <input type="number" class="form-control" id="edit_max_order_value" value="" />
+                                    <span class="issues username_issue"></span>
+                                    <label for="max_order_value" class="static-value" id="edit_max_order_value_fix"></label>
+                                </div>
+                                <label class="switch order-swich" id="max_order_swich_edit">
+                                    <input type="checkbox" id="max_order_edit" checked="true" onchange="maxOrderEdit()" />
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+        <div class="status-service-provider">
+            <label class="switch">
+                <input type="checkbox" id="edit_status_service_provider" checked/>
+                <span class="slider round"></span>
+            </label>
+            <div>حالة الخدمة نفس حالة الموزع</div>
+        </div>
+        <div class="mode-provider-section-custom">
+            <span>سماح نفس الرابط أكثر من مرة</span>
+            <select name="" id="edit_link_duplicates" onchange="edtLinkDuplicatesType(this.value)">
+                <option value="false" id="false">لا</option>
+                <option value="true" id="true">نعم</option>
+            </select>
+        </div>
+        <div class="mode-provider-section">
+            <div>
+                <span>التعويض</span>
+                <label class="switch">
+                    <input type="checkbox" id="edit_open_Refill" onchange="editOpenRefill()" />
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <div class="Refill-modal" id="edit_Refill_modal">
+                <div class="refill-type">
+                    <div>نوع التعويض</div>
+                    <select name="" id="type_refill">
+                        <option value="manual">يدوي</option>
+                        <option value="api">تلقائي</option>
+                    </select>
+                </div>
+                <div>
+                    <span>عدد أيام التعويض</span>
+                    <div class="form-group icon-group">
+                        <input type="text" class="form-control" value="" id="edit_days" />
+                        <span class="issues email_issue"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="users-modal-btns">
+            <button class="add-user" id="edit_service_api" disabled>تعديل</button>
+            <button class="cancel" id="edit_service_modal_cancel" onclick="closeEdit()">إغلاق</button>
+        </div>
+        <div class="issues edit-service-issue" style="margin-top: 6px;"></div>
+    </div>
+
+
+
+
+
+
+    <div class="edit-service-description-modal" id="edit_service_description_modal">
+        <div class="edit-user-title">
+            <span>تعديل الوصف</span>
+            <button class="close-edit-modal" id="edit_service_description_modal_close">X</button>
+        </div>
+        <div class="line"></div>
+
+        <div class="form-group icon-group">
+            <span>وصف الخدمة</span>
+            <textarea class="form-control" placeholder="Description" rows="4" cols="50"></textarea>
+            <span class="issues username_issue"></span>
+        </div>
+
+        <div class="edit-modal-btns">
+            <button class="edit-user" id="edit_user">تعديل الوصف</button>
+            <button class="cancel" id="edit_service_description_modal_cancel">إغلاق</button>
+        </div>
+    </div>
+
+    <div class="delete-item-modal responsive-modal" id="status_item_service_modal">
+        <div class="add-user-title">
+            <span> تعديل الحالة</span>
+            <button class="close-modal" id="status_item_service_modal_close" onclick="cancelServiceStatus()">X</button>
+        </div>
+        <div class="line"></div>
+        <div class="message" id="status_message"></div>
+
+        <div class="users-modal-btns">
+            <button class="answer yes delete" id="status_item_service_btn">نعم</button>
+            <button class="answer no cancel" id="status_item_service_modal_cancel" onclick="cancelServiceStatus()">لا</button>
+        </div>
+        <div class="issues add-user-message"></div>
+    </div>
+
+    <div class="delete-item-modal responsive-modal" id="delete_item_service_modal">
+        <div class="add-user-title">
+            <span>حذف الخدمة</span>
+            <button class="close-modal" id="delete_item_service_modal_close" onclick="cancel()">X</button>
+        </div>
+        <div class="line"></div>
+        <div class="message">هل انت متأكد من الحذف ؟</div>
+
+        <div class="users-modal-btns">
+            <button class="delete" id="delete_item_service_btn">نعم</button>
+            <button class="cancel" id="delete_item_service_modal_cancel" onclick="cancel()">لا</button>
+        </div>
+        <div class="issues add-user-message"></div>
+    </div>
+</main>

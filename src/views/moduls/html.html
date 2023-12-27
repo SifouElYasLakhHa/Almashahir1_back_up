@@ -1,0 +1,199 @@
+<div class="add-service-modal" id="edit_service_modal">
+    <div class="edit-user-title">
+        <span>تعديل خدمة</span>
+        <button class="close-edit-modal" id="add_service_modal_close" onclick="closeEdit()">X</button>
+    </div>
+    <div class="line"></div>
+    <div class="form-group icon-group">
+        <span>اسم الخدمة</span>
+        <input type="text" class="form-control" id="edit_service_name" value="" placeholder="اسم الخدمة" />
+        <span class="issues name-ser-add-issue"></span>
+    </div>
+
+    <div class="form-group icon-group">
+        <span>وصف الخدمة</span>
+        <textarea class="form-control" id="edit_service_description" placeholder="وصف الخدمة" rows="4" cols="50"></textarea>
+        <span class="issues username_issue"></span>
+    </div>
+
+    <div class="form-group icon-group">
+        <span> الأقسام</span>
+        <select name="" id="edit_service_select_category" class="select-suspends" onchange="selectCateEdit(this.value)">
+            <option value="selectOption">اختيار الفئة</option>
+
+            <% for(var i = 0; i < categories.length; i++) { %>
+                <option value="<%- categories[i].category._id %>"><%- categories[i].category.name %></option>
+            <% } %>
+        </select>
+    </div>
+    <div class="mode-provider-section">
+        <span>Mode</span>
+        <select id="edit_open_type_services_value" onchange="openTypeServicesEdit()">
+            <option value="api">تلقائي</option>
+            <option value="manual">يدوي</option>
+        </select>
+        <select id="edit_type_service" style="display: none;">
+        </select>
+        <!--<div class="select-service" id="edit_select_type_service" style="display: none;">
+            <span>نوع الخدمة</span>
+            <select class="select-suspends" id="all_type_service_edit" onchange="selectTypeServiceIdEdit(this)">
+                <option value="">اختيار النوع</option>
+            </select>
+        </div>-->
+        <div class="select-provider-hide" id="edit_service_provider_hide">
+            <div>الموزعون</div>
+            <select class="select-suspends" name="" id="edit_service_provider" onchange="editSelectProvider(this.value)">
+                <option value="">اختيار الموزع</option>
+                <% for(var i = 0; i < providers.length; i++) { %>
+                    <option value="<%- providers[i]._id %>"><%- providers[i].name %></option>
+                <% } %>
+            </select>
+            <span class="issues provider-ser-add-issue"></span>
+        </div>
+        <div class="mode-provider-section" style="padding: 0px;">
+            <span>الخدمات</span>
+            <select id="select_service_provider" onchange="selectServiceEdit(this)">
+            </select>
+        </div>
+        
+        <!--<div class="select-service" id="edit_select_service">
+            <span>الخدمات</span>
+            <select class="select-suspends" id="selectBox_edit" onchange="selectServiceEdit(this)"> </select>
+        </div>-->
+        <div class="select-service" id="edit_select_service_allow">
+            <div>Drip-feed</div>
+            <select class="select-suspends" name="" id="edt_dripfeed" onchange="edtDripfeedValue(this.value)">
+                <option value="false">سماح</option>
+                <option value="true">عدم سماح</option>
+            </select>
+        </div>
+    </div>
+    <span>السعر لكل 1000</span>
+    <div class="switch-custom">
+        <div class="form-group icon-group rate-put" id="edit_rate_put">
+            <input type="number" class="form-control" id="edit_rate_per_1000" value=""/>
+            <span class="issues username_issue"></span>
+        </div>
+    <div class="container-fluid"> 
+        <div class="Refill-modal rate-modal-section" id="edit_rate_modal">
+            <div class="rate-modal-custom">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 add_service_rate">
+                        <div class="form-group icon-group form-text">
+                            <input type="number" class="form-control" id="edit_rate" value="" disabled />
+                            <span class="issues email_issue"></span>
+                            <label for="rate" class="static-value" id="edit_lable_rate"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 add_service_rate">
+                        <div class="form-group icon-group form-text">
+                            <input type="number" class="form-control" onkeyup="calcEditService(this.value)" id="edit_presntage" value="" />
+                            <span class="issues email_issue"></span>
+                            <label for="presntage" class="static-value-presntage" id="edit_lable_presntage"> %</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 add_service_rate">
+                        <div class="form-group icon-group form-text">
+                            <input type="number" class="form-control" id="edit_fixed" onkeyup="calcFixedEdit(this.value)" value="" />
+                            <span class="issues email_issue"></span>
+                            <label for="fixed" class="static-value-presntage" id="edit_lable_fixed">ثابت</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+        <!-- </div> -->
+        <label class="switch Refill-modal" id="switch_rate_edit">
+            <input type="checkbox" id="open_rate_edit" onchange="openFixRate()" checked />
+            <span class="slider round"></span>
+        </label>
+    </div>
+
+    <div class="min-max-order">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 value_services">
+                    <div class="form-group icon-group min-order form-text">
+                        <span>الحد الادنى</span>
+                        <div class="min-order-swich">
+                            <div class="min-order-swich-static-value">
+                                <input type="number" class="form-control" id="edit_min_order_value" value="" />
+                                <span class="issues username_issue"></span>
+                                <label for="min_order_value" class="static-value" id="edit_min_order_value_fix"></label>
+                            </div>
+                            <label class="switch order-swich" id="min_order_swich_edit">
+                                <input type="checkbox" id="min_order_edit" checked="true" onchange="minOrderEdit()" />
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 value_services">
+                    <div class="form-group icon-group max-order form-text">
+                        <span>الحد الأقصى</span>
+                        <div class="min-order-swich">
+                            <div class="min-order-swich-static-value">
+                                <input type="number" class="form-control" id="edit_max_order_value" value="" />
+                                <span class="issues username_issue"></span>
+                                <label for="max_order_value" class="static-value" id="edit_max_order_value_fix"></label>
+                            </div>
+                            <label class="switch order-swich" id="max_order_swich_edit">
+                                <input type="checkbox" id="max_order_edit" checked="true" onchange="maxOrderEdit()" />
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    <div class="status-service-provider">
+        <label class="switch">
+            <input type="checkbox" id="edit_status_service_provider" checked/>
+            <span class="slider round"></span>
+        </label>
+        <div>حالة الخدمة نفس حالة الموزع</div>
+    </div>
+    <div class="mode-provider-section-custom">
+        <span>سماح نفس الرابط أكثر من مرة</span>
+        <select name="" id="edit_link_duplicates" onchange="edtLinkDuplicatesType(this.value)">
+            <option value="false" id="false">لا</option>
+            <option value="true" id="true">نعم</option>
+        </select>
+    </div>
+    <div class="mode-provider-section">
+        <div>
+            <span>التعويض</span>
+            <label class="switch">
+                <input type="checkbox" id="edit_open_Refill" onchange="editOpenRefill()" checked/>
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <div class="Refill-modal" id="edit_Refill_modal">
+            <div class="refill-type">
+                <div>Refill type</div>
+                <select name="" id="">
+                    <option value="manual">يدوي</option>
+                    <option value="api">تلقائي</option>
+                </select>
+            </div>
+            <div>
+                <span>عدد أيام التعويض</span>
+                <div class="form-group icon-group">
+                    <input type="text" class="form-control" value="" id="edit_days" />
+                    <span class="issues email_issue"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="users-modal-btns">
+        <button class="add-user" id="edit_service_api">تعديل</button>
+        <button class="cancel" id="edit_service_modal_cancel" onclick="closeEdit()">إغلاق</button>
+    </div>
+    <div class="issues edit-service-issue" style="margin-top: 6px;"></div>
+</div>

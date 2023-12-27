@@ -1,0 +1,93 @@
+<main class="inner-wrap">
+    <div class="container-fluid">
+        <div class="row option-row">
+            <div class="col-sm-4ll">
+                <p class="breadcrumbs users-breadcrumbs">أنت الآن على: <strong>المدفوعات</strong>
+              </p>
+            </div>
+            <div class="col-sm-4 users-btns">
+                    <div class="btn-group filter-btn">
+                        <!-- <button type="button" class="btn btn-default "><i class="fal fa-sort-alpha-up"></i> <span>المستخدمين</span></button>
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="far fa-chevron-down"></i>
+                            </button> -->
+                        <ul class="dropdown-menu">
+
+                        </ul>
+                    </div>
+                
+                </div>
+                <!-- <div class="col-sm-4"><p class="breadcrumbs">أنت الآن على: <strong>الطلبات</strong></p></div> -->
+                <div class="col-sm-4"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="input-group search-bar">
+                        <input id="search" type="text" class="form-control" placeholder="بحث" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default"><i class="far fa-search" aria-hidden="true"></i></button>
+                        </span>
+                    </div>
+    
+                    <div class="table-responsive">
+                        <table class="table custom-table mob-table results rtl-table">
+                            <thead>
+                                <tr>
+                                    <th>رقم الحوالة</th>
+                                    <th>المستخدم</th>
+                                    <th>التاريخ</th>
+                                    <th>طريقة الدفع</th>
+                                    <th>المبلغ</th>
+                                    <th> رقم المعاملة في شركة الدفع</th>
+                                    <th>الوصف</th>
+                                    <th> حالة الاسترجاع</th>
+                                  <!--  <th>   ايدي المعاملة</th>-->
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for(var i = 0; i < transactions.length; i++) { %>
+                                    <tr class="table-cont">
+                                        <td data-head="رقم الحوالة"><%- transactions[i].transaction %></td>
+                                        <td data-head="رقم الحوالة"><%- transactions[i].username %></td>
+                                        <td data-head="التاريخ"><span class="nowrap"><%- transactions[i].createAt %></span></td>
+                                        <td data-head="طريقة الدفع"><%- transactions[i].paymentType %></td>
+                                        <td data-head="المبلغ">
+                                            <%- transactions[i].amount %>
+                                        </td>
+                                       
+                                        <td data-head="رقم المعاملة في شركة الدفع">
+                                            <%- transactions[i].transactionId %>
+                                        </td>
+                                        
+                                        <td data-head="الوصف">
+                                            <%- transactions[i].description %>
+                                        </td>
+                                        <td data-head="حالة الاسترجاع">
+                                            <%- transactions[i].refunded? 'مسترجعة': 'تم الدفع بنجاح' %>
+                                        </td>
+                                       <!-- <td data-head=" ايدي المعاملة">
+                                            <%- transactions[i].transactionId %>
+                                        </td>-->
+                                    </tr>
+                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+        </tbody>
+        </table>
+        </div>
+                <ul class="pagination rtl-pagination">
+                    <% for(var i = 1; i <= transactionsCount; i++) { %>
+                        <li class="<%= count === i ? 'active' : '' %>"><a href="<%- host %>admin/payments/<%- i %>"><%- i %></a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  </main>
+  
+  <script src="<%- host %>js/assets/jquery.min.js"></script>
+  <script src="<%- host %>js/assets/manageUsers.js"></script>
+  

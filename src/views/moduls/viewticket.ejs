@@ -1,0 +1,117 @@
+<main class="inner-wrap">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <p class="breadcrumbs">أنت الآن على: <strong>الدعم الفني</strong></p>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <h4 class="ticket-title">تفاصيل التذكرة</h4>
+                <div class="ticket-subj"><img src="https://cdn.mypanel.link/1847ba/zp6mfyqhbrgu6rr8.png" alt="" /><span class="ticket-subj-name">الطلبات</span></div>
+                <div class="ticket-stats">
+                    <span class="left-stats">رقم التذكرة</span>
+                    <span class="right-stats"><%- ticketsObj.ticket %></span>
+                </div>
+                <div class="ticket-stats">
+                    <span class="left-stats">الافضلية</span>
+                    <span class="right-stats">عادي</span>
+                </div>
+                <div class="ticket-stats">
+                    <span class="left-stats">القسم</span>
+                    <span class="right-stats">الدعم الفني</span>
+                </div>
+                <div class="ticket-stats">
+                    <span class="left-stats">وقت الرد</span>
+                    <span class="right-stats">0-3 ساعات</span>
+                </div>
+                <div class="ticket-note">
+                    <strong>ملحوظة:</strong><br />
+                    في بعض الأحيان قد يستغرق الأمر ما يصل إلى 6 ساعات للرد ، اعتمادًا على حجم التذاكر الزائد.
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="ticket-well rtl-content">
+                    <div class="ticket-msg-wrap">
+                        <div class="ticket-message-block ticket-message-right">
+                            <div class="message-top">
+                                <div class="author-pic"><i class="fas fa-user"></i></div>
+                                <div class="messsage-wrap">
+                                    <div class="message-sub-top">
+                                        <strong><i class="fas fa-star"></i><%- ticketsObj.userId.username %></strong>
+                                        <small class="text-muted"><i class="fas fa-clock"></i>
+                                            <%- ticketsObj.createAt %>
+                                        </small>
+                                    </div>
+                                    رقم الطلب: 
+                                    <% if(ticketsObj.orderId !== -1){ %>
+                                        <%- ticketsObj.orderId %>
+                                    <% } else { %>    
+                                        لا يوجد
+                                    <% } %>
+                                    <br /> 
+                                    الموضوع:
+                                    <%- ticketsObj.subject %>
+                                    <br /> 
+                                    الاجراء:
+                                    <%- ticketsObj.message %>
+                                </div>
+                            </div>
+                        </div>
+                        <% for(var i = 0; i < ticketsMessages.length; i++) { %>
+                            <% if(ticketsMessages[i].isSender === 'Admin'){ %>
+                                <div class="ticket-message-block ticket-message-left">
+                                    <div class="message-top">
+                                        <div class="messsage-wrap">
+                                            <div class="message-sub-top">
+                                                <strong><i class="fas fa-badge-check"></i>الدعم </strong>
+                                                <small class="text-muted"><i class="fas fa-clock"></i>
+                                                    <%- ticketsMessages[i].createAt %>
+                                                </small>
+                                            </div>
+                                            <%- ticketsMessages[i].message %>
+                                            <br>
+                                            Support Team
+                                        </div>
+                                        <div class="author-pic"><i class="fas fa-user"></i></div>
+                                    </div>
+                                </div>
+                            <% } else { %> 
+                                <div class="ticket-message-block ticket-message-right">
+                                    <div class="message-top">
+                                        <div class="author-pic"><i class="fas fa-user"></i></div>
+                                        <div class="messsage-wrap">
+                                            <div class="message-sub-top">
+                                                <strong><i class="fas fa-star"></i><%- ticketsObj.userId.username %></strong>
+                                                <small class="text-muted"><i class="fas fa-clock"></i>
+                                                    <%- ticketsMessages[i].createAt %>
+                                                </small>
+                                            </div>
+                                            <%- ticketsMessages[i].message %>
+                                         </div>
+                                    </div>
+                                </div>   
+                            <% } %>
+                        <% } %>
+                        
+                       
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form class="ticket-submit rtl-form" method="post" action="">
+                               <div class="input-group">
+                                    <textarea id="message" type="text" class="form-control" placeholder="اكتب هنا"></textarea>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" id="confirme" type="button" title="تأكيد"><i class="fas fa-paper-plane"></i></button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

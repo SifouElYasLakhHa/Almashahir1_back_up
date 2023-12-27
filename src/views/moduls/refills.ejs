@@ -1,0 +1,93 @@
+<main class="inner-wrap">
+    <div class="container-fluid">
+        <div class="row option-row">
+            <div class="col-sm-4">
+                <div class="btn-group filter-btn">
+                    <button type="button" class="btn btn-default"><i class="fal fa-sort-alpha-up"></i> <span>حدد حالة التعويض</span></button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="far fa-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="active"><a href="<%- host %>refills">كل التعويضات</a></li>
+                        <li><a href="<%- host %>refills/completed">مكتمل </a></li>
+                        <li><a href="<%- host %>refills/processing">قيد المعالجة</a></li>
+                        <li><a href="<%- host %>refills/rejected">مرفوض</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <p class="breadcrumbs">أنت الآن على: <strong>التعويضات</strong></p>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+              <div class="input-group search-bar">
+                <input id="search" type="text" class="form-control" placeholder="بحث" />
+                 <span class="input-group-btn">
+                     <button type="submit" class="btn btn-default"><i class="far fa-search" aria-hidden="true"></i></button>
+                 </span>
+             </div>
+                <div class="table-responsive">
+                    <table class="table custom-table mob-table results rtl-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th> تاريخ انشاء التعويض</th>
+                                <th>الرابط</th>
+                                <th class="service-name">رقم الطلب</th>
+                                <th class="text-center">الخدمة</th>
+                                <th>حالة التعويض</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <% for(var i = 0; i < refills.length; i++) { %>
+                            <tr class="table-cont">
+                                <td data-head="الرقم">
+                                    <button type="button" class="btn btn-copy js-tooltip js-copy" data-toggle="tooltip" data-placement="bottom" data-copy="<%- refills[i].refill %>" title="نسخ إلى الحافظة"><%- refills[i].refill %></button>
+                                </td>
+                                <td data-head="تاريخ الطلب"><%- refills[i].createAt %></td>
+                                <td data-head="الرابط">
+                                    <div class="input-group table-link-box">
+                                        <input class="form-control" value="<%- refills[i].orderId.link %>" />
+                                        <div class="input-group-btn">
+                                            <a href="<%- refills[i].orderId.link %>" target="_blank" type="button" class="btn btn-default" style=""><i class="fas fa-external-link-square-alt"></i></a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td data-head="رقم الطلب"><%- refills[i].orderId.order %></td>
+                                <td data-head="الخدمة"><%- refills[i].serviceId.name %></td>
+                                <td data-head="حالة التعويض">
+                                  <% if(refills[i].status == 'Processing') { %>
+                                    <div class="status-badge badge-pending">
+                                      <span>
+                                        قيد المعالجة
+                                      </span>
+                                    </div>
+                                  <% } else if(refills[i].status == 'Rejected') { %>
+                                    <div class="status-badge badge-canceled">
+                                      <span>
+                                      مرفوض 
+                                      </span>
+                                    </div>
+                                  <% } else if(refills[i].status == 'Completed') { %>
+                                    <div class="status-badge badge-complete">
+                                      <span>
+                                      مكتمل
+                                      </span>
+                                    </div>
+                                  <% } %>
+                                </td>
+                            </tr>
+                          <% } %>
+                        </tbody>
+                    </table>
+                </div>
+                <ul class="pagination rtl-pagination">
+                  
+                </ul>
+            </div>
+        </div>
+    </div>
+  </main>
+  

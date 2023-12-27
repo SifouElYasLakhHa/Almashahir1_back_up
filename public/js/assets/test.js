@@ -1,0 +1,2 @@
+alert('hi')
+$('.signupForm').remove();

@@ -1,0 +1,97 @@
+<main class="inner-wrap">
+    <div class="container-fluid">
+        <div class="row option-row">
+            <div class="col-sm-4ll">
+                <p class="breadcrumbs users-breadcrumbs">أنت الآن على: <strong>الدعم الفني</strong></p>
+            </div>
+        </div>
+  
+  
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="input-group search-bar">
+                  <input id="search" type="text" class="form-control" placeholder="بحث" />
+                  <span class="input-group-btn">
+                      <button class="btn btn-default" type="button"><i class="far fa-search"></i></button>
+                  </span>
+              </div>
+              <div class="table-responsive">
+                  <table class="table custom-table mob-table results rtl-table">
+                      <thead>
+                          <tr>
+                              <th>رقم الرسالة</th>
+                              <th>المستخدم</th>
+                              <th>الموضوع</th>
+                              <th class="nowrap" style="text-align: center;">اخر تحديث</th>
+                              <th class="text-center">حالة الرسالة</th>
+                          </tr>
+                      </thead>
+    
+                      <tbody>
+                          <% for(var i = 0; i < tickets.length; i++) { %>
+                          <tr class="table-cont" style="max-width: 100% !important;">
+                              <td data-head="رقم الرسالة"><%- tickets[i].ticket %></td>
+                              <td data-head="المستخدم"><%- tickets[i].userId.username %></td>
+                              <td data-head="الموضوع" style="cursor: pointer;" > <!--onclick="openEditTicketsModal(this)"data="<%- JSON.stringify(tickets[i]) %>"--> 
+  
+                                  <a class="table-link" href="<%- host %>ticket/<%- tickets[i].ticket %>">
+                                      <%- tickets[i].subject %>
+                                  </a>
+                              </td>
+                              <td data-head="أخر تحديث"><%- tickets[i].updateAt %></td>
+                              <td data-head="حالة الرسالة">
+                                  <% if(tickets[i].status === 'new'){ %>
+  
+                                  <div class="status-badge badge-complete" style="background-color: #f4db7d;">
+                                      <span> جديد</span>
+                                  </div>
+                                  <% } %> <% if(tickets[i].status === 'completed'){ %>
+  
+                                  <div class="status-badge badge-complete" style="background-color: #f64d4e;">
+                                      <span>مغلقة</span>
+                                  </div>
+                                  <% } %> <% if(tickets[i].status === 'waiting_admin'){ %>
+  
+                                  <div class="status-badge badge-complete">
+                                      <span>تم الرد</span>
+                                  </div>
+                                  <% } %> <% if(tickets[i].status === 'waiting_user'){ %>
+  
+                                  <div class="status-badge badge-complete" style="background-color: #f29339;">
+                                      <span> قيد الانتظار</span>
+                                  </div>
+                                  <% } %>
+                              </td>
+                          </tr>
+                          <% } %>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+    </div>
+  
+    <div class="users-modal responsive-modal" id="edit_tickets_modal" style="height: 400px;">
+        <div class="add-user-title">
+            <span>الرسالة</span>
+            <button class="close-modal" id="edit_tickets_modal_close">X</button>
+        </div>
+        <div class="line"></div>
+        <div class="form-group icon-group">
+            <span> الرسالة</span>
+            <textarea class="form-control" id="edit_tickets_message" placeholder="الرسالة" rows="8" cols="50"></textarea>
+  
+            <span class="issues description_tickets_issue"></span>
+        </div>
+  
+        <div class="users-modal-btns">
+            <button class="add-user" id="edit_tickets_btn">اضافة</button>
+            <button class="cancel" id="edit_tickets_modal_cancel">إغلاق</button>
+        </div>
+        <div class="issues add-user-message"></div>
+    </div>
+  </main>
+  
+  <script src="<%- host %>js/assets/jquery.min.js"></script>
+  <script src="<%- host %>js/assets/ticketsMessage.js"></script>
+  

@@ -1,0 +1,232 @@
+<main class="inner-wrap">
+  <div class="container-fluid">
+      <div class="row option-row">
+          <div class="col-sm-4">
+              <div class="btn-group filter-btn">
+                  <button type="button" class="btn btn-default"><i class="fal fa-sort-alpha-up"></i> <span>حدد حالة الطلب</span></button>
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="far fa-chevron-down"></i>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <% if(user.role == 1) { %>
+                      <li class="active"><a href="<%- host %>admin/orders">كل الطلبات</a></li>
+                      <li><a href="<%- host %>admin/orders/pending">قيد الانتظار</a></li>
+                      <li><a href="<%- host %>admin/orders/inprogress">قيد التنفيذ</a></li>
+                      <li><a href="<%- host %>admin/orders/completed">مكتمل</a></li>
+                      <li><a href="<%- host %>admin/orders/partial">مكتمل جزئي</a></li>
+                      <li><a href="<%- host %>admin/orders/processing">قيد المعالجة</a></li>
+                      <li><a href="<%- host %>admin/orders/canceled">ملغي</a></li>
+                    <% } else {%>
+                      <li class="active"><a href="<%- host %>orders">كل الطلبات</a></li>
+                      <li><a href="<%- host %>orders/pending">قيد الانتظار</a></li>
+                      <li><a href="<%- host %>orders/inprogress">قيد التنفيذ</a></li>
+                      <li><a href="<%- host %>orders/completed">مكتمل</a></li>
+                      <li><a href="<%- host %>orders/partial">مكتمل جزئي</a></li>
+                      <li><a href="<%- host %>orders/processing">قيد المعالجة</a></li>
+                      <li><a href="<%- host %>orders/canceled">ملغي</a></li>
+                    <% } %>
+                  </ul>
+              </div>
+          </div>
+          <div class="col-sm-4">
+              <p class="breadcrumbs">أنت الآن على: <strong>الطلبات</strong></p>
+          </div>
+          <div class="col-sm-4"></div>
+      </div>
+      <div class="row">
+          <div class="col-lg-12">
+            <div class="input-group search-bar">
+              <input id="search" type="text" class="form-control" placeholder="بحث" />
+               <span class="input-group-btn">
+                   <button type="submit" class="btn btn-default"><i class="far fa-search" aria-hidden="true"></i></button>
+               </span>
+           </div>
+              <div class="table-responsive">
+                  <table class="table custom-table mob-table results rtl-table">
+                      <thead>
+                          <tr>
+                              <th>الرقم</th>
+                              <% if(user.role == 1) { %>
+                              <th>الرقم الحقيقي</th>
+                              <th>  الموزع</th>
+                              <th> الطلب الموزع</th>
+                              
+                              <th>الخدمة الموزع</th>
+                              
+                                <th>المستخدم</th>
+                              <% } %>
+                              <th>رقم الخدمة</th>
+                              <th>تاريخ الطلب</th>
+                              <th>الرابط</th>
+                              <th>الكمية</th>
+                              <th>الثمن</th>
+                              <th class="nowrap">عدد البدا</th>
+                              <% if(user.role == 1) { %>
+                                  <th class="nowrap">حالة استرجاع $</th>
+                              <% } %>
+                              <th class="service-name">الخدمة</th>
+                              <th class="text-center">حالة الطلب</th>
+                              <% if(user.role !== 1) { %>
+                                <th>زر التعويض/الالغاء</th>
+                              <% } %>
+                              <% if(user.role == 1) { %>
+                                <th>الخيارات</th>
+                              <% } %>
+                          </tr>
+                      </thead>
+                      <tbody>
+                        <% for(var i = 0; i < orders.length; i++) { %>
+                          <tr class="table-cont">
+                              <td data-head="الرقم">
+                                  <button type="button" class="btn btn-copy js-tooltip js-copy" data-toggle="tooltip" data-placement="bottom" data-copy="<%- orders[i].order %>" title="نسخ إلى الحافظة"><%- orders[i].order %></button>
+                              </td>
+
+                              <% if(user.role == 1) { %>
+                                <td data-head="الرقم الحقيقي"><%- orders[i].originalOrder %></td>
+                                <td data-head=" الموزع"><%- orders[i].serviceProvider %></td>
+                                <td data-head="الطلب الموزع"><%- orders[i].orderProviderId %></td>
+                                <td data-head="المستخدم"><%- orders[i].username %></td>
+                                
+                                <td data-head="المستخدم"><%- orders[i].username %></td>
+                              <% } %>
+                              <td data-head="رقم الخدمة"><%- orders[i].service %></td>
+                              <td data-head="تاريخ الطلب"><%- orders[i].createAt %></td>
+                              
+                              <td data-head="الرابط">
+                                  <div class="input-group table-link-box">
+                                      <input class="form-control" value="<%- orders[i].link %>" />
+                                      <div class="input-group-btn">
+                                          <a href="<%- orders[i].link %>" target="_blank" type="button" class="btn btn-default" style=""><i class="fas fa-external-link-square-alt"></i></a>
+                                      </div>
+                                  </div>
+                              </td>
+                              
+                              <td data-head="الكمية">
+                                <%- orders[i].quantity %>
+                              </td>
+                              <td data-head="الثمن">
+                                <%- orders[i].charge %>
+                                <% if(user.role == 1) { %>
+                                  <br>
+                                  <%- orders[i].chargeProvider %>
+                                <% } %>
+                                
+                              </td>
+                              <td data-head="عدد البدا" class="nowrap"><%- orders[i].start_count %></td>
+                              <% if(user.role == 1) { %>
+                          
+                                <td data-head="حالة استرجاع $" class="nowrap">
+                                  <% if(orders[i].checkerCharge === true && (orders[i].status === 'Canceled' || orders[i].status === 'Partial')) { %>
+                                    <span style="background-color: red;">لم يتم الاسترجاع</span>
+                                  <% } else if(orders[i].checkerCharge === false && (orders[i].status === 'Canceled' || orders[i].status === 'Partial')) { %>
+                                    <span>تم الاسترجاع</span>
+                                  <% } %>
+                                </td>
+                              <% } %>
+                              <td data-head="الخدمة" class="service-name">
+                                <strong><%- orders[i].name %></strong>
+                              </td>
+
+                              <td data-head="حالة الطلب">
+                                <% if(orders[i].status == 'Pending') { %>
+                                  <div class="status-badge badge-pending">
+                                    <span>
+                                     قيد الانتظار
+                                    </span>
+                                  </div>
+                                <% } else if(orders[i].status == 'In progress') { %>
+                                  <div class="status-badge badge-complete">
+                                    <span>
+                                    قيد التنفيذ
+                                    </span>
+                                  </div>
+                                <% } else if(orders[i].status == 'Completed') { %>
+                                  <div class="status-badge badge-complete">
+                                    <span>
+                                    مكتمل
+                                    </span>
+                                  </div>
+                                <% } else if(orders[i].status == 'Partial') { %>
+                                  <div class="status-badge badge-complete">
+                                    <span>
+                                    مكتمل جزئيا
+                                    </span>
+                                  </div>
+                                <% } else if(orders[i].status == 'Processing') { %>
+                                  <div class="status-badge badge-processing">
+                                    <span>
+                                    قيد المعالجة
+                                    </span>
+                                  </div>
+                                <% } else if(orders[i].status == 'Canceled') { %>
+                                  <div class="status-badge badge-canceled">
+                                    <span>
+                                    ملغي
+                                    </span>
+                                  </div>
+                                <% } %>
+                              </td>
+                              <% if(user.role !== 1) { %>
+                                <td data-head="زر التعويض/الالغاء">
+                                  <% if(orders[i].refill.value !== 'Canceled') { %>
+                                    <% if(orders[i].refill.value !== 'Completed') { %>
+                                      <button class="btn refill-btn disabled" id="refill_btn" data-toggle="tooltip" data-placement="top" title="سوف يتوفر زر اعادة التعبئة بعد انتهاء الخدمة" refill="false">
+                                        <img src="https://cdn.mypanel.link/1847ba/zy5mxm8t3odkxq1l.png" />
+                                      </button>
+                                    <% } else { %>
+                                      <% if(orders[i].refill.after == '' && orders[i].refill.status == true) { %>
+                                        <button class="btn refill-btn" id="refill_btn" data-toggle="tooltip" data-placement="top" title="اضغط طلب اعادة التبعئة" refill="true" data-order="<%- orders[i].order %>">
+                                          <img src="https://cdn.mypanel.link/1847ba/zy5mxm8t3odkxq1l.png" />
+                                        </button>
+                                      <% } else if(orders[i].refill.after !== '' && orders[i].refill.status == true) { %>
+                                        <button class="btn refill-btn" id="refill_btn" data-toggle="tooltip" data-placement="top" title="<%- orders[i].refill.after %>" refill="false">
+                                          <img src="https://cdn.mypanel.link/1847ba/zy5mxm8t3odkxq1l.png" />
+                                        </button>
+                                      <% } %>
+                                    <% } %>
+                                  <% } %>
+                                </td>
+                              <% } %>
+                              <% if(user.role == 1) { %>
+                                <td data-head="الخيارات">
+                                  <button type="button" class="btn btn-dark">تغيير حالة الطلب</button>
+                                </td>
+                              <% } %>
+                          </tr>
+                        <% } %>
+                      </tbody>
+                  </table>
+              </div>
+              <ul class="pagination rtl-pagination">
+                <% for(var i = 1; i <= orderCount; i++) { %>
+                  <% if(user.role == 1) { %>
+                    <li class="<%= count === i ? 'active' : '' %>"><a href="<%- host %>admin/orders/<%= orderType === '' ? 'all' : orderType %>/<%- i %>"><%- i %></a></li>
+                  <% } else {%>
+                    <li class="<%= count === i ? 'active' : '' %>"><a href="<%- host %>orders/<%= orderType === '' ? 'all' : orderType %>/<%- i %>"><%- i %></a></li>
+                  <% } %>
+
+                <% } %>
+              </ul>
+          </div>
+      </div>
+  </div>
+</main>
+
+
+<div class="edit-modal responsive-modal" id="update_status_modal">
+  <div class="edit-user-title">
+      <span>تعديل حالة الطلب</span>
+      <button class="close-edit-modal" id="update_status_close_2_modal">X</button>
+  </div>
+  <div class="line"></div>
+
+  <div class="form-group icon-group">
+    <span>اختيار حالة الطلب</span>
+
+  </div>
+  <div class="edit-modal-btns">
+      <button class="edit-user" id="update_status_btn">تعديل حالة الطلب</button>
+      <button class="cancel" id="update_status_close_modal">إغلاق</button>
+  </div>
+  <div class="issues add-user-message"></div>
+</div>

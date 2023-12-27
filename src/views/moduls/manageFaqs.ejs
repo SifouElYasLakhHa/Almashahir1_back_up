@@ -1,0 +1,162 @@
+<main class="inner-wrap">
+  <div class="container-fluid">
+      <div class="row option-row">
+          <div class="col-sm-4ll">
+              <p class="breadcrumbs users-breadcrumbs">أنت الآن على: <strong>الأسئلة الشائعة</strong></p>
+          </div>
+          <div class="col-sm-4 users-btns">
+              <div class="btn-group filter-btn">
+                  <!-- <button type="button" class="btn btn-default "><i class="fal fa-sort-alpha-up"></i> <span>المستخدمين</span></button>
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <i class="far fa-chevron-down"></i>
+  </button> -->
+                  <ul class="dropdown-menu">
+                      <!--<li class="active"><a href="/orders">كل الطلبات</a></li>
+    <li ><a href="/orders/pending">قيد الانتظار</a></li>
+    <li ><a href="/orders/inprogress">قيد التنفيذ</a></li>
+    <li ><a href="/orders/completed">مكتمل</a></li>
+    <li ><a href="/orders/partial">مكتمل جزئي</a></li>
+    <li ><a href="/orders/processing">قيد المعالجة</a></li>
+    <li ><a href="/orders/canceled">ملغي</a></li>-->
+                  </ul>
+              </div>
+
+              <button id="add_ques_modal" type="button" class="btn btn-default users-btn" style="background-color: #f4db7d; color: #1a2238; font-weight: bold; border: 0;">
+                  <!-- <i class="fal fa-sort-alpha-up"></i> -->
+                  <span>اضافة سؤال و جواب جديد</span>
+              </button>
+          </div>
+          <!-- <div class="col-sm-4"><p class="breadcrumbs">أنت الآن على: <strong>الطلبات</strong></p></div> -->
+          <div class="col-sm-4"></div>
+      </div>
+      <div class="row">
+          <div class="col-lg-12">
+              
+              <div class="input-group search-bar">
+                <input id="search" type="text" class="form-control" placeholder="بحث" />
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-default"><i class="far fa-search" aria-hidden="true"></i></button>
+                </span>
+              </div>
+             
+              <div class="table-responsive">
+                  <table class="table custom-table mob-table results rtl-table">
+                      <thead>
+
+                          <tr>
+                              <th>السؤال</th>
+                              <th>الجواب</th>
+                              <th>حالته</th>
+                              <th class="dropdown-toggle-custom">تعديل</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <% for(var i = 0; i < faqs.length; i++) { %>
+                          <tr>
+                              <td data-head="السؤال"><%- faqs[i].question %></td>
+                              <td data-head="الجواب"><%- faqs[i].answer %></td>
+                              <td data-head="حالته"><%= faqs[i].status === false ? 'مختفي' : 'يظهر' %></td>
+                              <td class="dropdown-toggle-custom actions">
+                                  <button type="button" class="btn btn-default dropdown-toggle dropdown-toggle-custom" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      <i class="far fa-chevron-down"></i>
+                                  </button>
+                                  <ul class="dropdown-menu edit-dropdown-menu">
+                                      <li>
+                                          <button
+                                              class="edit-btn"
+                                              onclick="editQues(this)"
+                                              id="ques_edit_btn"
+                                              data-id="<%- faqs[i]._id %>"
+                                              data-ques="<%- faqs[i].question %>"
+                                              data-answer="<%- faqs[i].answer %>"
+                                              data-status="<%- faqs[i].status %>"
+                                          >
+                                              تعديل
+                                          </button>
+                                      </li>
+                                      <li><button class="edit-btn" onclick="DeleteQuesAnswer(this)" id="delete_ques" data-id="<%- faqs[i]._id %>">حذف</button></li>
+                                  </ul>
+                              </td>
+                          </tr>
+                          <% } %>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="ques-modal responsive-modal" id="ques_modal">
+      <div class="add-user-title">
+          <span>اضافة سؤال وجواب</span>
+          <button class="close-modal" id="add_ques_modal_close">X</button>
+      </div>
+      <div class="line"></div>
+      <div class="form-group icon-group">
+          <span>السؤال </span>
+          <input type="text" class="form-control" id="ques" value="" placeholder="السؤال" />
+          <span class="issues ques_issue"></span>
+      </div>
+      <div class="form-group icon-group">
+          <span> الجواب</span>
+          <input type="text" class="form-control" id="answer" value="" placeholder="الجواب" />
+          <span class="issues answer_issue"></span>
+      </div>
+
+      <div class="users-modal-btns">
+          <button class="add-user" id="add_ques">اضافة</button>
+          <button class="cancel" id="add_ques_modal_cancel">إغلاق</button>
+      </div>
+      <div class="issues add-user-message"></div>
+  </div>
+  <div class="ques-edit-modal responsive-modal" id="ques_edit_modal">
+      <div class="edit-user-title">
+          <span>تعديل</span>
+          <button class="close-modal" id="ques_edit_modal_close">X</button>
+      </div>
+      <div class="line"></div>
+      <div class="form-group icon-group">
+          <span> السؤال</span>
+          <input type="text" class="form-control" id="edit_ques" value="" placeholder="السؤال" />
+          <div class="issues edit-ques-issue"></div>
+      </div>
+      <div class="form-group icon-group">
+          <span> الجواب</span>
+          <input type="text" class="form-control" id="edit_answer" value="" placeholder="الجواب" />
+          <div class="issues edit-answer-issue"></div>
+      </div>
+
+      <div>
+          <div>الحالة</div>
+          <select name="" id="select_ques_status" class="select-suspends">
+              <option value="false">يختفي</option>
+
+              <option value="true">يظهر</option>
+          </select>
+          <div class="issues edit-status-issue"></div>
+      </div>
+
+      <div class="edit-modal-btns">
+          <button class="edit-user" id="ques_edit_modal_btn">تعديل</button>
+          <button class="cancel" id="ques_edit_modal_cancel">إغلاق</button>
+      </div>
+      <div class="issues add-user-message"></div>
+  </div>
+
+  <div class="delete-item-modal responsive-modal" id="delete_item_ques_modal">
+      <div class="add-user-title">
+          <span>حذف نوع خدمة</span>
+          <button class="close-modal" id="delete_item_ques_modal_close">X</button>
+      </div>
+      <div class="line"></div>
+      <div class="message">هل انت متأكد من الحذف ؟</div>
+
+      <div class="users-modal-btns">
+          <button class="delete" id="delete_item_ques_modal_btn">نعم</button>
+          <button class="cancel" id="delete_item_ques_modal_cancel">لا</button>
+      </div>
+      <div class="issues add-user-message"></div>
+  </div>
+</main>
+
+<script src="<%- host %>js/assets/jquery.min.js"></script>
+<script src="<%- host %>js/assets/questions.js"></script>

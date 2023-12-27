@@ -1,0 +1,148 @@
+<main class="inner-wrap">
+    <div class="container-fluid">
+<div class="row option-row">
+<div class="col-sm-4ll"><p class="breadcrumbs users-breadcrumbs">أنت الآن على: <strong>المستخدمين</strong></p></div>
+<div class="col-sm-4 users-btns">
+  <div class="btn-group filter-btn">
+    <!-- <button type="button" class="btn btn-default "><i class="fal fa-sort-alpha-up"></i> <span>المستخدمين</span></button>
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       <i class="far fa-chevron-down"></i>
+    </button> -->
+    <ul class="dropdown-menu">
+      <!--<li class="active"><a href="/orders">كل الطلبات</a></li>
+      <li ><a href="/orders/pending">قيد الانتظار</a></li>
+      <li ><a href="/orders/inprogress">قيد التنفيذ</a></li>
+      <li ><a href="/orders/completed">مكتمل</a></li>
+      <li ><a href="/orders/partial">مكتمل جزئي</a></li>
+      <li ><a href="/orders/processing">قيد المعالجة</a></li>
+      <li ><a href="/orders/canceled">ملغي</a></li>-->
+    </ul>
+  </div>
+  <button id="add_type_service_btn" type="button" class="btn btn-default users-btn"
+  style="background-color:#F4DB7D; color: #1A2238; font-weight: bold; border: 0; font-size: 18px;"><i class="fal fa-sort-alpha-up"></i> <span>  اضافة نوع الخدمة</span></button>
+</div>
+<!-- <div class="col-sm-4"><p class="breadcrumbs">أنت الآن على: <strong>الطلبات</strong></p></div> -->
+<div class="col-sm-4">
+      </div>
+</div>
+<div class="row">
+<div class="col-lg-12">
+  <form action="/orders" method="get" id="history-search">
+    <div class="input-group search-bar">
+      <input type="text" name="search" class="form-control" value="" placeholder="Search">
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-default"><i class="far fa-search" aria-hidden="true"></i></button>
+      </span>
+    </div>
+  </form>
+    <div class="table-responsive">
+    <table class="table custom-table mob-table  rtl-table  types-services">
+      <thead>
+          <tr>
+            <th>#</th>
+            <th>الاسم</th>
+            <th> تعديل</th>
+          </tr>
+      </thead>
+       <tbody>
+        <% for(var i = 0; i < typesServices.length; i++) { %>
+          <tr>
+            <td><%- typesServices[i].id %></td>
+            <td><%- typesServices[i].name %></td>
+            <td class="actions">
+              <button type="button" class="btn btn-default dropdown-toggle btn-men" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="far fa-chevron-down"></i>
+              </button>
+              <ul class="dropdown-menu edit-dropdown-menu types-services-men">
+                <li><button class="edit-btn" onclick="openEditTypeNameModal(this)" id="edit_type_name"  data-id="<%- typesServices[i]._id %>" data-name="<%- typesServices[i].name %>">تعديل</button></li>
+                <li><button class="edit-btn" onclick="DeleteTypeSer(this)" id="delete_type_name"  data-id="<%- typesServices[i]._id %>">حذف</button></li>
+              
+              </ul>
+            </td>
+          </tr>
+       <% } %>
+       </tbody>
+    </table>
+  </div>
+</div>
+</div>
+</div>
+<div class="type-name-ser-modal responsive-modal" id="add_type_name_modal">
+  <div class="add-user-title">
+    <span>اضافة نوع خدمة</span>
+  <button class="close-modal" id="add_type_name_modal_close">X</button>
+</div>
+    <div class="line"></div>
+  <div class="form-group icon-group">
+       <span>اسم نوع الخدمة</span>
+      <input type="text" class="form-control " id="add_type_name" value=""  placeholder="اسم نوع الخدمة">
+        <span class="issues type_name_issue"></span>
+     </div>
+     
+    
+  
+      <div class="users-modal-btns">
+        <button class="add-user" id="add_type_service">اضافة </button>
+        <button class="cancel" id="add_type_name_modal_cancel">إغلاق</button>
+      </div>
+        <div class="issues add-user-message "></div>
+
+</div>
+
+<div class="type-name-ser-modal responsive-modal" id="edit_type_name_modal">
+  <div class="add-user-title">
+    <span>تعديل نوع خدمة</span>
+  <button class="close-modal" id="edit_type_name_modal_close">X</button>
+</div>
+    <div class="line"></div>
+  <div class="form-group icon-group">
+       <span>اسم نوع الخدمة</span>
+      <input type="text" class="form-control " id="edit_type__service_name" value=""  placeholder="اسم نوع الخدمة">
+        <span class="issues edit_type__service_name_issue"></span>
+     </div>
+     
+    
+  
+      <div class="users-modal-btns">
+        <button class="add-user" id="edit_type_service">تعديل </button>
+        <button class="cancel" id="edit_type_name_modal_cancel">إغلاق</button>
+      </div>
+        <div class="issues add-user-message "></div>
+
+</div>
+
+
+
+<div class="delete-item-modal responsive-modal" id="delete_item_modal">
+  <div class="add-user-title">
+    <span>حذف نوع خدمة</span>
+  <button class="close-modal" id="delete_item_modal_close">X</button>
+</div>
+    <div class="line"></div>
+  <div class="message">هل انت متأكد من الحذف ؟</div>
+  
+      <div class="users-modal-btns">
+        <button class="delete" id="delete_item_btn">نعم </button>
+        <button class="cancel" id="delete_item_modal_cancel">لا</button>
+      </div>
+        <div class="issues add-user-message "></div>
+
+</div>
+
+    
+    
+      
+   
+
+  </main>
+
+
+
+ <script src="<%- host %>js/assets/jquery.min.js"></script>
+ 
+ <script src="<%- host %>js/assets/typeServices.js"></script>
+
+
+
+
+ 

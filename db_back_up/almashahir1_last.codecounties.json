@@ -1,0 +1,406 @@
+[{
+  "_id": {
+    "$oid": "62aa20d412253f2561600f40"
+  },
+  "country": "Jordan",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2022-06-15T18:11:32.318Z"
+  },
+  "updateAt": {
+    "$date": "2022-06-15T18:11:32.318Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62aa773b12253f2561600fb8"
+  },
+  "country": "Algeria",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2022-06-16T00:20:11.489Z"
+  },
+  "updateAt": {
+    "$date": "2022-06-16T00:20:11.489Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62b3a5252d659055393ede11"
+  },
+  "country": "Morocco",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2022-06-22T23:26:29.713Z"
+  },
+  "updateAt": {
+    "$date": "2022-06-22T23:26:29.713Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62b70fc5912803928d156343"
+  },
+  "country": "Egypt",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2022-06-25T13:38:13.264Z"
+  },
+  "updateAt": {
+    "$date": "2022-06-25T13:38:13.264Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62bed6f1418894c9b674b42e"
+  },
+  "country": "India",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2022-07-01T11:13:53.763Z"
+  },
+  "updateAt": {
+    "$date": "2022-07-01T11:13:53.763Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62c062942201d65d1df5e23c"
+  },
+  "country": "Saudi Arabia",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2022-07-02T15:21:56.069Z"
+  },
+  "updateAt": {
+    "$date": "2022-07-02T15:21:56.069Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62c1104a21d1816c2f3216b0"
+  },
+  "country": "Turkey",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2022-07-03T03:43:06.130Z"
+  },
+  "updateAt": {
+    "$date": "2022-07-03T03:43:06.130Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62cc8afe91493f0678ae8d10"
+  },
+  "country": "Yemen",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2022-07-11T20:41:34.740Z"
+  },
+  "updateAt": {
+    "$date": "2022-07-11T20:41:34.740Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62cd0fb091493f0678ae8e35"
+  },
+  "country": "Iraq",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2022-07-12T06:07:44.691Z"
+  },
+  "updateAt": {
+    "$date": "2022-07-12T06:07:44.691Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62d0c7609512860588536fab"
+  },
+  "country": "Libya",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2022-07-15T01:48:16.519Z"
+  },
+  "updateAt": {
+    "$date": "2022-07-15T01:48:16.519Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62e087f66e9539e23a09ecbb"
+  },
+  "country": "Netherlands",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2022-07-27T00:33:58.774Z"
+  },
+  "updateAt": {
+    "$date": "2022-07-27T00:33:58.774Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62e2cbd26f72106bae8c7c4b"
+  },
+  "country": "Germany",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2022-07-28T17:48:02.809Z"
+  },
+  "updateAt": {
+    "$date": "2022-07-28T17:48:02.810Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62fd35dd57c31b710b82a24b"
+  },
+  "country": "Palestine",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2022-08-17T18:39:25.312Z"
+  },
+  "updateAt": {
+    "$date": "2022-08-17T18:39:25.312Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "62fd81bf57c31b710b82a357"
+  },
+  "country": "Kuwait",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2022-08-18T00:03:11.960Z"
+  },
+  "updateAt": {
+    "$date": "2022-08-18T00:03:11.960Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6307c4069181c9cd2546602c"
+  },
+  "country": "United Arab Emirates",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2022-08-25T18:48:38.279Z"
+  },
+  "updateAt": {
+    "$date": "2022-08-25T18:48:38.279Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "632b190d9181c9cd25473a18"
+  },
+  "country": "Oman",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2022-09-21T14:00:45.537Z"
+  },
+  "updateAt": {
+    "$date": "2022-09-21T14:00:45.537Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "632b304a9181c9cd25473ecb"
+  },
+  "country": "Bangladesh",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2022-09-21T15:39:54.519Z"
+  },
+  "updateAt": {
+    "$date": "2022-09-21T15:39:54.519Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "632c32609181c9cd25474048"
+  },
+  "country": "Pakistan",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2022-09-22T10:01:04.628Z"
+  },
+  "updateAt": {
+    "$date": "2022-09-22T10:01:04.628Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "63bc2a13755ab7351b1fb6a4"
+  },
+  "country": "Russia",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2023-01-09T14:52:03.877Z"
+  },
+  "updateAt": {
+    "$date": "2023-01-09T14:52:03.877Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "63c52b62755ab7351b1ffdde"
+  },
+  "country": "Israel",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2023-01-16T10:48:02.445Z"
+  },
+  "updateAt": {
+    "$date": "2023-01-16T10:48:02.445Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "63eebc0c448ca90587ffeb4d"
+  },
+  "country": "France",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2023-02-16T23:28:12.555Z"
+  },
+  "updateAt": {
+    "$date": "2023-02-16T23:28:12.555Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6400b0ba72a4d9e5f32875c3"
+  },
+  "country": "Belgium",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2023-03-02T14:20:42.774Z"
+  },
+  "updateAt": {
+    "$date": "2023-03-02T14:20:42.774Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6405153b72a4d9e5f3288bc3"
+  },
+  "country": "Syria",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2023-03-05T22:18:35.670Z"
+  },
+  "updateAt": {
+    "$date": "2023-03-05T22:18:35.670Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "641b291de40c77a06a708f8d"
+  },
+  "country": "United Kingdom",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2023-03-22T16:13:17.195Z"
+  },
+  "updateAt": {
+    "$date": "2023-03-22T16:13:17.195Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "644ba98ce40c77a06a714647"
+  },
+  "country": "Philippines",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2023-04-28T11:10:04.671Z"
+  },
+  "updateAt": {
+    "$date": "2023-04-28T11:10:04.671Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6455f097e40c77a06a7163eb"
+  },
+  "country": "Hungary",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2023-05-06T06:15:51.708Z"
+  },
+  "updateAt": {
+    "$date": "2023-05-06T06:15:51.708Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee0ae16cf667daf9202509"
+  },
+  "country": "Indonesia",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2023-08-29T15:12:33.490Z"
+  },
+  "updateAt": {
+    "$date": "2023-08-29T15:12:33.490Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64f5753a7fc41c15ec60b3dc"
+  },
+  "country": "United States",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2023-09-04T06:12:10.323Z"
+  },
+  "updateAt": {
+    "$date": "2023-09-04T06:12:10.323Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64fe35c529f44e47faa538bf"
+  },
+  "country": "Tunisia",
+  "codeCountry": "00",
+  "createAt": {
+    "$date": "2023-09-10T21:31:49.893Z"
+  },
+  "updateAt": {
+    "$date": "2023-09-10T21:31:49.893Z"
+  },
+  "__v": 0
+}]

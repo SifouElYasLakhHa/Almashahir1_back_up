@@ -1,0 +1,308 @@
+<main class="inner-wrap">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4">
+              <p class="breadcrumbs">أنت الآن على: <strong>اضافة رصيد</strong></p>
+          </div>
+          <div class="col-sm-4"></div>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+            <div class="noti-bar noti-success">
+                <!--<div class="noti-icon"></div>-->
+                <p>هام : لتحويل البنكي من البنك المحلي او المحفظة الخاصة بك , يرجى مراسلتنا عبر الدعم الفني.  [<a href="<%- host %>tickets" stye="font-weight:700;" target="_blank" class="tickets_link">الدعم الفني</a> ]<br /></p>
+                <p>هام : في حال اردت الدفع عبر وسيلة شحن غير متاحة هنا ، يرجى التواصل معنا عبر الدعم الفني. [<a href="<%- host %>tickets" stye="font-weight:700;" target="_blank" class="tickets_link">الدعم الفني</a> ]<br /></p>
+                <!--<p>* في حال اردت الدفع عبر وسيلة شحن غير متاحة لدينا، يرجى التواصل معنا عبر التذاكر&nbsp;</p>-->
+            </div>
+      </div>
+      <div class="row">
+          <div class="col-md-7 well-custom">
+              <ul class="nav nav-tabs addfunds-ul" role="tablist">
+                  <li class="active addfunds-li"><a href="#add-funds" aria-controls="add-funds" role="tab" data-toggle="tab">اضافة رصيد</a></li>
+                  <li class="addfunds-li"><a href="#history" aria-controls="history" role="tab" data-toggle="tab">سجل المدفوعات</a></li>
+              </ul>
+              <div class="well">
+                  <div class="tab-content">
+                      <div role="tabpanel" class="tab-pane active" id="add-funds">
+                          <form class="rtl-form addfunds-form" method="post" action="">
+                              <div class="form-group">
+                                  <label for="method" class="control-label">طريقة الدفع</label>
+                                  <select class="form-control" id="method_custom" onchange="">
+                                      <option value="">اختر طريقة الدفع</option>
+                                      <% for(var i = 0; i < payments.length; i++) { %>
+                                        <option class="payments" id="<%- payments[i]._id %>" value="<%- payments[i]._id %>" min="<%- payments[i].min %>" max="<%- payments[i].max %>" discount="<%- payments[i].discount %>">
+                                            <%- payments[i].name %> رصيد اظافي <%- payments[i].discount %>%
+                                        </option>
+                                      <% } %>
+                                  </select>
+                              </div>
+                              <div class="form-group" style="margin-bottom: 10px;">
+                                  <label for="amount" class="control-label">المبلغ</label>
+                                  <input type="number" class="form-control" value="" name="" id="amount_custom" onkeyup="calcPayment(this.value)" />
+                                  <!-- <input type="number" class="form-control"  name="AddFoundsForm[amount]" id="amount"> -->
+                                  <div class="issues amount-custom"></div>
+                              </div>
+
+                              <div style="display: flex; justify-content: space-between; color: gray; width: 50%;">
+                                  <div id="payment_min" class="payments"></div>
+                                  <div id="payment_max" class="payments"></div>
+                              </div>
+
+                              <div class="form-group fundbonus-wrap">
+                                  <label class="control-label">بعد البونص</label>
+                                  <input id="fundbonus_custom" value="" type="text" class="form-control" readonly="" />
+                              </div>
+                              <button type="button" id="submit_payment" class="btn btn-primary addfunds-payment">دفع</button>
+                          </form>
+                      </div>
+                      <div role="tabpanel" class="tab-pane" id="history">
+                          <div class="table-responsive">
+                            <table class="table custom-table mob-table">
+                                <thead>
+                                    <tr>
+                                        <th>رقم الحوالة</th>
+                                        <th>التاريخ</th>
+                                        <th>طريقة الدفع</th>
+                                        <th>المبلغ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for(var i = 0; i < transactions.length; i++) { %>
+                                        <tr class="table-cont">
+                                            <td data-head="رقم الحوالة"><%- transactions[i].transaction %></td>
+                                            <td data-head="التاريخ"><span class="nowrap"><%- transactions[i].createAt %></span></td>
+                                            <td data-head="طريقة الدفع"><%- transactions[i].paymentType %></td>
+                                            <td data-head="المبلغ">
+                                                <%- transactions[i].amount %>
+                                            </td>
+                                        </tr>
+                                    <% } %>
+                                </tbody>
+                            </table>
+                          </div>
+                          <div class="nav-pills">
+                              <ul class="pagination rtl-pagination">
+                                  <% for(var i = 1; i <= transactionsCount; i++) { %>
+                                    <li class="<%= count === i ? 'active' : '' %>"><a href="<%- host %>addfunds/<%- i %>"><%- i %></a></li>
+                                  <% } %>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <ul class="nav nav-tabs" role="tablist">
+                  <li class="active"><a style="font-size: 13px;" href="#pay1" aria-controls="pay1" role="tab" data-toggle="tab">تحويل بنكي</a></li>
+                  <li><a style="font-size: 13px;" href="#pay5" aria-controls="pay5" role="tab" data-toggle="tab">فودافون كاش</a></li>
+                  <li><a style="font-size: 13px;" href="#pay6" aria-controls="pay6" role="tab" data-toggle="tab">اخرى</a></li>
+              </ul>
+              <div class="well">
+                  <div class="tab-content">
+                      <div role="tabpanel" class="tab-pane active" id="pay1">
+                          <ul>
+                              <li>التحويل البنكي متاح حاليا لهذه الدول : السعودية، الامارات، المغرب، الاردن، امريكا.</li>
+                              <li>اقل مبلغ للتحويل = 50 دولار</li>
+                              <li>2 % رصيد اضافي على اي حوالة</li>
+                              <li>
+                                  <strong>ملاحظة </strong>اذا اردت التحويل لاحد البنوك المتوفرة يرجى التواصل معنا على <a href="<%- host %>tickets" target="_blank" class="tickets_link" >التذاكر</a> من صفحة : <a href="<%- host %>tickets" class="tickets_link" target="_blank">الدعم الفني</a>.وسيتم تزويدك
+                                  بكل المعلومات
+                              </li>
+                          </ul>
+                      </div>
+                      <div role="tabpanel" class="tab-pane" id="pay2">
+                          <ul>
+                              <li>التحويل عبر ويسترن يونيون متاح.</li>
+                              <li>اقل مبلغ للتحويل = 100 دولار</li>
+                              <li>2 % رصيد اضافي على اي حوالة</li>
+                              <li>
+                                  <strong>ملاحظة:</strong> اذا اردت التحويل عبر ويسترن يونيون يرجى التواصل معنا على <a href="<%- host %>tickets" target="_blank" class="tickets_link">التذاكر</a> من صفحة :
+                                  <a href="<%- host %>tickets" target="_blank" class="tickets_link">الدعم الفني</a>.وسيتم تزويدك بكل المعلومات.
+                              </li>
+                          </ul>
+                      </div>
+                      <div role="tabpanel" class="tab-pane" id="pay7">
+                          <ul>
+                              <li>التحويل عبر بايونيير متاح.</li>
+                              <li>اقل مبلغ للتحويل = 50 دولار</li>
+                              <li>5 % رصيد اضافي على اي حوالة</li>
+                              <li>
+                                  <strong>ملاحظة:</strong> اذا اردت التحويل عبر بايونيير يرجى التواصل معنا على <a href="<%- host %>tickets" target="_blank" class="tickets_link">التذاكر</a> من صفحة :
+                                  <a href="<%- host %>tickets" target="_blank" class="tickets_link">الدعم الفني</a>.وسيتم تزويدك بكل المعلومات.
+                              </li>
+                          </ul>
+                      </div>
+                      <div role="tabpanel" class="tab-pane" id="pay3">
+                          <ul>
+                              <li>التحويل عبر سكريل متاح</li>
+                              <li>اقل مبلغ للتحويل = 10 دولار</li>
+                              <li>لا يوجد اي رصيد اضافي عند الشحن عبر سكريل.</li>
+                              <li>
+                                  <strong>ملاحظة :</strong> اذا اردت التحويل عبر سكريل يرجى التواصل معنا على <a href="<%- host %>tickets" target="_blank" class="tickets_link">التذاكر</a> من صفحة :
+                                  <a href="<%- host %>tickets" target="_blank">الدعم الفني</a>. وسيتم تزويدك بكل المعلومات.
+                              </li>
+                          </ul>
+                      </div>
+                      <div role="tabpanel" class="tab-pane" id="pay4">
+                          <ul>
+                              <li>التحويل عبر نتلر متاح.</li>
+                              <li>اقل مبلغ للتحويل = 10 دولار</li>
+                              <li>لا يوجد اي رصيد اضافي عند الشحن عبر نتلر.</li>
+                              <li>
+                                  <strong>ملاحظة :</strong>اذا اردت التحويل عبر نترل يرجى التواصل معنا على <a href="<%- host %>tickets" target="_blank" class="tickets_link">التذاكر</a> من صفحة :
+                                  <a href="<%- host %>tickets" target="_blank" class="tickets_link">الدعم الفني</a>. وسيتم تزويدك بكل المعلومات.
+                              </li>
+                          </ul>
+                      </div>
+                      <div role="tabpanel" class="tab-pane" id="pay5">
+                          <ul>
+                              <li>الدفع عبر فودافون كاش متاح</li>
+                              <li>لاي تفاصيل يرجى رفع تذكرة من صفحة : <a href="<%- host %>tickets" class="tickets_link" target="_blank">الدعم الفني</a>, وسيتم تزويدكم بمعلومات الدفع</li>
+                          </ul>
+                      </div>
+                      <div role="tabpanel" class="tab-pane" id="pay6">
+                          <ul>
+                              <li>اذا كان هناك اي وسيلة دفع اخرى غير موجودة تريد الشحن بها، يرجى التواصل معنا عبر <a href="<%- host %>tickets" target="_blank" class="tickets_link">التذاكر</a> وسنرى اذا ممكن الدفع بها ام لا.</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-5">
+              <div class="add-funds-content rtl-content">
+                  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                      <div class="panel panel-default">
+                          <div class="panel-heading" role="tab" id="headingStripe">
+                              <h4 class="panel-title">
+                                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseStripe" aria-expanded="true" aria-controls="collapseStripe">
+                                      Stripe
+                                  </a>
+                              </h4>
+                          </div>
+                          <div id="collapseStripe" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingStripe">
+                              <div class="panel-body">
+                                  <ul>
+                                      <li>‎- الدفع عبر الفيزا وماستر كارد ومدى مفعل لبعض للعملاء القدامى فقط ، اذا كنت جديد او ان الخيار غير مفعل لديك يرجى التواصل معنا عبر صفحة : الدعم الفني</li>
+                                      <li>‎- اقل مبلغ للشحن = 10 دولار</li>
+                                      <li>‎- رصيد اضافي = 2% على اي حوالة</li>
+                                      <li>- الرصيد يضاف تلقائيا بشكل فوري.</li>
+                                      <li>- يمكنك الدفع باي عملة او بطاقة تريدها، فالنظام الخاص لنا سيقوم بتحويلها الى دولار تلقائيا.</li>
+                                      <li>- سعر الصرف تقريبا مثل السعر على جوجل وحسب البنك الخاص بك.</li>
+                                      <li>- يمكنك الشحن من اي بطاقة باستثناء البطاقات الامريكية ، الكندية.</li>
+                                      <li><strong>ملاحظة:</strong> اذا واجهتك اي مشكله بالشحن يرجى التواصل معنا عبر صفحة : الدعم الفني</li>
+                                      <li><img src="https://i.imgur.com/ij5o2Lg.png" /></li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="panel panel-default">
+                          <div class="panel-heading" role="tab" id="headingApplePay">
+                              <h4 class="panel-title">
+                                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseApplePay" aria-expanded="false" aria-controls="collapseApplePay">
+                                      Apple Pay
+                                  </a>
+                              </h4>
+                          </div>
+                          <div id="collapseApplePay" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingApplePay">
+                              <div class="panel-body">
+                                  <ul>
+                                      <li>- ابل باي مفعل للاعضاء القدامى فقط، فاذا لم تراه ضمن الخيارات يرجى فتح تذكرة لتفعيله.</li>
+                                      <li>- اقل مبلغ للشحن = 10 دولار</li>
+                                      <li>- 2% رصيد اضافي على اي عملية شحن</li>
+                                      <li>- اضافة الرصيد بشكل تلقائي وفوري.</li>
+                                      <li>- البطاقات الامريكية ، الكندية ، الاسترالية غير مسموحة للشحن.</li>
+                                      <li><img src="https://i.imgur.com/7hyHHqd.png" /></li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="panel panel-default">
+                          <div class="panel-heading" role="tab" id="headingPaypal">
+                              <h4 class="panel-title">
+                                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsePaypal" aria-expanded="false" aria-controls="collapsePaypal">
+                                      Paypal
+                                  </a>
+                              </h4>
+                          </div>
+                          <div id="collapsePaypal" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPaypal">
+                              <div class="panel-body">
+                                  <ul>
+                                      <li>- الدفع عبر بايبال مفعل للاعضاء القدامى ولمن تجاوز انفاقه بالموقع 250 دولار او اكثر فقط.</li>
+                                      <li>- اذا كان انفاقك بالموقع 250 دولار واكثر يرجى فتح تذكرة لتفعيل الخاصية لحسابك.</li>
+                                      <li>- اقل مبلغ للشحن = 15 دولار</li>
+                                      <li>- يجب ان يكون حساب البايبال ملكك وخاص فيك.</li>
+                                      <li>- لا يوجد اي رصيد اضافي عند الشحن عبر البايبال.</li>
+                                      <li>- جميع الدفعات تضاف بشكل تلقائي خلال 0-15 دقيقة.</li>
+                                      <li><img src="https://i.imgur.com/FFzLp5k.png" /></li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="panel panel-default">
+                          <div class="panel-heading" role="tab" id="headingAdvcash">
+                              <h4 class="panel-title">
+                                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseAdvcash" aria-expanded="false" aria-controls="collapseAdvcash">
+                                      Advcash
+                                  </a>
+                              </h4>
+                          </div>
+                          <div id="collapseAdvcash" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingAdvcash">
+                              <div class="panel-body">
+                                  <ul>
+                                      <li>- الدفع عبر العملات الرقمية مفعل لجميع الاعضاء.</li>
+                                      <li>- اقل مبلغ للشحن = 5 دولار</li>
+                                      <li>- رصيد اضافي = 5% على اي عملية شحن.</li>
+                                      <li>- الرصيد يضاف تلقائيا وغاليا خلال مدة تتراوح ما بين 1 دقيقة - 24 ساعة، وهذا يعتمد على المنصة التي ارسلت منها وسرعة الارسال وبالاضافة الى البلوك تشاين والضغط الحاصل.</li>
+                                      <li><img style="width: 100%;" src="https://cdn.mypanel.link/1847ba/nz1ows9bqsq1armr.png" /></li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="panel panel-default">
+                          <div class="panel-heading" role="tab" id="headingPerfectMoney">
+                              <h4 class="panel-title">
+                                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsePerfectMoney" aria-expanded="false" aria-controls="collapsePerfectMoney">
+                                      Perfect Money
+                                  </a>
+                              </h4>
+                          </div>
+                          <div id="collapsePerfectMoney" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPerfectMoney">
+                              <div class="panel-body">
+                                  <ul>
+                                      <li>- الدفع عبر بيرفكت موني مفعل لجميع الاعضاء.</li>
+                                      <li>- اقل مبلغ للشحن = 5 دولار</li>
+                                      <li>- 5% رصيد اضافي على اي عملية شحن</li>
+                                      <li>- الرصيد يضاف تلقائيا وبشكل فوري بعد الدفع</li>
+                                      <li><img src="https://i.imgur.com/BXZgwgi.png" /></li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="panel panel-default">
+                          <div class="panel-heading" role="tab" id="headingPayeer">
+                              <h4 class="panel-title">
+                                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsePayeer" aria-expanded="false" aria-controls="collapsePayeer">
+                                      Payeer
+                                  </a>
+                              </h4>
+                          </div>
+                          <div id="collapsePayeer" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPayeer">
+                              <div class="panel-body">
+                                  <ul>
+                                      <li>- الدفع عبر بايير مفعل لجميع الاعضاء.</li>
+                                      <li>- اقل مبلغ للشحن = 5 دولار</li>
+                                      <li>- 5% رصيد اضافي على اي عملية شحن</li>
+                                      <li>- الرصيد يضاف تلقائيا وبشكل فوري بعد الدفع</li>
+                                      <li><img src="https://i.imgur.com/8OVKlsa.png" /></li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</main>
+
+<script src="<%- host %>js/assets/jquery.min.js"></script>
+<script src="<%- host %>js/assets/payment.js"></script>

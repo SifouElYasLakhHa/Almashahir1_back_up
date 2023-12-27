@@ -1,0 +1,19 @@
+   <div class="col-md-12" >
+                  <div class="tab-content faq-cont">
+                     <div role="tabpanel" class="tab-pane active" id="faq1">
+                        <div class="faq-cont-icon"> <i class="far fa-question"> </i> </div>
+                        <h4 id="ques_answeq_section_ques"></h4>
+                        <p id="ques_answeq_section_answer"></p>
+                     </div>
+                     </div>
+                   </div>
+
+
+                    <% for(var i = 0; i < faqs.length; i++) { %>
+     <li role="presentation" class=""> 
+        <a href="#faq2" aria-controls="faq2" role="tab" data-toggle="tab" aria-expanded="false" data-answer="<%- faqs[i].answer %>" data-question="<%- faqs[i].question %>" onclick="getAnwer(this)"> 
+           <%- faqs[i].question %>
+         </a>
+         </li>
+
+          <% } %>
